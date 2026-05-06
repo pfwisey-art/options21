@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research &amp; Analysis | Options21</title>
+  <meta name="description" content="Trade notes, market analysis, geopolitical research and investor education from Paul Wise — covering AI, commodities, crypto, macro and equities." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:#0D0F14; --surface:#161B27; --surface2:#1C2235; --border:#2A3045;
+      --gold:#F59E0B; --gold-dim:#B97D0A; --gold-glow:rgba(245,158,11,0.12);
+      --white:#F0F2F8; --grey:#8892A4; --grey-light:#BCC5D6; --green:#22C55E;
+      --font-display:'Cormorant Garamond',serif; --font-body:'DM Sans',sans-serif; --font-mono:'JetBrains Mono',monospace;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.6;}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:200;background:rgba(13,15,20,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px;}
+    .nav-logo{font-family:var(--font-display);font-size:24px;font-weight:700;}
+    .nav-logo span{color:var(--gold);}
+    .nav-links{display:flex;gap:18px;list-style:none;flex-wrap:nowrap;align-items:center;}
+    .nav-links a{font-size:12px;font-weight:500;color:var(--grey);transition:color 0.2s;white-space:nowrap;}
+    .nav-links a:hover,.nav-links a.active{color:var(--white);}
+    .nav-cta{background:var(--gold);color:#000;font-size:13px;font-weight:600;padding:9px 22px;border-radius:4px;transition:background 0.2s;}
+    .nav-cta:hover{background:#FBBF24;}
+    .nav-mobile-toggle{display:none;cursor:pointer;font-size:24px;color:var(--white);}
+
+    /* LAYOUT */
+    section{position:relative;z-index:1;}
+    .container{max-width:1200px;margin:0 auto;padding:0 40px;}
+
+    /* HERO */
+    .hero{padding:72px 40px 56px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 80% 50%,rgba(245,158,11,0.05) 0%,transparent 70%);}
+    .hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2;}
+    .hero-eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+    .hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold);}
+    h1{font-family:var(--font-display);font-size:clamp(42px,5vw,72px);font-weight:300;line-height:1.05;letter-spacing:-0.5px;margin-bottom:16px;}
+    h1 em{font-style:italic;color:var(--gold);}
+    .hero-sub{font-size:16px;color:var(--grey-light);line-height:1.7;font-weight:300;max-width:560px;margin-bottom:36px;}
+    .hero-stats{display:flex;gap:40px;flex-wrap:wrap;padding-top:32px;border-top:1px solid var(--border);}
+    .stat-num{font-family:var(--font-display);font-size:32px;font-weight:600;color:var(--gold);line-height:1;}
+    .stat-label{font-size:11px;color:var(--grey);margin-top:4px;text-transform:uppercase;letter-spacing:0.05em;}
+
+    /* SEARCH + FILTER BAR */
+    .controls{padding:32px 40px;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:68px;z-index:100;}
+    .controls-inner{max-width:1200px;margin:0 auto;display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+    .search-wrap{position:relative;flex:1;min-width:220px;}
+    .search-wrap input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:10px 16px 10px 40px;color:var(--white);font-family:var(--font-body);font-size:14px;outline:none;transition:border-color 0.2s;}
+    .search-wrap input:focus{border-color:var(--gold);}
+    .search-wrap input::placeholder{color:var(--grey);}
+    .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--grey);}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;}
+    .filter-btn{background:none;border:1px solid var(--border);color:var(--grey);font-family:var(--font-body);font-size:12px;font-weight:500;padding:7px 16px;border-radius:3px;cursor:pointer;letter-spacing:0.03em;transition:all 0.2s;white-space:nowrap;}
+    .filter-btn:hover{border-color:var(--gold-dim);color:var(--white);}
+    .filter-btn.active{background:var(--gold);border-color:var(--gold);color:#000;}
+    .result-count{font-family:var(--font-mono);font-size:11px;color:var(--grey);white-space:nowrap;}
+
+    /* FEATURED STRIP */
+    .featured-section{padding:56px 0 0;}
+    .section-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+    .section-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border) 0%,transparent 100%);max-width:80px;}
+    .featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+    .featured-card{background:var(--surface);padding:36px;display:flex;flex-direction:column;gap:16px;transition:background 0.3s;cursor:pointer;}
+    .featured-card:hover{background:var(--surface2);}
+    .featured-card:first-child{grid-column:1/-1;flex-direction:row;gap:40px;align-items:center;}
+    .featured-thumb{font-size:48px;flex-shrink:0;width:80px;height:80px;background:var(--gold-glow);border:1px solid rgba(245,158,11,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;}
+    .featured-card:first-child .featured-thumb{font-size:52px;width:96px;height:96px;}
+    .art-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);display:inline-block;}
+    .art-title{font-family:var(--font-display);font-size:22px;font-weight:600;line-height:1.25;}
+    .featured-card:first-child .art-title{font-size:28px;}
+    .art-excerpt{font-size:13px;color:var(--grey);line-height:1.65;flex:1;}
+    .art-meta{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--grey);padding-top:12px;border-top:1px solid var(--border);margin-top:auto;}
+    .art-date{font-family:var(--font-mono);}
+    .read-more{font-size:12px;color:var(--gold);font-weight:500;}
+
+    /* MAIN GRID */
+    .articles-section{padding:48px 0 96px;}
+    .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .art-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;transition:border-color 0.3s,transform 0.3s;cursor:pointer;}
+    .art-card:hover{border-color:var(--gold-dim);transform:translateY(-3px);}
+    .art-card.hidden{display:none;}
+    .art-thumb{height:120px;display:flex;align-items:center;justify-content:center;font-size:36px;flex-shrink:0;}
+    .art-body{padding:20px;flex:1;display:flex;flex-direction:column;}
+    .art-body .art-tag{margin-bottom:8px;display:block;}
+    .art-body .art-title{font-family:var(--font-display);font-size:18px;font-weight:600;line-height:1.3;margin-bottom:8px;}
+    .art-body .art-excerpt{font-size:12px;color:var(--grey);line-height:1.6;flex:1;}
+    .art-body .art-meta{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);}
+
+    /* CAT COLOURS */
+    .cat-ai     .art-thumb{background:linear-gradient(135deg,#0a1020,#0d1830);}
+    .cat-macro  .art-thumb{background:linear-gradient(135deg,#120a08,#1e1008);}
+    .cat-commodities .art-thumb{background:linear-gradient(135deg,#0a1208,#0f1a10);}
+    .cat-crypto .art-thumb{background:linear-gradient(135deg,#0d0d20,#141428);}
+    .cat-equities .art-thumb{background:linear-gradient(135deg,#0a0d14,#101520);}
+    .cat-energy .art-thumb{background:linear-gradient(135deg,#14100a,#1e1800);}
+
+    /* NO RESULTS */
+    .no-results{display:none;text-align:center;padding:80px 20px;grid-column:1/-1;}
+    .no-results h3{font-family:var(--font-display);font-size:28px;font-weight:300;margin-bottom:12px;}
+    .no-results p{font-size:14px;color:var(--grey);}
+
+    /* SCROLL REVEAL */
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-delay-1{transition-delay:0.08s;}
+    .reveal-delay-2{transition-delay:0.16s;}
+    .reveal-delay-3{transition-delay:0.24s;}
+
+    /* FOOTER */
+    footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 40px 40px;}
+    .footer-inner{max-width:1200px;margin:0 auto;}
+    .footer-top{display:grid;grid-template-columns:280px repeat(4,1fr);gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border);}
+    .footer-logo{font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:14px;}
+    .footer-logo span{color:var(--gold);}
+    .footer-tagline{font-size:13px;color:var(--grey);line-height:1.7;margin-bottom:20px;}
+    .footer-afsl{font-family:var(--font-mono);font-size:10px;color:var(--grey);}
+    .footer-col h4{font-size:12px;font-weight:600;color:var(--white);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-col ul li a{font-size:13px;color:var(--grey);transition:color 0.2s;}
+    .footer-col ul li a:hover{color:var(--gold);}
+    .footer-bottom{padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+    .footer-bottom p{font-size:12px;color:var(--grey);line-height:1.6;max-width:600px;}
+    .footer-links{display:flex;gap:24px;list-style:none;}
+    .footer-links a{font-size:12px;color:var(--grey);transition:color 0.2s;}
+    .footer-links a:hover{color:var(--white);}
+
+    @media(max-width:1024px){.articles-grid{grid-template-columns:repeat(2,1fr);}.featured-grid{grid-template-columns:1fr;}.featured-card:first-child{flex-direction:column;}.footer-top{grid-template-columns:1fr 1fr;}}
+    @media(max-width:768px){nav{padding:0 20px;}.nav-links,.nav-cta{display:none;}.nav-mobile-toggle{display:block;}.container,.hero,.controls{padding-left:20px;padding-right:20px;}.articles-grid{grid-template-columns:1fr;}.controls{position:static;}.hero-stats{gap:24px;}.footer-top{grid-template-columns:1fr 1fr;}}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Options<span>21</span></a>
+    <ul class="nav-links">
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="traders-group.html">Traders Group</a></li>
+      <li><a href="ai-trading.html">AI Trading</a></li>
+      <li><a href="crypto.html">Crypto</a></li><li><a href="crypto-tokenisation.html">Tokenisation</a></li>
+      <li><a href="compliance.html">Compliance</a></li>
+      <li><a href="articles.html" class="active">Articles</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <a href="traders-group.html" class="nav-cta">Join Traders Group →</a>
+    <button class="nav-mobile-toggle" aria-label="Menu">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Options21 · Research Desk</div>
+      <h1>Market research &amp;<br/><em>trade intelligence</em></h1>
+      <p class="hero-sub">Trade notes, geopolitical analysis, sector research and investor education written by Paul Wise. Covering AI, commodities, crypto, macro and equities markets.</p>
+      <div class="hero-stats">
+        <div><div class="stat-num">35+</div><div class="stat-label">Research Notes</div></div>
+        <div><div class="stat-num">6</div><div class="stat-label">Coverage Categories</div></div>
+        <div><div class="stat-num">2025–26</div><div class="stat-label">Archive Depth</div></div>
+        <div><div class="stat-num">Free</div><div class="stat-label">All Articles</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH + FILTERS -->
+  <div class="controls">
+    <div class="controls-inner">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search articles…" autocomplete="off" />
+      </div>
+      <div class="filters">
+        <button class="filter-btn active" data-cat="all">All</button>
+        <button class="filter-btn" data-cat="ai">AI &amp; Technology</button>
+        <button class="filter-btn" data-cat="macro">Macro &amp; Geopolitics</button>
+        <button class="filter-btn" data-cat="commodities">Commodities</button>
+        <button class="filter-btn" data-cat="crypto">Crypto &amp; Bitcoin</button>
+        <button class="filter-btn" data-cat="equities">Equities &amp; Markets</button>
+        <button class="filter-btn" data-cat="energy">Energy &amp; Nuclear</button>
+      </div>
+      <span class="result-count" id="result-count">35 articles</span>
+    </div>
+  </div>
+
+  <!-- FEATURED (top 4 most recent) -->
+  <section class="featured-section">
+    <div class="container">
+      <div class="section-label reveal">Latest research</div>
+      <div class="featured-grid reveal">
+
+        <!-- #1 FEATURED — Tokenisation -->
+        <a href="crypto-tokenisation.html" class="featured-card" data-cat="crypto">
+          <div class="featured-thumb">₿</div>
+          <div style="flex:1;">
+            <span class="art-tag">Crypto &amp; Bitcoin · Trade Note · May 2026</span>
+            <div class="art-title">Tokenisation of Financial Assets: What It Is, Why It Matters, and What It Means for Your Portfolio</div>
+            <p class="art-excerpt">The financial world is undergoing one of its most significant structural shifts in decades. Major banks, asset managers and regulators are actively building the infrastructure for a tokenised financial market — and the implications for everyday investors are profound.</p>
+            <div class="art-meta"><span class="art-date">1 May 2026</span><span class="read-more">Read full note →</span></div>
+          </div>
+        </a>
+
+        <!-- #2 -->
+        <a href="article-oil-shock-1970s.html" class="featured-card" data-cat="macro">
+          <div class="featured-thumb">🛢️</div>
+          <div>
+            <span class="art-tag">Macro &amp; Geopolitics · Apr 2026</span>
+            <div class="art-title">The 1970s Oil Shock: Drivers, Transmission &amp; Global Consequences</div>
+            <p class="art-excerpt">Two distinct shocks that reordered the global economy. The lessons from 1973 and 1979 that remain acutely relevant in an era of renewed geopolitical commodity risk.</p>
+            <div class="art-meta"><span class="art-date">30 Apr 2026</span><span class="read-more">Read →</span></div>
+          </div>
+        </a>
+
+        <!-- #3 -->
+        <a href="article-ai-infrastructure.html" class="featured-card" data-cat="ai">
+          <div class="featured-thumb">⚡</div>
+          <div>
+            <span class="art-tag">AI &amp; Technology · Apr 2026</span>
+            <div class="art-title">AI Infrastructure: Understanding the Full Stack Driving Markets</div>
+            <p class="art-excerpt">AI is an industrial-scale system — chips, data centres, cooling, power. Capital is rotating down the stack. Here's where it's flowing next.</p>
+            <div class="art-meta"><span class="art-date">24 Apr 2026</span><span class="read-more">Read →</span></div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ALL ARTICLES GRID -->
+  <section class="articles-section">
+    <div class="container">
+      <div class="section-label reveal">All research — newest first</div>
+      <div class="articles-grid" id="articles-grid">
+
+        <!-- 1 -->
+        <a href="article-oil-shock-risk.html" class="art-card cat-commodities reveal reveal-delay-1" data-cat="commodities" data-title="Trade Note Oil Crude Market Analysis">
+          <div class="art-thumb">🛢️</div>
+          <div class="art-body">
+            <span class="art-tag">Commodities</span>
+            <div class="art-title">Trade Note: Crude Oil — Market Analysis &amp; Opportunities</div>
+            <p class="art-excerpt">Current crude oil market structure, geopolitical supply risk and the options opportunities created by volatility in energy markets.</p>
+            <div class="art-meta"><span class="art-date">24 Apr 2026</span><span>8 min</span></div>
+          </div>
+        </a>
+
+        <!-- 2 -->
+        <a href="#" class="art-card cat-ai reveal reveal-delay-2" data-cat="ai" data-title="Hot Tech List April 2026">
+          <div class="art-thumb">🔥</div>
+          <div class="art-body">
+            <span class="art-tag">AI &amp; Technology</span>
+            <div class="art-title">Hot Tech List — April 2026</div>
+            <p class="art-excerpt">The technology names Paul is watching right now. Ranked by momentum, valuation, and AI-driven growth potential heading into Q2 2026.</p>
+            <div class="art-meta"><span class="art-date">16 Apr 2026</span><span>6 min</span></div>
+          </div>
+        </a>
+
+        <!-- 3 -->
+        <a href="article-tesla-optimus.html" class="art-card cat-ai reveal reveal-delay-3" data-cat="ai" data-title="Tesla Optimus Gen 3 Humanoid Robot">
+          <div class="art-thumb">🤖</div>
+          <div class="art-body">
+            <span class="art-tag">AI &amp; Technology</span>
+            <div class="art-title">Tesla Optimus Gen 3: The Humanoid Robot Investment Case</div>
+            <p class="art-excerpt">Gen 3 Optimus represents Tesla's most ambitious moonshot. Why the humanoid robot market could dwarf the automotive business — and what investors need to understand now.</p>
+            <div class="art-meta"><span class="art-date">16 Apr 2026</span><span>10 min</span></div>
+          </div>
+        </a>
+
+        <!-- 4 -->
+        <a href="article-tesla-cybercab.html" class="art-card cat-ai reveal reveal-delay-1" data-cat="ai" data-title="Tesla Cybercab Robotaxi Autonomous Mobility">
+          <div class="art-thumb">🚖</div>
+          <div class="art-body">
+            <span class="art-tag">AI &amp; Technology</span>
+            <div class="art-title">Tesla Cybercab: The Dawn of Mass-Market Autonomous Mobility</div>
+            <p class="art-excerpt">Production is live at Giga Texas. Unsupervised FSD rides are happening in Austin. This is the inflection point for Tesla's AI-mobility transition.</p>
+            <div class="art-meta"><span class="art-date">9 Apr 2026</span><span>12 min</span></div>
+          </div>
+        </a>
+
+        <!-- 5 -->
+        <a href="article-elon-infrastructure.html" class="art-card cat-ai reveal reveal-delay-2" data-cat="ai" data-title="Elon Musk Infrastructure xAI SpaceX Tesla Ecosystem">
+          <div class="art-thumb">🏗️</div>
+          <div class="art-body">
+            <span class="art-tag">AI &amp; Technology</span>
+            <div class="art-title">Elon's Infrastructure: The xAI, Tesla &amp; SpaceX Ecosystem Explained</div>
+            <p class="art-excerpt">How Tesla, xAI, SpaceX and Starlink form a closed-loop AI-energy-mobility flywheel — and why understanding the ecosystem matters more than any single stock.</p>
+            <div class="art-meta"><span class="art-date">2 Apr 2026</span><span>9 min</span></div>
+          </div>
+        </a>
+
+        <!-- 6 -->
+        <a href="article-texas-ai-capacity.html" class="art-card cat-ai reveal reveal-delay-3" data-cat="ai" data-title="Texas AI Data Centre Power Capacity Grid">
+          <div class="art-thumb">⚡</div>
+          <div class="art-body">
+            <span class="art-tag">Energy &amp; Nuclear</span>
+            <div class="art-title">Texas AI Capacity: The Power Grid Crisis Driving Markets</div>
+            <p class="art-excerpt">Texas is at the epicentre of the AI power demand surge. Data centre buildout is straining the ERCOT grid — and creating investment opportunities across the energy stack.</p>
+            <div class="art-meta"><span class="art-date">26 Mar 2026</span><span>10 min</span></div>
+          </div>
+        </a>
+
+        <!-- 7 -->
+        <a href="article-three-layers-ai.html" class="art-card cat-ai reveal reveal-delay-1" data-cat="ai" data-title="Three Layers AI Trade Note Investment">
+          <div class="art-thumb">🧠</div>
+          <div class="art-body">
+            <span class="art-tag">AI &amp; Technology</span>
+            <div class="art-title">The Three Layers of AI: Where the Real Investment Opportunity Lives</div>
+            <p class="art-excerpt">Breaking down the AI investment universe into its three distinct layers — infrastructure, models and applications — and where capital is most likely to compound.</p>
+            <div class="art-meta"><span class="art-date">19 Mar 2026</span><span>11 min</span></div>
+          </div>
+        </a>
+
+        <!-- 8 -->
+        <a href="#" class="art-card cat-equities reveal reveal-delay-2" data-cat="equities" data-title="GM PLTR Palantir MRNA Moderna Retail Investors Trade Note">
+          <div class="art-thumb">📊</div>
+          <div class="art-body">
+            <span class="art-tag">Equities &amp; Markets</span>
+            <div class="art-title">GM, Palantir &amp; Moderna: Trade Notes for Retail Investors</div>
+            <p class="art-excerpt">Three high-conviction names analysed for retail investor positioning — General Motors' EV pivot, Palantir's AI government contracts, and Moderna's post-pandemic reset.</p>
+            <div class="art-meta"><span class="art-date">12 Mar 2026</span><span>12 min</span></div>
+          </div>
+        </a>
+
+        <!-- 9 -->
+        <a href="article-gold-gld.html" class="art-card cat-commodities reveal reveal-delay-3" data-cat="commodities" data-title="SPDR Gold Shares GLD Research Analysis">
+          <div class="art-thumb">🥇</div>
+          <div class="art-body">
+            <span class="art-tag">Commodities</span>
+            <div class="art-title">Research Note: SPDR Gold Shares (GLD) — The Case for Gold in 2026</div>
+            <p class="art-excerpt">Gold's breakout above $3,000 is not a bubble — it is a rational response to dollar debasement, central bank accumulation and geopolitical uncertainty. The bull case examined.</p>
+            <div class="art-meta"><span class="art-date">6 Mar 2026</span><span>9 min</span></div>
+          </div>
+        </a>
+
+        <!-- 10 -->
+        <a href="article-future-equity-drivers.html" class="art-card cat-macro reveal reveal-delay-1" data-cat="macro" data-title="Future Drivers Equity Markets 2026">
+          <div class="art-thumb">📈</div>
+          <div class="art-body">
+            <span class="art-tag">Macro &amp; Geopolitics</span>
+            <div class="art-title">Future Drivers of Equity Markets: What Will Move Stocks in 2026 and Beyond</div>
+            <p class="art-excerpt">AI capex, energy transition, geopolitical realignment and demographic shifts — the structural forces that will drive equity market returns over the next decade.</p>
+            <div class="art-meta"><span class="art-date">26 Feb 2026</span><span>11 min</span></div>
+          </div>
+        </a>
+
+        <!-- 11 -->
+        <a href="article-bear-steepener.html" class="art-card cat-macro reveal reveal-delay-2" data-cat="macro" data-title="Bear Steepener Bond Yield Curve Pattern">
+          <div class="art-thumb">📉</div>
+          <div class="art-body">
+            <span class="art-tag">Macro &amp; Geopolitics</span>
+            <div class="art-title">The Bear Steepener Pattern: What the Yield Curve Is Telling Investors</div>
+            <p class="art-excerpt">A bear steepening yield curve — long rates rising faster than short rates — is one of the most misunderstood but consequential signals in fixed income. Here's what it means now.</p>
+            <div class="art-meta"><span class="art-date">5 Feb 2026</span><span>10 min</span></div>
+          </div>
+        </a>
+
+        <!-- 12 -->
+        <a href="article-sector-performance-jan26.html" class="art-card cat-equities reveal reveal-delay-3" data-cat="equities" data-title="US Stock Market Sector Performance 2026">
+          <div class="art-thumb">🗺️</div>
+          <div class="art-body">
+            <span class="art-tag">Equities &amp; Markets</span>
+            <div class="art-title">US Stock Market Sector Performance: Who's Leading, Who's Lagging</div>
+            <p class="art-excerpt">A sector-by-sector breakdown of US equity market performance — which industries are driving index returns and where the rotation is heading in early 2026.</p>
+            <div class="art-meta"><span class="art-date">8 Jan 2026</span><span>8 min</span></div>
+          </div>
+        </a>
+
+        <!-- 13 -->
+        <a href="article-copper-demand.html" class="art-card cat-commodities reveal reveal-delay-1" data-cat="commodities" data-title="Global Demand for Copper EV Infrastructure">
+          <div class="art-thumb">🔶</div>
+          <div class="art-body">
+            <span class="art-tag">Commodities</span>
+            <div class="art-title">Global Demand for Copper: The Metal at the Centre of Every Megatrend</div>
+            <p class="art-excerpt">EVs, data centres, renewable energy infrastructure and grid expansion — every major structural theme of the next decade runs through copper. The supply-demand case examined.</p>
+            <div class="art-meta"><span class="art-date">18 Dec 2025</span><span>9 min</span></div>
+          </div>
+        </a>
+
+        <!-- 14 -->
+        <a href="article-stock-buybacks-2025.html" class="art-card cat-equities reveal reveal-delay-2" data-cat="equities" data-title="US Stock Buybacks 2025 FUS">
+          <div class="art-thumb">💰</div>
+          <div class="art-body">
+            <span class="art-tag">Equities &amp; Markets</span>
+            <div class="art-title">US Stock Buybacks in 2025: Scale, Strategy and What It Means for Investors</div>
+            <p class="art-excerpt">S&amp;P 500 companies are repurchasing stock at a record pace. Who is buying, why it matters for price action, and how retail investors can position around buyback-driven momentum.</p>
+            <div class="art-meta"><span class="art-date">11 Dec 2025</span><span>10 min</span></div>
+          </div>
+        </a>
+
+        <!-- 15 -->
+        <a href="article-bitcoin-halving.html" class="art-card cat-crypto reveal reveal-delay-3" data-cat="crypto" data-title="Understanding Bitcoin Halving 2025">
+          <div class="art-thumb">₿</div>
+          <div class="art-body">
+            <span class="art-tag">Crypto &amp; Bitcoin</span>
+            <div class="art-title">Understanding Bitcoin Halving: What It Is and Why It Drives Price Cycles</div>
+            <p class="art-excerpt">Bitcoin's halving mechanism — cutting the block reward every 210,000 blocks — is the single most predictable supply shock in financial markets. The historical record and 2025 implications.</p>
+            <div class="art-meta"><span class="art-date">20 Nov 2025</span><span>10 min</span></div>
+          </div>
+        </a>
+
+        <!-- 16 -->
+        <a href="article-repo-market.html" class="art-card cat-macro reveal reveal-delay-1" data-cat="macro" data-title="REPO Market Repurchase Agreement Liquidity">
+          <div class="art-thumb">🏦</div>
+          <div class="art-body">
+            <span class="art-tag">Macro &amp; Geopolitics</span>
+            <div class="art-title">The REPO Market: The Plumbing of Global Finance Most Investors Ignore</div>
+            <p class="art-excerpt">The repurchase agreement market is the circulatory system of the global financial system — and when it seizes, markets crack. An explainer every investor should read.</p>
+            <div class="art-meta"><span class="art-date">13 Nov 2025</span><span>12 min</span></div>
+          </div>
+        </a>
+
+        <!-- 17 -->
+        <a href="article-gold-rally-history.html" class="art-card cat-commodities reveal reveal-delay-2" data-cat="commodities" data-title="Gold Rally Historical Analysis 2025">
+          <div class="art-thumb">🥇</div>
+          <div class="art-body">
+            <span class="art-tag">Commodities</span>
+            <div class="art-title">Gold Rally: Historical Analysis and the Forces Behind the 2025 Move</div>
+            <p class="art-excerpt">Gold's 2025 rally to new all-time highs is rooted in structural forces — central bank buying, de-dollarisation and geopolitical hedging. A historical context and forward view.</p>
+            <div class="art-meta"><span class="art-date">23 Oct 2025</span><span>9 min</span></div>
+          </div>
+        </a>
+
+        <!-- 18 -->
+        <a href="article-30yr-bond.html" class="art-card cat-macro reveal reveal-delay-3" data-cat="macro" data-title="30 Year Bond Disaster US Treasury">
+          <div class="art-thumb">💣</div>
+          <div class="art-body">
+            <span class="art-tag">Macro &amp; Geopolitics</span>
+            <div class="art-title">The 30-Year Bond Disaster: What Surging Long Yields Mean for Everything</div>
+            <p class="art-excerpt">The 30-year US Treasury yield is the most important price in global finance. When it moves, everything moves. Why the bond market is flashing a warning investors cannot ignore.</p>
+            <div class="art-meta"><span class="art-date">21 Aug 2025</span><span>10 min</span></div>
+          </div>
+        </a>
+
+        <!-- 19 -->
+        <a href="article-buyback-trends-2024.html" class="art-card cat-equities reveal reveal-delay-1" data-cat="equities" data-title="Recent Stock Buyback Trends USA Market">
+          <div class="art-thumb">📊</div>
+          <div class="art-body">
+            <span class="art-tag">Equities &amp; Markets</span>
+            <div class="art-title">Recent Stock Buyback Trends in the US Market: A Data-Driven View</div>
+            <p class="art-excerpt">Which sectors are repurchasing the most stock, which companies are the biggest buyers, and how buyback announcements historically affect short-term price action.</p>
+            <div class="art-meta"><span class="art-date">14 Aug 2025</span><span>8 min</span></div>
+          </div>
+        </a>
+
+        <!-- 20 -->
+        <a href="#" class="art-card cat-crypto reveal reveal-delay-2" data-cat="crypto" data-title="EOS Fundamentals Snapshot Crypto">
+          <div class="art-thumb">🔮</div>
+          <div class="art-body">
+            <span class="art-tag">Crypto &amp; Bitcoin</span>
+            <div class="art-title">EOS Fundamentals Snapshot: A Deep Dive into the Network</div>
+            <p class="art-excerpt">EOS positioned as a high-throughput blockchain for enterprise applications. A fundamentals-first snapshot covering technology, tokenomics, competitive positioning and outlook.</p>
+            <div class="art-meta"><span class="art-date">7 Aug 2025</span><span>8 min</span></div>
+          </div>
+        </a>
+
+        <!-- 21 -->
+        <a href="#" class="art-card cat-crypto reveal reveal-delay-3" data-cat="crypto" data-title="Marathon Digital MARA MSTR MicroStrategy Bitcoin">
+          <div class="art-thumb">⛏️</div>
+          <div class="art-body">
+            <span class="art-tag">Crypto &amp; Bitcoin</span>
+            <div class="art-title">Marathon Digital (MARA) &amp; MicroStrategy (MSTR): The Bitcoin Proxy Trade</div>
+            <p class="art-excerpt">For investors seeking leveraged exposure to Bitcoin without holding it directly — MARA and MSTR are the dominant proxies. The investment case, risks and relative value examined.</p>
+            <div class="art-meta"><span class="art-date">7 Aug 2025</span><span>9 min</span></div>
+          </div>
+        </a>
+
+        <!-- 22 -->
+        <a href="#" class="art-card cat-equities reveal reveal-delay-1" data-cat="equities" data-title="DroneShield Limited ASX Defence Technology">
+          <div class="art-thumb">🛡️</div>
+          <div class="art-body">
+            <span class="art-tag">Equities &amp; Markets</span>
+            <div class="art-title">DroneShield Limited: The ASX Defence Tech Play in a More Dangerous World</div>
+            <p class="art-excerpt">DroneShield's counter-drone technology is in demand across NATO militaries. An ASX-listed defence tech company benefiting from the global defence spending surge — the investment case.</p>
+            <div class="art-meta"><span class="art-date">31 Jul 2025</span><span>9 min</span></div>
+          </div>
+        </a>
+
+        <!-- 23 -->
+        <a href="article-australia-usa-tariffs.html" class="art-card cat-macro reveal reveal-delay-2" data-cat="macro" data-title="Tariff Arrangements Australia USA Trade">
+          <div class="art-thumb">🇦🇺</div>
+          <div class="art-body">
+            <span class="art-tag">Macro &amp; Geopolitics</span>
+            <div class="art-title">Tariff Arrangements Between Australia and the USA: What Investors Need to Know</div>
+            <p class="art-excerpt">The evolving US-Australia trade relationship under a new tariff regime — which Australian sectors are exposed, which are protected, and how to position an ASX portfolio accordingly.</p>
+            <div class="art-meta"><span class="art-date">17 Jul 2025</span><span>9 min</span></div>
+          </div>
+        </a>
+
+        <!-- 24 -->
+        <a href="article-uranium-demand.html" class="art-card cat-energy reveal reveal-delay-3" data-cat="energy" data-title="The Demand for Uranium Nuclear Power">
+          <div class="art-thumb">☢️</div>
+          <div class="art-body">
+            <span class="art-tag">Energy &amp; Nuclear</span>
+            <div class="art-title">The Demand for Uranium: Why Nuclear Is Back and Who Benefits</div>
+            <p class="art-excerpt">AI data centres need reliable 24/7 power. Governments need clean baseload. Both roads lead to nuclear — and uranium supply cannot keep pace. The structural bull case for uranium.</p>
+            <div class="art-meta"><span class="art-date">10 Jul 2025</span><span>11 min</span></div>
+          </div>
+        </a>
+
+        <!-- 25 -->
+        <a href="article-nuscale-smr.html" class="art-card cat-energy reveal reveal-delay-1" data-cat="energy" data-title="NuScale Power Small Modular Reactor SMR Nuclear">
+          <div class="art-thumb">⚛️</div>
+          <div class="art-body">
+            <span class="art-tag">Energy &amp; Nuclear</span>
+            <div class="art-title">NuScale Power: The Small Modular Reactor Revolution and the Investment Case</div>
+            <p class="art-excerpt">Small modular reactors could solve the scalability problem that has plagued nuclear for decades. NuScale's technology, commercial pipeline and what it means for the energy transition.</p>
+            <div class="art-meta"><span class="art-date">3 Jul 2025</span><span>12 min</span></div>
+          </div>
+        </a>
+
+        <!-- 26 -->
+        <a href="#" class="art-card cat-equities reveal reveal-delay-2" data-cat="equities" data-title="How to Achieve God Like Trader Status">
+          <div class="art-thumb">🎯</div>
+          <div class="art-body">
+            <span class="art-tag">Trader Education</span>
+            <div class="art-title">How to Achieve Elite Trader Status: The Mindset, Process and Edge</div>
+            <p class="art-excerpt">What separates consistently profitable traders from the majority who underperform. The psychological frameworks, process disciplines and risk practices that define elite performance.</p>
+            <div class="art-meta"><span class="art-date">27 Jun 2025</span><span>14 min</span></div>
+          </div>
+        </a>
+
+        <!-- 27 -->
+        <a href="article-tesla-av-2025.html" class="art-card cat-ai reveal reveal-delay-3" data-cat="ai" data-title="Tesla Update Stock Analysis 2025">
+          <div class="art-thumb">🚗</div>
+          <div class="art-body">
+            <span class="art-tag">AI &amp; Technology</span>
+            <div class="art-title">Tesla Update: Where the Stock Stands and What's Driving It</div>
+            <p class="art-excerpt">A mid-2025 update on Tesla's position — FSD progress, energy storage growth, Cybertruck ramp, and how the market is pricing the robotaxi and Optimus optionality.</p>
+            <div class="art-meta"><span class="art-date">26 Jun 2025</span><span>9 min</span></div>
+          </div>
+        </a>
+
+        <!-- 28 -->
+        <a href="article-defence-etfs.html" class="art-card cat-macro reveal reveal-delay-1" data-cat="macro" data-title="Defense Paper Military Spending Geopolitics">
+          <div class="art-thumb">🎖️</div>
+          <div class="art-body">
+            <span class="art-tag">Macro &amp; Geopolitics</span>
+            <div class="art-title">Defence Spending: The Geopolitical Investment Theme That Isn't Going Away</div>
+            <p class="art-excerpt">NATO 2% commitments, the Ukraine conflict, Indo-Pacific tensions and AI-driven warfare are driving defence budgets to multi-decade highs. The investment implications across sectors.</p>
+            <div class="art-meta"><span class="art-date">19 Jun 2025</span><span>10 min</span></div>
+          </div>
+        </a>
+
+        <!-- 29 -->
+        <a href="article-gold-silver-ratio.html" class="art-card cat-commodities reveal reveal-delay-2" data-cat="commodities" data-title="Understanding Gold Silver Ratio Investment">
+          <div class="art-thumb">⚖️</div>
+          <div class="art-body">
+            <span class="art-tag">Commodities</span>
+            <div class="art-title">Understanding the Gold/Silver Ratio: What It Signals for Precious Metals</div>
+            <p class="art-excerpt">The gold-to-silver ratio is one of the oldest and most reliable signals in commodity markets. How to read it, what extremes have historically meant, and the current reading.</p>
+            <div class="art-meta"><span class="art-date">12 Jun 2025</span><span>8 min</span></div>
+          </div>
+        </a>
+
+        <!-- 30 -->
+        <a href="#" class="art-card cat-equities reveal reveal-delay-3" data-cat="equities" data-title="ETFs like INDA India Emerging Markets">
+          <div class="art-thumb">🌏</div>
+          <div class="art-body">
+            <span class="art-tag">Equities &amp; Markets</span>
+            <div class="art-title">Why ETFs Like INDA Deserve a Place in Your Portfolio: The India Thesis</div>
+            <p class="art-excerpt">India is the fastest-growing major economy on earth. INDA gives retail investors clean exposure to an emerging market with structural tailwinds that are just beginning to compound.</p>
+            <div class="art-meta"><span class="art-date">12 Jun 2025</span><span>9 min</span></div>
+          </div>
+        </a>
+
+        <!-- 31 -->
+        <a href="article-us-debt-default.html" class="art-card cat-macro reveal reveal-delay-1" data-cat="macro" data-title="United States Never Defaulted Debt Obligations">
+          <div class="art-thumb">🇺🇸</div>
+          <div class="art-body">
+            <span class="art-tag">Macro &amp; Geopolitics</span>
+            <div class="art-title">The US Has Never Defaulted — But That Doesn't Mean the Debt Is Risk-Free</div>
+            <p class="art-excerpt">The conventional view is that US Treasuries are risk-free. A deeper examination of debt sustainability, dollar dominance and the slow-burning risks that bond markets are only beginning to price.</p>
+            <div class="art-meta"><span class="art-date">12 Jun 2025</span><span>11 min</span></div>
+          </div>
+        </a>
+
+        <!-- No results message -->
+        <div class="no-results" id="no-results">
+          <h3>No articles found</h3>
+          <p>Try a different search term or category filter.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">Options<span>21</span></div>
+          <p class="footer-tagline">Trading intelligence for serious Australian options traders. Courses, tools, live broadcasts and market analysis since 2003.</p>
+          <div class="footer-afsl">AFSL 247412 · Options21 Pty Ltd<br/>PO Box 744 Hillarys WA 6923<br/>paul@options21.com.au</div>
+        </div>
+        <div class="footer-col"><h4>Courses</h4><ul><li><a href="mentoring.html">Options Mentoring</a></li><li><a href="ai-course.html">AI Trading Course</a></li><li><a href="traders-group.html">Traders Group</a></li></ul></div>
+        <div class="footer-col"><h4>Research</h4><ul><li><a href="articles.html">All Articles</a></li><li><a href="crypto-tokenisation.html">Crypto &amp; Tokenisation</a></li><li><a href="ai-trading.html">AI Trading Tools</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Paul Wise</a></li><li><a href="compliance.html">Veriqua Compliance</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+        <div class="footer-col"><h4>Legal</h4><ul><li><a href="about.html#privacy">Privacy Policy</a></li><li><a href="about.html#disclaimer">Disclaimer</a></li><li><a href="about.html#fsg">FSG</a></li><li><a href="client-access.html">Client Login</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Options21 Pty Ltd. AFSL 247412. General financial product advice only. Past performance is not a reliable indicator of future results.</p>
+        <ul class="footer-links"><li><a href="about.html#privacy">Privacy</a></li><li><a href="about.html#disclaimer">Disclaimer</a></li><li><a href="about.html#fsg">FSG</a></li></ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Filter + Search ─────────────────────────────────
+    const cards      = document.querySelectorAll('.art-card');
+    const searchInput = document.getElementById('search-input');
+    const countEl    = document.getElementById('result-count');
+    const noResults  = document.getElementById('no-results');
+    let activeCat    = 'all';
+
+    function updateGrid() {
+      const q = searchInput.value.toLowerCase().trim();
+      let visible = 0;
+      cards.forEach(card => {
+        const cat     = card.dataset.cat || '';
+        const title   = (card.dataset.title || card.querySelector('.art-title')?.textContent || '').toLowerCase();
+        const excerpt = (card.querySelector('.art-excerpt')?.textContent || '').toLowerCase();
+        const catMatch  = activeCat === 'all' || cat === activeCat;
+        const textMatch = !q || title.includes(q) || excerpt.includes(q);
+        if (catMatch && textMatch) { card.classList.remove('hidden'); visible++; }
+        else card.classList.add('hidden');
+      });
+      countEl.textContent = visible + ' article' + (visible !== 1 ? 's' : '');
+      noResults.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCat = btn.dataset.cat;
+        updateGrid();
+      });
+    });
+    searchInput.addEventListener('input', updateGrid);
+
+    // ── Scroll Reveal ───────────────────────────────────
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);} }),
+      {threshold:0.08}
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Mobile Nav ──────────────────────────────────────
+    document.querySelector('.nav-mobile-toggle').addEventListener('click', () => {
+      const l = document.querySelector('.nav-links');
+      l.style.display = l.style.display === 'flex' ? 'none' : 'flex';
+      if(l.style.display==='flex') Object.assign(l.style,{flexDirection:'column',position:'absolute',top:'68px',left:'0',right:'0',background:'#0D0F14',padding:'24px 20px',borderBottom:'1px solid #2A3045',gap:'20px',zIndex:'199'});
+    });
+  </script>
+</body>
+</html>

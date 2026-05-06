@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/options21.com.au/public_html/
+    - /bin/find $DEPLOYPATH -mindepth 1 -delete
+    - /bin/cp -R . $DEPLOYPATH
+    - /bin/rm -f ${DEPLOYPATH}.cpanel.yml

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Infrastructure: Understanding the Full Stack Driving Markets | Options21</title>
+  <meta name="description" content="AI is an industrial-scale system requiring chips, data centres, cooling and power. Capital is rotating down the stack — here's where it's heading next."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0D0F14;--surface:#161B27;--surface2:#1C2235;--border:#2A3045;--gold:#F59E0B;--gold-glow:rgba(245,158,11,0.12);--white:#F0F2F8;--grey:#8892A4;--grey-light:#BCC5D6;--green:#22C55E;--font-display:'Cormorant Garamond',serif;--font-body:'DM Sans',sans-serif;--font-mono:'JetBrains Mono',monospace;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden;}a{color:inherit;text-decoration:none;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.6;}
+    nav{position:sticky;top:0;z-index:200;background:rgba(13,15,20,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px;}
+    .nav-logo{font-family:var(--font-display);font-size:24px;font-weight:700;}.nav-logo span{color:var(--gold);}
+    .nav-links{display:flex;gap:18px;list-style:none;flex-wrap:nowrap;align-items:center;}.nav-links a{font-size:12px;font-weight:500;color:var(--grey);transition:color 0.2s;white-space:nowrap;}.nav-links a:hover{color:var(--white);}
+    .nav-cta{background:var(--gold);color:#000;font-size:13px;font-weight:600;padding:9px 22px;border-radius:4px;}
+    .nav-mobile-toggle{display:none;cursor:pointer;font-size:24px;color:var(--white);}
+    .breadcrumb{padding:20px 40px;background:var(--surface);border-bottom:1px solid var(--border);position:relative;z-index:1;}
+    .breadcrumb-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--grey);}
+    .breadcrumb a{color:var(--grey);transition:color 0.2s;}.breadcrumb a:hover{color:var(--gold);}.breadcrumb-sep{color:var(--border);}
+    .article-hero{padding:64px 40px 48px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+    .article-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(245,158,11,0.04) 0%,transparent 70%);}
+    .article-hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:2;}
+    .article-cat{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+    .article-cat::before{content:'';width:24px;height:1px;background:var(--gold);}
+    .article-title{font-family:var(--font-display);font-size:clamp(34px,4.5vw,58px);font-weight:300;line-height:1.1;letter-spacing:-0.5px;margin-bottom:20px;}
+    .article-title em{font-style:italic;color:var(--gold);}
+    .article-deck{font-size:18px;color:var(--grey-light);line-height:1.7;font-weight:300;max-width:680px;margin-bottom:32px;}
+    .article-meta-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding-top:24px;border-top:1px solid var(--border);}
+    .meta-author{display:flex;align-items:center;gap:10px;}
+    .meta-avatar{width:36px;height:36px;border-radius:50%;background:var(--gold-glow);border:1px solid rgba(245,158,11,0.2);display:flex;align-items:center;justify-content:center;font-size:16px;}
+    .meta-name{font-size:13px;font-weight:600;}.meta-title-sub{font-size:11px;color:var(--grey);}
+    .meta-divider{width:1px;height:28px;background:var(--border);}
+    .meta-item{font-size:12px;color:var(--grey);font-family:var(--font-mono);}
+    .meta-label{font-size:10px;color:var(--grey);text-transform:uppercase;letter-spacing:0.08em;display:block;}.meta-value{color:var(--grey-light);}
+    .key-figures{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:24px 28px;margin:0 40px;}
+    .key-figures-inner{max-width:860px;margin:0 auto;}
+    .key-figures-label{font-family:var(--font-mono);font-size:10px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;}
+    .key-figures-text{font-size:14px;color:var(--grey-light);line-height:1.7;}
+    .article-layout{display:grid;grid-template-columns:860px;justify-content:center;padding:56px 40px 96px;}
+    .prose h2{font-family:var(--font-display);font-size:clamp(26px,3vw,38px);font-weight:300;line-height:1.15;letter-spacing:-0.3px;margin:48px 0 20px;}
+    .prose h2 em{font-style:italic;color:var(--gold);}
+    .prose h3{font-family:var(--font-display);font-size:22px;font-weight:600;margin:32px 0 14px;}
+    .prose p{font-size:16px;color:var(--grey-light);line-height:1.85;margin-bottom:20px;font-weight:300;}
+    .prose strong{color:var(--white);font-weight:600;}
+    .prose ul,.prose ol{margin:0 0 20px 24px;}.prose li{font-size:15px;color:var(--grey-light);line-height:1.75;margin-bottom:8px;font-weight:300;}
+    .pull-quote{border-left:3px solid var(--gold);padding:20px 28px;margin:36px 0;background:var(--surface);border-radius:0 6px 6px 0;}
+    .pull-quote p{font-family:var(--font-display);font-size:22px;font-style:italic;font-weight:300;color:var(--grey-light);line-height:1.5;margin:0;}
+    .data-table-wrap{overflow-x:auto;margin:32px 0;}
+    .data-table{width:100%;border-collapse:collapse;font-size:13px;}
+    .data-table th{background:var(--surface2);color:var(--grey);font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:1px solid var(--border);}
+    .data-table td{padding:12px 16px;border-bottom:1px solid var(--border);color:var(--grey-light);vertical-align:top;}
+    .data-table tr:nth-child(even) td{background:rgba(255,255,255,0.02);}
+    .data-table td strong{color:var(--white);}
+    .highlight-box{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:24px 28px;margin:32px 0;}
+    .highlight-box-label{font-family:var(--font-mono);font-size:10px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;}
+    .highlight-box p{font-size:14px;color:var(--grey-light);line-height:1.7;margin:0;}
+    /* Stack diagram */
+    .stack-diagram{margin:36px 0;display:flex;flex-direction:column;gap:3px;}
+    .stack-layer{padding:18px 24px;border-radius:4px;position:relative;}
+    .stack-layer-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+    .stack-layer-title{font-size:15px;font-weight:600;margin-bottom:4px;}
+    .stack-layer-tickers{font-family:var(--font-mono);font-size:12px;color:var(--gold);}
+    .stack-layer-desc{font-size:13px;color:var(--grey);margin-top:4px;}
+    .stack-arrow{text-align:center;color:var(--border);font-size:20px;line-height:1;margin:2px 0;}
+    .layer-1{background:linear-gradient(135deg,#1a1020,#1C2235);border:1px solid var(--border);}
+    .layer-2{background:linear-gradient(135deg,#0f1525,#1a2235);border:1px solid var(--border);}
+    .layer-3{background:linear-gradient(135deg,#0d1a10,#1a2818);border:1px solid rgba(245,158,11,0.2);border-left:3px solid var(--gold);}
+    .layer-4{background:linear-gradient(135deg,#141010,#1e1a10);border:1px solid var(--border);}
+    .layer-5{background:linear-gradient(135deg,#100a14,#180f1e);border:1px solid var(--border);}
+    .layer-6{background:linear-gradient(135deg,#0a1408,#101e0e);border:1px solid var(--border);}
+    .takeaways{background:linear-gradient(135deg,#0D1520 0%,#0D0F14 100%);border:1px solid rgba(245,158,11,0.2);border-radius:8px;padding:36px;margin:48px 0 0;}
+    .takeaways-title{font-family:var(--font-display);font-size:24px;font-weight:600;margin-bottom:20px;}
+    .takeaways ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+    .takeaways li{display:flex;gap:12px;font-size:14px;color:var(--grey-light);line-height:1.6;}
+    .takeaways li::before{content:'→';color:var(--gold);font-weight:600;flex-shrink:0;}
+    .disclaimer{margin-top:48px;padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:6px;font-size:12px;color:var(--grey);line-height:1.6;}
+    .disclaimer a{color:var(--gold);}
+    .related{padding:64px 40px;background:var(--surface);border-top:1px solid var(--border);}
+    .related-inner{max-width:1200px;margin:0 auto;}
+    .related-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:32px;}
+    .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .related-card{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:24px;transition:border-color 0.3s,transform 0.3s;}
+    .related-card:hover{border-color:rgba(245,158,11,0.4);transform:translateY(-3px);}
+    .related-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block;}
+    .related-title{font-family:var(--font-display);font-size:18px;font-weight:600;line-height:1.3;margin-bottom:8px;}
+    .related-date{font-size:11px;color:var(--grey);font-family:var(--font-mono);}
+    .art-nav{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-top:1px solid var(--border);}
+    .art-nav-item{background:var(--bg);padding:28px 40px;transition:background 0.2s;}
+    .art-nav-item:hover{background:var(--surface);}
+    .art-nav-item.next{text-align:right;}
+    .art-nav-label{font-family:var(--font-mono);font-size:10px;color:var(--grey);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;}
+    .art-nav-title{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--gold);}
+    footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 40px 40px;}
+    .footer-inner{max-width:1200px;margin:0 auto;}
+    .footer-top{display:grid;grid-template-columns:280px repeat(3,1fr);gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border);}
+    .footer-logo{font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:14px;}.footer-logo span{color:var(--gold);}
+    .footer-tagline{font-size:13px;color:var(--grey);line-height:1.7;margin-bottom:20px;}
+    .footer-afsl{font-family:var(--font-mono);font-size:10px;color:var(--grey);}
+    .footer-col h4{font-size:12px;font-weight:600;color:var(--white);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-col ul li a{font-size:13px;color:var(--grey);transition:color 0.2s;}.footer-col ul li a:hover{color:var(--gold);}
+    .footer-bottom{padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+    .footer-bottom p{font-size:12px;color:var(--grey);line-height:1.6;max-width:600px;}
+    .footer-links{display:flex;gap:24px;list-style:none;}.footer-links a{font-size:12px;color:var(--grey);}
+    @media(max-width:900px){.article-layout{padding:40px 20px 64px;}.breadcrumb,.article-hero,.key-figures{padding-left:20px;padding-right:20px;}.related-grid{grid-template-columns:1fr;}.art-nav{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr 1fr;}}
+    @media(max-width:768px){nav{padding:0 20px;}.nav-links,.nav-cta{display:none;}.nav-mobile-toggle{display:block;}.related{padding:40px 20px;}.art-nav-item{padding:24px 20px;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Options<span>21</span></a>
+    <ul class="nav-links">
+      <li><a href="courses.html">Courses</a></li><li><a href="traders-group.html">Traders Group</a></li>
+      <li><a href="ai-trading.html">AI Trading</a></li><li><a href="crypto.html">Crypto</a></li><li><a href="crypto-tokenisation.html">Tokenisation</a></li>
+      <li><a href="compliance.html">Compliance</a></li><li><a href="articles.html">Articles</a></li><li><a href="about.html">About</a></li>
+    </ul>
+    <a href="traders-group.html" class="nav-cta">Join Traders Group →</a>
+    <button class="nav-mobile-toggle">☰</button>
+  </nav>
+
+  <div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><a href="articles.html">Research &amp; Analysis</a><span class="breadcrumb-sep">›</span><span>AI &amp; Technology</span></div></div>
+
+  <section class="article-hero">
+    <div class="article-hero-bg"></div>
+    <div class="article-hero-inner">
+      <div class="article-cat">AI &amp; Technology · Trade Note · April 2026</div>
+      <h1 class="article-title">AI Infrastructure:<br/><em>Understanding the Full Stack Driving Markets</em></h1>
+      <p class="article-deck">Equity markets are being driven by a powerful but often misunderstood theme — the buildout of AI infrastructure. Capital is moving down the stack, expanding the opportunity set beyond chips and cloud.</p>
+      <div class="article-meta-row">
+        <div class="meta-author"><div class="meta-avatar">👤</div><div><div class="meta-name">Paul Wise</div><div class="meta-title-sub">Options21 · AFSL 247412</div></div></div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><span class="meta-label">Published</span><span class="meta-value">24 April 2026</span></div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><span class="meta-label">Read time</span><span class="meta-value">10 min</span></div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><span class="meta-label">Category</span><span class="meta-value">AI &amp; Technology</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="key-figures">
+    <div class="key-figures-inner">
+      <div class="key-figures-label">Key names across the stack</div>
+      <div class="key-figures-text">Chips: NVDA, AMD, AVGO &nbsp;·&nbsp; Cloud: MSFT, AMZN, GOOGL &nbsp;·&nbsp; Cooling &amp; Power: VRT, ETN &nbsp;·&nbsp; Energy: NRG, VST &nbsp;·&nbsp; Phase 3 — Power — is the emerging opportunity</div>
+    </div>
+  </div>
+
+  <main class="article-layout">
+    <article class="article-body prose">
+
+      <h2>Introduction</h2>
+      <p>Equity markets are currently being driven by a powerful but often misunderstood theme: the <strong>buildout of artificial intelligence infrastructure</strong>. While many investors view AI as a software or innovation story, the reality is very different.</p>
+      <p><strong>AI is an industrial-scale system requiring chips, data centres, cooling, and enormous amounts of electricity.</strong> This has created a multi-layered investment opportunity, where capital is flowing not just into technology leaders, but increasingly into infrastructure and energy providers that enable AI to function.</p>
+
+      <div class="pull-quote"><p>"We are not simply investing in AI — we are investing in the system required to power it."</p></div>
+
+      <h2>The AI Infrastructure Stack — <em>Follow the Money</em></h2>
+      <p>Understanding this stack is critical to understanding where markets are heading next. AI operates across a structured system of six layers — from applications at the top to power generation at the base.</p>
+
+      <div class="stack-diagram">
+        <div class="stack-layer layer-1">
+          <div class="stack-layer-label">Layer 6 — Top</div>
+          <div class="stack-layer-title">Applications (AI Software)</div>
+          <div class="stack-layer-desc">AI software, enterprise tools, and end-user services. This is where AI is used — not where most profits are currently captured.</div>
+        </div>
+        <div class="stack-arrow">↑</div>
+        <div class="stack-layer layer-2">
+          <div class="stack-layer-label">Layer 5</div>
+          <div class="stack-layer-title">Cloud — Distribution</div>
+          <div class="stack-layer-tickers">MSFT · AMZN · GOOGL</div>
+          <div class="stack-layer-desc">These firms build hyperscale data centres and rent AI compute to the global economy. They are the highways of the AI buildout.</div>
+        </div>
+        <div class="stack-arrow">↑</div>
+        <div class="stack-layer layer-3">
+          <div class="stack-layer-label">Layer 4 — First Wave Leadership</div>
+          <div class="stack-layer-title">Compute — Chips</div>
+          <div class="stack-layer-tickers">NVDA · AMD · AVGO</div>
+          <div class="stack-layer-desc">AI cannot run without specialised chips — this is the primary bottleneck. NVIDIA has dominated this phase but the trade is increasingly crowded.</div>
+        </div>
+        <div class="stack-arrow">↑</div>
+        <div class="stack-layer layer-4">
+          <div class="stack-layer-label">Layer 3</div>
+          <div class="stack-layer-title">Physical Infrastructure — Data Centres</div>
+          <div class="stack-layer-desc">The backbone that houses AI systems. Rapid global expansion underway as hyperscalers commit hundreds of billions to new facilities.</div>
+        </div>
+        <div class="stack-arrow">↑</div>
+        <div class="stack-layer layer-5">
+          <div class="stack-layer-label">Layer 2 — Scaling Constraint</div>
+          <div class="stack-layer-title">Cooling &amp; Electrical Systems</div>
+          <div class="stack-layer-tickers">VRT (Vertiv) · ETN (Eaton)</div>
+          <div class="stack-layer-desc">Without cooling and power management, AI systems cannot operate. High-performance chips generate extraordinary heat — cooling is a critical bottleneck.</div>
+        </div>
+        <div class="stack-arrow">↑</div>
+        <div class="stack-layer layer-6">
+          <div class="stack-layer-label">Layer 1 — Emerging Bottleneck</div>
+          <div class="stack-layer-title">Energy — Power Generation</div>
+          <div class="stack-layer-tickers">NRG Energy · VST (Vistra)</div>
+          <div class="stack-layer-desc">AI demand = electricity demand. Data centres operate 24/7, consume vast energy, and require stable, scalable power supply. This is Phase 3 of the trade.</div>
+        </div>
+      </div>
+
+      <h2>How the Trade Is <em>Evolving</em></h2>
+      <p>The market is progressing through distinct phases — and capital is consistently moving down the stack as each layer matures and becomes more crowded.</p>
+
+      <div class="data-table-wrap"><table class="data-table">
+        <thead><tr><th>Phase</th><th>Focus</th><th>Key Names</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Phase 1</strong></td><td>Chips</td><td>NVDA, AMD, AVGO</td><td>Mature — still central but crowded</td></tr>
+          <tr><td><strong>Phase 2</strong></td><td>Infrastructure &amp; Cooling</td><td>VRT, ETN</td><td>Expanding — data centre buildout accelerating</td></tr>
+          <tr><td><strong>Phase 3</strong></td><td>Power Generation</td><td>NRG, VST</td><td>Emerging — early-stage re-rating underway</td></tr>
+        </tbody>
+      </table></div>
+
+      <div class="highlight-box">
+        <div class="highlight-box-label">Core Insight</div>
+        <p>Capital is moving down the stack. The early gains came from chips and cloud. Now capital is flowing into infrastructure, power and industrial enablers. Less crowded areas of the stack may offer higher growth potential and stronger re-rating opportunities than the names that have already run hard.</p>
+      </div>
+
+      <h2>What This Means for Investors</h2>
+
+      <h3>1. The Rally Is Structural, Not Broad</h3>
+      <p>Markets are being driven by a specific system buildout — not general economic strength. This means the opportunity is concentrated and requires understanding which part of the stack is being built at any given moment.</p>
+
+      <h3>2. Leadership Is Rotating</h3>
+      <p>Early gains came from chips and cloud. Now, capital is flowing into infrastructure, power and industrial enablers. Investors anchored to Phase 1 names risk missing the rotation that is already underway in Phase 3.</p>
+
+      <h3>3. The Opportunity Is Expanding</h3>
+      <p>Less crowded areas of the stack — cooling systems, power distribution, energy generation — may offer higher growth potential and stronger re-rating opportunities than the Phase 1 names that have already moved significantly.</p>
+
+      <h2>Key Risks</h2>
+      <ul>
+        <li><strong>AI capex slowdown:</strong> If hyperscalers reduce spending — due to economic slowdown, regulatory pressure, or disappointing AI revenue — the entire stack suffers.</li>
+        <li><strong>Leadership failure:</strong> A significant stumble by NVIDIA (competitive disruption, export restrictions, execution issues) would reverberate across the stack.</li>
+        <li><strong>Energy constraints:</strong> Grid limitations and regulatory friction could slow the power buildout, creating a bottleneck that constrains AI deployment.</li>
+      </ul>
+
+      <div class="takeaways">
+        <div class="takeaways-title">⭐ Key Takeaways</div>
+        <ul>
+          <li>AI is an industrial-scale infrastructure buildout — not just a software story. Chips, data centres, cooling and power are all essential components.</li>
+          <li>The trade is evolving in phases: Chips (mature) → Infrastructure (expanding) → Power (emerging). Capital is consistently moving down the stack.</li>
+          <li>Phase 3 — power generation — is the least crowded and earliest-stage opportunity. NRG and Vistra are the names to watch.</li>
+          <li>Cooling and power management (Vertiv, Eaton) represent Phase 2 — already expanding but with further to run as data centre construction accelerates.</li>
+          <li>The key risk is an AI capex slowdown — monitor hyperscaler guidance carefully for signs of spending deceleration.</li>
+        </ul>
+      </div>
+
+      <div class="disclaimer"><strong>Disclaimer:</strong> This article is produced for educational and informational purposes only. It does not constitute financial advice, investment advice, or a recommendation to buy or sell any financial instrument. Options21 Pty Ltd holds AFSL 247412. Please read our <a href="about.html#fsg">Financial Services Guide</a> before making any investment decisions. Past performance is not indicative of future results.</div>
+
+    </article>
+  </main>
+
+  <section class="related">
+    <div class="related-inner">
+      <div class="related-label">Continue reading</div>
+      <div class="related-grid">
+        <a href="article-tesla-cybercab.html" class="related-card"><span class="related-tag">AI &amp; Technology</span><div class="related-title">Tesla Cybercab: The Dawn of Mass-Market Autonomy</div><div class="related-date">9 Apr 2026</div></a>
+        <a href="article-oil-shock-1970s.html" class="related-card"><span class="related-tag">Macro &amp; Geopolitics</span><div class="related-title">The 1970s Oil Shock: Drivers &amp; Consequences</div><div class="related-date">30 Apr 2026</div></a>
+        <a href="crypto-tokenisation.html" class="related-card"><span class="related-tag">Crypto &amp; Bitcoin</span><div class="related-title">Tokenisation of Financial Assets</div><div class="related-date">1 May 2026</div></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="art-nav">
+    <a href="article-oil-shock-1970s.html" class="art-nav-item prev"><div class="art-nav-label">← Previous article</div><div class="art-nav-title">The 1970s Oil Shock</div></a>
+    <a href="article-tesla-cybercab.html" class="art-nav-item next"><div class="art-nav-label">Next article →</div><div class="art-nav-title">Tesla Cybercab: Mass-Market Autonomy</div></a>
+  </div>
+
+  <footer><div class="footer-inner"><div class="footer-top"><div><div class="footer-logo">Options<span>21</span></div><p class="footer-tagline">Trading intelligence for serious Australian options traders.</p><div class="footer-afsl">AFSL 247412 · Options21 Pty Ltd<br/>PO Box 744 Hillarys WA 6923</div></div><div class="footer-col"><h4>Courses</h4><ul><li><a href="traders-group.html">Traders Group</a></li><li><a href="ai-course.html">AI Trading Course</a></li><li><a href="mentoring.html">Options Mentoring</a></li></ul></div><div class="footer-col"><h4>Research</h4><ul><li><a href="articles.html">All Articles</a></li><li><a href="crypto-tokenisation.html">Crypto &amp; Tokenisation</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Paul Wise</a></li><li><a href="compliance.html">Veriqua</a></li><li><a href="contact.html">Contact</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 Options21 Pty Ltd. AFSL 247412. General financial product advice only.</p><ul class="footer-links"><li><a href="about.html#privacy">Privacy</a></li><li><a href="about.html#disclaimer">Disclaimer</a></li><li><a href="about.html#fsg">FSG</a></li></ul></div></div></footer>
+  <script>document.querySelector('.nav-mobile-toggle').addEventListener('click',()=>{const l=document.querySelector('.nav-links');l.style.display=l.style.display==='flex'?'none':'flex';if(l.style.display==='flex')Object.assign(l.style,{flexDirection:'column',position:'absolute',top:'68px',left:'0',right:'0',background:'#0D0F14',padding:'24px 20px',borderBottom:'1px solid #2A3045',gap:'20px',zIndex:'199'});});</script>
+</body>
+</html>

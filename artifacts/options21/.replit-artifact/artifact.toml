@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Options21"
+version = "1.0.0"
+id = "artifacts/options21"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18471
+
+[services.development]
+run = "pnpm --filter @workspace/options21 run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/options21", "run", "build" ]
+publicDir = "artifacts/options21/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18471"
+BASE_PATH = "/"

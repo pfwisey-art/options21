@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Understanding Bitcoin Halving | Options21</title>
+  <meta name="description" content="Bitcoin's halving — when the block reward is cut in half — is the single most important supply event in crypto markets. Understanding it is essential for timing the crypto cycle."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0D0F14;--surface:#161B27;--surface2:#1C2235;--border:#2A3045;--gold:#F59E0B;--gold-dim:#B97D0A;--gold-glow:rgba(245,158,11,0.12);--white:#F0F2F8;--grey:#8892A4;--grey-light:#BCC5D6;--font-display:'Cormorant Garamond',serif;--font-body:'DM Sans',sans-serif;--font-mono:'JetBrains Mono',monospace;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden;}a{color:inherit;text-decoration:none;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.6;}
+    nav{position:sticky;top:0;z-index:200;background:rgba(13,15,20,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px;}
+    .nav-logo{font-family:var(--font-display);font-size:24px;font-weight:700;}.nav-logo span{color:var(--gold);}
+    .nav-links{display:flex;gap:18px;list-style:none;flex-wrap:nowrap;align-items:center;}.nav-links a{font-size:12px;font-weight:500;color:var(--grey);transition:color 0.2s;white-space:nowrap;}.nav-links a:hover{color:var(--white);}
+    .nav-cta{background:var(--gold);color:#000;font-size:13px;font-weight:600;padding:9px 22px;border-radius:4px;}.nav-mobile-toggle{display:none;cursor:pointer;font-size:24px;color:var(--white);}
+    .breadcrumb{padding:20px 40px;background:var(--surface);border-bottom:1px solid var(--border);position:relative;z-index:1;}
+    .breadcrumb-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--grey);}
+    .breadcrumb a{color:var(--grey);}.breadcrumb a:hover{color:var(--gold);}.breadcrumb-sep{color:var(--border);}
+    .article-hero{padding:64px 40px 48px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+    .article-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(245,158,11,0.04) 0%,transparent 70%);}
+    .article-hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:2;}
+    .article-cat{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px;}.article-cat::before{content:'';width:24px;height:1px;background:var(--gold);}
+    .article-title{font-family:var(--font-display);font-size:clamp(36px,4.5vw,60px);font-weight:300;line-height:1.1;letter-spacing:-0.5px;margin-bottom:20px;}.article-title em{font-style:italic;color:var(--gold);}
+    .article-deck{font-size:18px;color:var(--grey-light);line-height:1.7;font-weight:300;max-width:680px;margin-bottom:32px;}
+    .article-meta-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding-top:24px;border-top:1px solid var(--border);}
+    .meta-author{display:flex;align-items:center;gap:10px;}.meta-avatar{width:36px;height:36px;border-radius:50%;background:var(--gold-glow);border:1px solid rgba(245,158,11,0.2);display:flex;align-items:center;justify-content:center;font-size:16px;}
+    .meta-name{font-size:13px;font-weight:600;}.meta-title{font-size:11px;color:var(--grey);}
+    .meta-divider{width:1px;height:28px;background:var(--border);}
+    .meta-item{font-size:12px;color:var(--grey);font-family:var(--font-mono);}.meta-label{font-size:10px;color:var(--grey);text-transform:uppercase;letter-spacing:0.08em;display:block;}.meta-value{color:var(--grey-light);}
+    .key-figures{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:24px 28px;margin:0 40px 0;position:relative;z-index:1;}
+    .key-figures-inner{max-width:860px;margin:0 auto;}.key-figures-label{font-family:var(--font-mono);font-size:10px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;}.key-figures-text{font-size:14px;color:var(--grey-light);line-height:1.7;}
+    .article-layout{display:grid;grid-template-columns:860px;justify-content:center;padding:56px 40px 96px;gap:48px;}.article-body{min-width:0;}
+    .prose h2{font-family:var(--font-display);font-size:clamp(26px,3vw,38px);font-weight:300;line-height:1.15;letter-spacing:-0.3px;margin:48px 0 20px;}.prose h2 em{font-style:italic;color:var(--gold);}
+    .prose h3{font-family:var(--font-display);font-size:22px;font-weight:600;margin:32px 0 14px;}
+    .prose p{font-size:16px;color:var(--grey-light);line-height:1.85;margin-bottom:20px;font-weight:300;}.prose strong{color:var(--white);font-weight:600;}
+    .prose ul{margin:0 0 20px 20px;}.prose li{font-size:15px;color:var(--grey-light);line-height:1.75;margin-bottom:8px;font-weight:300;}.prose li strong{color:var(--white);}
+    .data-table-wrap{overflow-x:auto;margin:32px 0;}.data-table{width:100%;border-collapse:collapse;font-size:13px;}
+    .data-table th{background:var(--surface2);color:var(--grey);font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:1px solid var(--border);}
+    .data-table td{padding:12px 16px;border-bottom:1px solid var(--border);color:var(--grey-light);}.data-table tr:nth-child(even) td{background:rgba(255,255,255,0.02);}.data-table td strong{color:var(--white);}
+    .pull-quote{border-left:3px solid var(--gold);padding:20px 28px;margin:36px 0;background:var(--surface);border-radius:0 6px 6px 0;}
+    .pull-quote p{font-family:var(--font-display);font-size:22px;font-style:italic;font-weight:300;color:var(--grey-light);line-height:1.5;margin:0;}
+    .highlight-box{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:24px 28px;margin:32px 0;}
+    .highlight-box-label{font-family:var(--font-mono);font-size:10px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;}
+    .highlight-box p{font-size:14px;color:var(--grey-light);line-height:1.7;margin:0;}
+    .takeaways{background:linear-gradient(135deg,#0D1520 0%,#0D0F14 100%);border:1px solid rgba(245,158,11,0.2);border-radius:8px;padding:36px;margin:48px 0 0;}
+    .takeaways-title{font-family:var(--font-display);font-size:24px;font-weight:600;margin-bottom:20px;}
+    .takeaways ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+    .takeaways li{display:flex;gap:12px;font-size:14px;color:var(--grey-light);line-height:1.6;}.takeaways li::before{content:'→';color:var(--gold);font-weight:600;flex-shrink:0;margin-top:1px;}
+    .disclaimer{margin-top:48px;padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:6px;font-size:12px;color:var(--grey);line-height:1.6;}
+    footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 40px 40px;}
+    .footer-inner{max-width:1200px;margin:0 auto;}
+    .footer-top{display:grid;grid-template-columns:280px repeat(3,1fr);gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border);}
+    .footer-logo{font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:14px;}.footer-logo span{color:var(--gold);}
+    .footer-tagline{font-size:13px;color:var(--grey);line-height:1.7;margin-bottom:20px;}.footer-afsl{font-family:var(--font-mono);font-size:10px;color:var(--grey);}
+    .footer-col h4{font-size:12px;font-weight:600;color:var(--white);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}.footer-col ul li a{font-size:13px;color:var(--grey);}.footer-col ul li a:hover{color:var(--gold);}
+    .footer-bottom{padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+    .footer-bottom p{font-size:12px;color:var(--grey);line-height:1.6;max-width:600px;}
+    .footer-links{display:flex;gap:24px;list-style:none;}.footer-links a{font-size:12px;color:var(--grey);}
+    @media(max-width:900px){.article-layout{padding:40px 20px 64px;grid-template-columns:1fr;}.breadcrumb,.article-hero,.key-figures{padding-left:20px;padding-right:20px;}.footer-top{grid-template-columns:1fr 1fr;}}
+    @media(max-width:768px){nav{padding:0 20px;}.nav-links,.nav-cta{display:none;}.nav-mobile-toggle{display:block;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Options<span>21</span></a>
+    <ul class="nav-links">
+      <li><a href="courses.html">Courses</a></li><li><a href="traders-group.html">Traders Group</a></li><li><a href="ai-trading.html">AI Trading</a></li><li><a href="crypto.html">Crypto</a></li><li><a href="crypto-tokenisation.html">Tokenisation</a></li><li><a href="compliance.html">Compliance</a></li><li><a href="articles.html">Articles</a></li><li><a href="about.html">About</a></li>
+    </ul>
+    <a href="traders-group.html" class="nav-cta">Join Traders Group →</a>
+    <button class="nav-mobile-toggle">☰</button>
+  </nav>
+  <div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><a href="articles.html">Research &amp; Analysis</a><span class="breadcrumb-sep">›</span><span>Crypto &amp; Bitcoin</span></div></div>
+  <section class="article-hero">
+    <div class="article-hero-bg"></div>
+    <div class="article-hero-inner">
+      <div class="article-cat">Crypto &amp; Bitcoin · Education · November 2025</div>
+      <h1 class="article-title">Understanding <em>Bitcoin Halving</em></h1>
+      <p class="article-deck">The Bitcoin halving — when the block reward paid to miners is cut in half every four years — is the single most important supply event in crypto markets. Every serious Bitcoin investor needs to understand its mechanics and market history.</p>
+      <div class="article-meta-row">
+        <div class="meta-author"><div class="meta-avatar">👤</div><div><div class="meta-name">Paul Wise</div><div class="meta-title">Options21 · AFSL 247412</div></div></div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><span class="meta-label">Published</span><span class="meta-value">20 November 2025</span></div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><span class="meta-label">Read time</span><span class="meta-value">9 min</span></div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><span class="meta-label">Category</span><span class="meta-value">Crypto &amp; Bitcoin</span></div>
+      </div>
+    </div>
+  </section>
+  <div class="key-figures"><div class="key-figures-inner"><div class="key-figures-label">Key figures at a glance</div><div class="key-figures-text">April 2024 halving: reward dropped from 6.25 → 3.125 BTC per block · Total supply cap: 21 million BTC (hard-coded) · ~19.7M already mined · Next halving: ~2028 · Each previous halving preceded a major bull cycle</div></div></div>
+  <main class="article-layout">
+    <article class="article-body prose">
+      <h2>What Is the Bitcoin Halving?</h2>
+      <p>Bitcoin's protocol was designed by Satoshi Nakamoto with a fixed, predictable supply schedule. New Bitcoin is created ("mined") as a reward for miners who validate transactions and add blocks to the blockchain. But this reward is not constant — it is programmatically reduced by 50% every 210,000 blocks (approximately every four years).</p>
+      <p>This event is called the "halving" (or "halvening"). It is one of the most important supply-side mechanics in all of financial markets because it is completely predetermined, fully transparent, and impossible to change without a network-wide consensus.</p>
+
+      <h2>The Halving History</h2>
+      <div class="data-table-wrap"><table class="data-table">
+        <thead><tr><th>Event</th><th>Date</th><th>Block Reward</th><th>BTC Price Before</th><th>Peak Price (12–18 months after)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Genesis</strong></td><td>Jan 2009</td><td>50 BTC</td><td>~$0.00</td><td>—</td></tr>
+          <tr><td><strong>1st Halving</strong></td><td>Nov 2012</td><td>25 BTC</td><td>~$12</td><td>~$1,200 (Dec 2013)</td></tr>
+          <tr><td><strong>2nd Halving</strong></td><td>Jul 2016</td><td>12.5 BTC</td><td>~$650</td><td>~$20,000 (Dec 2017)</td></tr>
+          <tr><td><strong>3rd Halving</strong></td><td>May 2020</td><td>6.25 BTC</td><td>~$8,600</td><td>~$69,000 (Nov 2021)</td></tr>
+          <tr><td><strong>4th Halving</strong></td><td>Apr 2024</td><td>3.125 BTC</td><td>~$64,000</td><td>~$108,000 (Dec 2024)</td></tr>
+          <tr><td><strong>5th Halving</strong></td><td>~2028</td><td>1.5625 BTC</td><td>TBD</td><td>TBD</td></tr>
+        </tbody>
+      </table></div>
+      <p>The pattern across all four completed halvings is consistent: in the 12–18 months following each halving, Bitcoin has reached a new all-time high. The 4th halving in April 2024 was followed by Bitcoin breaking $100,000 for the first time in late 2024.</p>
+
+      <h2>Why Does the Halving Affect Price?</h2>
+      <h3>Supply Shock</h3>
+      <p>Every day before the 2024 halving, approximately 900 new Bitcoin entered circulation. After the halving, this dropped to approximately 450. At a price of $60,000+ per Bitcoin, this represents a reduction from ~$54 million per day in new supply to ~$27 million per day. If demand remains constant (or grows), basic economics dictates that price must rise to clear the market.</p>
+
+      <h3>Miner Economics</h3>
+      <p>Miners now earn 50% less per block in Bitcoin rewards. To remain profitable, they must either see the Bitcoin price increase (which covers costs with a smaller reward) or shut down operations. The miners who survive halvings are the most efficient and well-capitalised — creating a natural consolidation of the mining industry after each event.</p>
+
+      <h3>Market Psychology</h3>
+      <p>The halving is a known, anticipated event that generates enormous media coverage and retail interest. This attention itself drives demand — the narrative of "supply shock + institutional demand" creates a self-reinforcing cycle of attention and price appreciation.</p>
+
+      <div class="pull-quote"><p>"The Bitcoin halving is one of the only events in financial history that is perfectly predictable, completely immutable, and consistently followed by a new price cycle. Markets still struggle to fully front-run it."</p></div>
+
+      <h2>The 2024 Halving Context</h2>
+      <p>The April 2024 halving was unique in several ways:</p>
+      <ul>
+        <li>It occurred alongside the approval of US spot Bitcoin ETFs (BlackRock, Fidelity, and others) — creating significant institutional demand for the first time</li>
+        <li>Institutional demand from ETF inflows was already absorbing approximately 75% of daily new supply even before the halving</li>
+        <li>The post-halving peak of ~$108,000 (December 2024) represented a smaller percentage gain than previous cycles — consistent with maturation of the asset class</li>
+      </ul>
+      <div class="highlight-box"><div class="highlight-box-label">Post-Halving Cycle</div><p>Historical pattern: Bitcoin typically reaches its post-halving peak 12–18 months after the halving event. For the 2024 halving (April 2024), this would suggest a peak window of approximately April–October 2025.</p></div>
+
+      <h2>Australian Investor Access</h2>
+      <p>Australian investors can access Bitcoin exposure through spot Bitcoin ETFs (now available on ASX via VanEck and Global X), through established crypto exchanges (CoinSpot, Independent Reserve, Swyftx), or through US-listed Bitcoin ETFs via international brokerage accounts.</p>
+
+      <div class="takeaways">
+        <div class="takeaways-title">Key Takeaways</div>
+        <ul>
+          <li>The Bitcoin halving cuts the block reward by 50% every four years — programmatically reducing new supply entering the market.</li>
+          <li>All four completed halvings have been followed by a new all-time high in the subsequent 12–18 months.</li>
+          <li>The April 2024 halving coincided with US spot Bitcoin ETF approvals — creating the first sustained institutional demand for Bitcoin.</li>
+          <li>Post-halving peak pattern suggests watching the April–October 2025 window for cycle highs (post the 2024 halving).</li>
+          <li>Australian investors now have direct ETF access to Bitcoin via ASX (VanEck, Global X) — no need to use crypto exchanges.</li>
+        </ul>
+      </div>
+      <div class="disclaimer">This article is for general information and educational purposes only. It is not personal financial advice. Cryptocurrency is a highly volatile asset class. Past performance is not indicative of future results. Options21 operates under AFSL 247412 (Ivanhoe International Pty Ltd).</div>
+    </article>
+  </main>
+  <footer><div class="footer-inner">
+    <div class="footer-top">
+      <div><div class="footer-logo">Options<span>21</span></div><p class="footer-tagline">Trading intelligence for serious Australian options traders.</p><div class="footer-afsl">AFSL 247412 · Ivanhoe International Pty Ltd<br/>PO Box 744 Hillarys WA 6923</div></div>
+      <div class="footer-col"><h4>Research</h4><ul><li><a href="articles.html">All Articles</a></li></ul></div>
+      <div class="footer-col"><h4>Courses</h4><ul><li><a href="courses.html">All Courses</a></li><li><a href="traders-group.html">Traders Group</a></li></ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul><li><a href="about.html#legal">FSG</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Ivanhoe International Pty Ltd. AFSL 247412. General financial product advice only.</p><ul class="footer-links"><li><a href="privacy.html">Privacy</a></li><li><a href="disclaimer.html">Disclaimer</a></li></ul></div>
+  </div></footer>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Options21</title>
+  <meta name="description" content="Get in touch with Options21. Questions about courses, Traders Group membership, or Veriqua compliance — we'd love to hear from you."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0D0F14;--surface:#161B27;--surface2:#1C2235;--border:#2A3045;--gold:#F59E0B;--gold-glow:rgba(245,158,11,0.12);--white:#F0F2F8;--grey:#8892A4;--grey-light:#BCC5D6;--green:#22C55E;--font-display:'Cormorant Garamond',serif;--font-body:'DM Sans',sans-serif;--font-mono:'JetBrains Mono',monospace;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden;}a{color:inherit;text-decoration:none;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.6;}
+    nav{position:sticky;top:0;z-index:200;background:rgba(13,15,20,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px;}
+    .nav-logo{font-family:var(--font-display);font-size:24px;font-weight:700;flex-shrink:0;}.nav-logo span{color:var(--gold);}
+    .nav-links{display:flex;gap:18px;list-style:none;flex-wrap:nowrap;align-items:center;}.nav-links a{font-size:12px;font-weight:500;color:var(--grey);transition:color 0.2s;white-space:nowrap;}.nav-links a:hover,.nav-links a.active{color:var(--white);}
+    .nav-cta{background:var(--gold);color:#000;font-size:12px;font-weight:600;padding:8px 16px;border-radius:4px;white-space:nowrap;flex-shrink:0;}.nav-cta:hover{background:#FBBF24;}
+    .nav-mobile-toggle{display:none;cursor:pointer;font-size:24px;color:var(--white);}
+    section{position:relative;z-index:1;}.container{max-width:1200px;margin:0 auto;padding:0 40px;}
+
+    /* HERO */
+    .hero{padding:80px 40px 64px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 80% 40%,rgba(245,158,11,0.04) 0%,transparent 70%);}
+    .hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2;}
+    .hero-eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+    .hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+    .hero-title{font-family:var(--font-display);font-size:clamp(44px,5vw,72px);font-weight:300;line-height:1.05;letter-spacing:-0.5px;margin-bottom:16px;}
+    .hero-title em{font-style:italic;color:var(--gold);}
+    .hero-sub{font-size:17px;color:var(--grey-light);line-height:1.7;font-weight:300;max-width:520px;}
+
+    /* MAIN LAYOUT */
+    .contact-layout{display:grid;grid-template-columns:1fr 400px;gap:80px;align-items:start;padding:80px 40px;max-width:1200px;margin:0 auto;}
+
+    /* FORM */
+    .form-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;position:relative;}
+    .form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+    .form-header{padding:28px 32px;border-bottom:1px solid var(--border);}
+    .form-header-title{font-family:var(--font-display);font-size:24px;font-weight:600;margin-bottom:4px;}
+    .form-header-sub{font-size:13px;color:var(--grey);}
+    .form-body{padding:32px;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+    .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+    .form-label{font-size:12px;font-weight:500;color:var(--grey-light);letter-spacing:0.03em;}
+    .form-input,.form-select,.form-textarea{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:12px 14px;color:var(--white);font-family:var(--font-body);font-size:14px;outline:none;transition:border-color 0.2s;width:100%;}
+    .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold);}
+    .form-input::placeholder,.form-textarea::placeholder{color:var(--grey);}
+    .form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238892A4' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+    .form-select option{background:var(--surface);}
+    .form-textarea{resize:vertical;min-height:120px;line-height:1.6;}
+    .form-submit{background:var(--gold);color:#000;font-weight:600;font-size:14px;padding:14px 32px;border-radius:4px;border:none;cursor:pointer;width:100%;font-family:var(--font-body);letter-spacing:0.02em;transition:background 0.2s,transform 0.15s;margin-top:8px;}
+    .form-submit:hover{background:#FBBF24;transform:translateY(-1px);}
+    .form-note{font-size:11px;color:var(--grey);text-align:center;margin-top:12px;line-height:1.5;}
+
+    /* SIDEBAR INFO */
+    .contact-sidebar{display:flex;flex-direction:column;gap:20px;}
+    .contact-info-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+    .contact-info-header{padding:16px 20px;background:var(--surface2);border-bottom:1px solid var(--border);}
+    .contact-info-label{font-family:var(--font-mono);font-size:10px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;}
+    .contact-info-body{padding:20px;}
+    .contact-item{display:flex;gap:14px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border);}
+    .contact-item:last-child{border-bottom:none;padding-bottom:0;}
+    .contact-icon{width:36px;height:36px;background:var(--gold-glow);border:1px solid rgba(245,158,11,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;margin-top:2px;}
+    .contact-item-label{font-size:10px;color:var(--grey);text-transform:uppercase;letter-spacing:0.08em;font-family:var(--font-mono);display:block;margin-bottom:2px;}
+    .contact-item-value{font-size:13px;color:var(--grey-light);}
+    .contact-item-value a{color:var(--gold);}
+
+    /* TOPICS */
+    .topics-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+    .topics-header{padding:16px 20px;background:var(--surface2);border-bottom:1px solid var(--border);}
+    .topics-label{font-family:var(--font-mono);font-size:10px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;}
+    .topic-item{display:flex;gap:12px;padding:14px 20px;border-bottom:1px solid var(--border);align-items:flex-start;cursor:pointer;transition:background 0.2s;}
+    .topic-item:last-child{border-bottom:none;}
+    .topic-item:hover{background:var(--surface2);}
+    .topic-emoji{font-size:18px;flex-shrink:0;}
+    .topic-title{font-size:13px;font-weight:600;margin-bottom:2px;}
+    .topic-desc{font-size:11px;color:var(--grey);line-height:1.4;}
+
+    /* SUCCESS */
+    .form-success{display:none;text-align:center;padding:48px 32px;}
+    .form-success-icon{font-size:48px;margin-bottom:16px;}
+    .form-success h3{font-family:var(--font-display);font-size:28px;font-weight:600;margin-bottom:12px;}
+    .form-success p{font-size:14px;color:var(--grey);line-height:1.6;}
+
+    footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 40px 40px;}
+    .footer-inner{max-width:1200px;margin:0 auto;}
+    .footer-top{display:grid;grid-template-columns:280px repeat(4,1fr);gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border);}
+    .footer-logo{font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:14px;}.footer-logo span{color:var(--gold);}
+    .footer-tagline{font-size:13px;color:var(--grey);line-height:1.7;margin-bottom:20px;}
+    .footer-afsl{font-family:var(--font-mono);font-size:10px;color:var(--grey);}
+    .footer-col h4{font-size:12px;font-weight:600;color:var(--white);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-col ul li a{font-size:13px;color:var(--grey);transition:color 0.2s;}.footer-col ul li a:hover{color:var(--gold);}
+    .footer-bottom{padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+    .footer-bottom p{font-size:12px;color:var(--grey);line-height:1.6;max-width:600px;}
+    .footer-links{display:flex;gap:24px;list-style:none;}.footer-links a{font-size:12px;color:var(--grey);}
+
+    @media(max-width:1024px){.contact-layout{grid-template-columns:1fr;padding:48px 20px;}.footer-top{grid-template-columns:1fr 1fr;}}
+    @media(max-width:768px){nav{padding:0 16px;}.nav-links,.nav-cta{display:none;}.nav-mobile-toggle{display:block;}.hero{padding:60px 20px;}.form-row{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr 1fr;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Options<span>21</span></a>
+    <ul class="nav-links">
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="traders-group.html">Traders Group</a></li>
+      <li><a href="ai-trading.html">AI Trading</a></li>
+      <li><a href="crypto.html">Crypto</a></li>
+      <li><a href="crypto-tokenisation.html">Tokenisation</a></li>
+      <li><a href="compliance.html">Compliance</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <a href="traders-group.html" class="nav-cta">Join Traders Group →</a>
+    <button class="nav-mobile-toggle">☰</button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Options21 · Get in touch</div>
+      <h1 class="hero-title">We'd love to<br/><em>hear from you</em></h1>
+      <p class="hero-sub">Questions about courses, membership, compliance, or anything else — fill in the form and Paul or a team member will get back to you within one business day.</p>
+    </div>
+  </section>
+
+  <div class="contact-layout">
+
+    <!-- FORM (Formspree) -->
+    <div class="form-card">
+      <div class="form-header">
+        <div class="form-header-title">Send us a message</div>
+        <div class="form-header-sub">We aim to respond within one business day.</div>
+      </div>
+      <!-- Replace YOUR_FORM_ID with your Formspree form ID e.g. https://formspree.io/f/xyzabcde -->
+      <form id="contact-form" action="https://formspree.io/f/mrejklva" method="POST">
+        <div class="form-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="first-name">First name *</label>
+              <input class="form-input" type="text" id="first-name" name="first_name" placeholder="Paul" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="last-name">Last name *</label>
+              <input class="form-input" type="text" id="last-name" name="last_name" placeholder="Smith" required/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email address *</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="you@email.com" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone number</label>
+            <input class="form-input" type="tel" id="phone" name="phone" placeholder="+61 4xx xxx xxx"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="topic">What is your enquiry about? *</label>
+            <select class="form-select" id="topic" name="topic" required>
+              <option value="" disabled selected>Select a topic…</option>
+              <option value="traders-group">Traders Group membership</option>
+              <option value="options-mentoring">Options Mentoring course</option>
+              <option value="ai-course">AI Trading course</option>
+              <option value="ai-trading-tools">AI Trading tools</option>
+              <option value="compliance-veriqua">Compliance / Veriqua</option>
+              <option value="crypto-tokenisation">Crypto &amp; Tokenisation</option>
+              <option value="articles">Research &amp; articles</option>
+              <option value="technical">Technical / website issue</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message *</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Tell us what you'd like to know…" required></textarea>
+          </div>
+          <input type="hidden" name="_subject" value="New Options21 enquiry"/>
+          <input type="text" name="_gotcha" style="display:none"/>
+          <button type="submit" class="form-submit">Send message →</button>
+          <p class="form-note">By submitting this form you agree to our <a href="about.html#legal" style="color:var(--gold);">Privacy Policy</a>. We will not share your details with third parties.</p>
+        </div>
+      </form>
+      <div class="form-success" id="form-success">
+        <div class="form-success-icon">✅</div>
+        <h3>Message sent!</h3>
+        <p>Thanks for getting in touch. We aim to respond within one business day. In the meantime, feel free to explore our <a href="articles.html" style="color:var(--gold);">research articles</a> or <a href="traders-group.html" style="color:var(--gold);">join the Traders Group</a>.</p>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="contact-sidebar">
+      <div class="contact-info-card">
+        <div class="contact-info-header"><div class="contact-info-label">Direct contact</div></div>
+        <div class="contact-info-body">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div><span class="contact-item-label">Email</span><div class="contact-item-value"><a href="mailto:paul@options21.com.au">paul@options21.com.au</a></div></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div><span class="contact-item-label">Phone</span><div class="contact-item-value"><a href="tel:0425076750">0425 076 750</a></div></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📮</div>
+            <div><span class="contact-item-label">Post</span><div class="contact-item-value">PO Box 744<br/>Hillarys WA 6923<br/>Australia</div></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div><span class="contact-item-label">Response time</span><div class="contact-item-value">Within 1 business day</div></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🏛️</div>
+            <div><span class="contact-item-label">Licensed</span><div class="contact-item-value">AFSL 247412<br/>Ivanhoe International Pty Ltd</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topics-card">
+        <div class="topics-header"><div class="topics-label">Quick links</div></div>
+        <a href="traders-group.html" class="topic-item">
+          <div class="topic-emoji">📡</div>
+          <div><div class="topic-title">Traders Group</div><div class="topic-desc">Live weekly broadcast · Thursdays 5pm AWST · Free 30-day trial</div></div>
+        </a>
+        <a href="mentoring.html" class="topic-item">
+          <div class="topic-emoji">📈</div>
+          <div><div class="topic-title">Options Mentoring</div><div class="topic-desc">3–4 month comprehensive mentoring program · $2,995–$5,987</div></div>
+        </a>
+        <a href="compliance.html" class="topic-item">
+          <div class="topic-emoji">🏛️</div>
+          <div><div class="topic-title">Veriqua Compliance</div><div class="topic-desc">AFSL + AUSTRAC dual-regime SaaS · Visit veriqua.com.au</div></div>
+        </a>
+        <a href="ai-trading.html" class="topic-item">
+          <div class="topic-emoji">🤖</div>
+          <div><div class="topic-title">AI Trading Tools</div><div class="topic-desc">TradingView signals, Pine Script library, ASX screener</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div><div class="footer-logo">Options<span>21</span></div><p class="footer-tagline">Trading intelligence for serious Australian options traders.</p><div class="footer-afsl">AFSL 247412 · Ivanhoe International Pty Ltd<br/>PO Box 744 Hillarys WA 6923<br/>paul@options21.com.au · 0425 076 750</div></div>
+        <div class="footer-col"><h4>Courses</h4><ul><li><a href="traders-group.html">Traders Group</a></li><li><a href="ai-course.html">AI Trading Course</a></li><li><a href="mentoring.html">Options Mentoring</a></li></ul></div>
+        <div class="footer-col"><h4>Research</h4><ul><li><a href="articles.html">All Articles</a></li><li><a href="crypto.html">Crypto</a></li><li><a href="crypto-tokenisation.html">Tokenisation</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Paul Wise</a></li><li><a href="compliance.html">Veriqua Compliance</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h4>Legal</h4><ul><li><a href="about.html#legal">FSG</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="client-access.html">Client Login</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Ivanhoe International Pty Ltd. AFSL 247412. General financial product advice only.</p>
+        <ul class="footer-links"><li><a href="privacy.html">Privacy</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="about.html#legal">FSG</a></li></ul>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Formspree AJAX submission
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    if(form) {
+      form.addEventListener('submit', async(e) => {
+        e.preventDefault();
+        const btn = form.querySelector('.form-submit');
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+        try {
+          const res = await fetch(form.action, {method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+          if(res.ok) { form.style.display='none'; success.style.display='block'; }
+          else { btn.textContent='Send message →'; btn.disabled=false; alert('Something went wrong. Please email us directly at paul@options21.com.au'); }
+        } catch { btn.textContent='Send message →'; btn.disabled=false; alert('Something went wrong. Please email us directly at paul@options21.com.au'); }
+      });
+    }
+    document.querySelector('.nav-mobile-toggle').addEventListener('click',()=>{const l=document.querySelector('.nav-links');l.style.display=l.style.display==='flex'?'none':'flex';if(l.style.display==='flex')Object.assign(l.style,{flexDirection:'column',position:'absolute',top:'68px',left:'0',right:'0',background:'#0D0F14',padding:'24px 20px',borderBottom:'1px solid #2A3045',gap:'20px',zIndex:'199'});});
+  </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "gMVeuzrNpbmFRywmvj7w7"
+uri = "file://options21-hostaway.tar.gz"
+type = "unspecified"
+title = "Options21 — Built Site (upload to cPanel)"
