@@ -28,6 +28,7 @@ export default defineConfig({
       input: {
         index: path.resolve(import.meta.dirname, "index.html"),
         courses: path.resolve(import.meta.dirname, "courses.html"),
+        mentoring: path.resolve(import.meta.dirname, "mentoring.html"),
         "traders-group": path.resolve(import.meta.dirname, "traders-group.html"),
         "ai-trading": path.resolve(import.meta.dirname, "ai-trading.html"),
         "ai-course": path.resolve(import.meta.dirname, "ai-course.html"),
