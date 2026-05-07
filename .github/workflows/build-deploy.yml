@@ -35,29 +35,38 @@ jobs:
       - name: Install lftp
         run: sudo apt-get install -y lftp
 
-      - name: Diagnose FTP directory structure
+      - name: Diagnose htdocs directory
         run: |
           lftp -c "
             set ftp:ssl-allow yes;
             set ssl:verify-certificate no;
             set ftp:passive-mode yes;
             open -u '${{ secrets.FTP_USERNAME }}','${{ secrets.FTP_PASSWORD }}' ftp://${{ secrets.FTP_HOST }};
-            echo '=== FTP root (pwd) ===';
-            pwd;
-            echo '=== FTP root (ls) ===';
-            ls;
-            echo '=== public_html contents ===';
+            echo '=== Contents of htdocs/ ===';
+            ls htdocs/;
+            echo '=== Contents of public_html/ ===';
             ls public_html/;
             bye
           "
 
-      - name: Deploy via FTP
+      - name: Deploy to public_html
         run: |
           lftp -c "
             set ftp:ssl-allow yes;
             set ssl:verify-certificate no;
             set ftp:passive-mode yes;
             open -u '${{ secrets.FTP_USERNAME }}','${{ secrets.FTP_PASSWORD }}' ftp://${{ secrets.FTP_HOST }};
-            mirror --reverse --verbose --no-perms --exclude .git ./artifacts/options21/dist/public/ public_html/;
+            mirror --reverse --delete --verbose --no-perms ./artifacts/options21/dist/public/ public_html/;
+            bye
+          "
+
+      - name: Deploy to htdocs
+        run: |
+          lftp -c "
+            set ftp:ssl-allow yes;
+            set ssl:verify-certificate no;
+            set ftp:passive-mode yes;
+            open -u '${{ secrets.FTP_USERNAME }}','${{ secrets.FTP_PASSWORD }}' ftp://${{ secrets.FTP_HOST }};
+            mirror --reverse --delete --verbose --no-perms ./artifacts/options21/dist/public/ htdocs/;
             bye
           "
