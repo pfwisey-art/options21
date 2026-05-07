@@ -35,13 +35,29 @@ jobs:
       - name: Install lftp
         run: sudo apt-get install -y lftp
 
-      - name: Deploy via FTP
+      - name: Diagnose FTP directory structure
         run: |
-          lftp -d -c "
+          lftp -c "
             set ftp:ssl-allow yes;
             set ssl:verify-certificate no;
             set ftp:passive-mode yes;
             open -u '${{ secrets.FTP_USERNAME }}','${{ secrets.FTP_PASSWORD }}' ftp://${{ secrets.FTP_HOST }};
-            mirror --reverse --delete --verbose ./artifacts/options21/dist/public/ /;
+            echo '=== FTP root (pwd) ===';
+            pwd;
+            echo '=== FTP root (ls) ===';
+            ls;
+            echo '=== public_html contents ===';
+            ls public_html/;
+            bye
+          "
+
+      - name: Deploy via FTP
+        run: |
+          lftp -c "
+            set ftp:ssl-allow yes;
+            set ssl:verify-certificate no;
+            set ftp:passive-mode yes;
+            open -u '${{ secrets.FTP_USERNAME }}','${{ secrets.FTP_PASSWORD }}' ftp://${{ secrets.FTP_HOST }};
+            mirror --reverse --verbose --no-perms --exclude .git ./artifacts/options21/dist/public/ public_html/;
             bye
           "
