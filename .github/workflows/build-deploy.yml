@@ -32,12 +32,16 @@ jobs:
       - name: Build site
         run: PORT=3000 BASE_PATH=/ pnpm --filter @workspace/options21 run build
 
+      - name: Install lftp
+        run: sudo apt-get install -y lftp
+
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./artifacts/options21/dist/public/
-          server-dir: /public_html/
-          dangerous-clean-slate: true
+        run: |
+          lftp -d -c "
+            set ftp:ssl-allow yes;
+            set ssl:verify-certificate no;
+            set ftp:passive-mode yes;
+            open -u '${{ secrets.FTP_USERNAME }}','${{ secrets.FTP_PASSWORD }}' ftp://${{ secrets.FTP_HOST }};
+            mirror --reverse --delete --verbose ./artifacts/options21/dist/public/ /public_html/;
+            bye
+          "
