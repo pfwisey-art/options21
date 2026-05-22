@@ -68,6 +68,7 @@ export default defineConfig({
         "article-gold-silver-ratio": path.resolve(import.meta.dirname, "article-gold-silver-ratio.html"),
         "article-us-debt-default": path.resolve(import.meta.dirname, "article-us-debt-default.html"),
         "article-tokenised-assets-afsl": path.resolve(import.meta.dirname, "article-tokenised-assets-afsl.html"),
+        "article-moodys-downgrade": path.resolve(import.meta.dirname, "article-moodys-downgrade.html"),
         "article-mstr-trade-note": path.resolve(import.meta.dirname, "article-mstr-trade-note.html"),
         "article-bitcoin-etfs-us": path.resolve(import.meta.dirname, "article-bitcoin-etfs-us.html"),
       },
