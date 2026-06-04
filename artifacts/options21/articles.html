@@ -728,11 +728,12 @@
 
   <script>
     // ── Filter + Search ─────────────────────────────────
-    const cards       = document.querySelectorAll('.art-card');
-    const searchInput = document.getElementById('search-input');
-    const countEl     = document.getElementById('result-count');
-    const noResults   = document.getElementById('no-results');
-    let activeCat     = 'all';
+    const cards          = document.querySelectorAll('.art-card');
+    const searchInput    = document.getElementById('search-input');
+    const countEl        = document.getElementById('result-count');
+    const noResults      = document.getElementById('no-results');
+    const featuredSection = document.querySelector('.featured-section');
+    let activeCat        = 'all';
 
     // Compute per-category counts (all cards, ignoring coming-soon status)
     const catCounts = { all: 0 };
@@ -761,6 +762,9 @@
       });
       countEl.textContent = visible + ' article' + (visible !== 1 ? 's' : '');
       noResults.style.display = visible === 0 ? 'block' : 'none';
+      if (featuredSection) {
+        featuredSection.style.display = (activeCat === 'all' && !q) ? '' : 'none';
+      }
     }
 
     function activateFilter(cat) {
