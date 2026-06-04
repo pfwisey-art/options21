@@ -132,8 +132,33 @@
     .footer-links a{font-size:12px;color:var(--grey);transition:color 0.2s;}
     .footer-links a:hover{color:var(--white);}
 
-    @media(max-width:1024px){.articles-grid{grid-template-columns:repeat(2,1fr);}.featured-grid{grid-template-columns:1fr;}.featured-card:first-child{flex-direction:column;}.footer-top{grid-template-columns:1fr 1fr;}}
-    @media(max-width:768px){nav{padding:0 20px;}.nav-links,.nav-cta{display:none;}.nav-mobile-toggle{display:block;}.container,.hero,.controls{padding-left:20px;padding-right:20px;}.articles-grid{grid-template-columns:1fr;}.controls{position:static;}.hero-stats{gap:24px;}.footer-top{grid-template-columns:1fr 1fr;}}
+    /* CATEGORY INDEX */
+    .cat-index{background:var(--surface);border-bottom:1px solid var(--border);padding:48px 0;}
+    .cat-index-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px;}
+    .cat-panel{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:18px 20px;transition:border-color 0.2s;}
+    .cat-panel:hover{border-color:var(--gold-dim);}
+    .cat-panel-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+    .cat-panel-name{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--white);}
+    .cat-panel-count{font-family:var(--font-mono);font-size:10px;color:var(--gold);background:var(--gold-glow);padding:2px 7px;border-radius:2px;white-space:nowrap;}
+    .cat-panel-list{list-style:none;display:flex;flex-direction:column;gap:5px;}
+    .cat-panel-list li{display:flex;align-items:baseline;gap:6px;}
+    .cat-panel-list li a{font-size:12px;color:var(--grey);line-height:1.45;display:block;transition:color 0.15s;}
+    .cat-panel-list li a:hover{color:var(--gold);}
+    .cat-panel-list li.soon a{color:rgba(136,146,164,0.35);pointer-events:none;cursor:default;}
+    .soon-tag{font-family:var(--font-mono);font-size:9px;color:rgba(136,146,164,0.4);white-space:nowrap;flex-shrink:0;}
+    .cat-filter-link{font-family:var(--font-mono);font-size:9px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;margin-top:12px;display:inline-block;opacity:0.7;transition:opacity 0.15s;}
+    .cat-filter-link:hover{opacity:1;}
+
+    /* COMING SOON CARD */
+    .art-card.coming-soon{opacity:0.55;pointer-events:none;position:relative;}
+    .art-card.coming-soon:hover{transform:none;border-color:var(--border);}
+    .coming-soon-badge{position:absolute;top:8px;right:8px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;background:var(--surface2);border:1px solid var(--border);color:var(--grey);padding:3px 8px;border-radius:3px;z-index:2;}
+
+    /* FILTER COUNT */
+    .filter-count{font-family:var(--font-mono);font-size:10px;opacity:0.65;margin-left:4px;}
+
+    @media(max-width:1024px){.articles-grid{grid-template-columns:repeat(2,1fr);}.featured-grid{grid-template-columns:1fr;}.featured-card:first-child{flex-direction:column;}.footer-top{grid-template-columns:1fr 1fr;}.cat-index-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:768px){nav{padding:0 20px;}.nav-links,.nav-cta{display:none;}.nav-mobile-toggle{display:block;}.container,.hero,.controls{padding-left:20px;padding-right:20px;}.articles-grid{grid-template-columns:1fr;}.controls{position:static;}.hero-stats{gap:24px;}.footer-top{grid-template-columns:1fr 1fr;}.cat-index-grid{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
@@ -162,10 +187,122 @@
       <h1>Market research &amp;<br/><em>trade intelligence</em></h1>
       <p class="hero-sub">Trade notes, geopolitical analysis, sector research and investor education written by Paul Wise. Covering AI, commodities, crypto, macro and equities markets.</p>
       <div class="hero-stats">
-        <div><div class="stat-num">35+</div><div class="stat-label">Research Notes</div></div>
+        <div><div class="stat-num">27</div><div class="stat-label">Live Articles</div></div>
         <div><div class="stat-num">6</div><div class="stat-label">Coverage Categories</div></div>
         <div><div class="stat-num">2025–26</div><div class="stat-label">Archive Depth</div></div>
         <div><div class="stat-num">Free</div><div class="stat-label">All Articles</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY INDEX -->
+  <section class="cat-index">
+    <div class="container">
+      <div class="section-label reveal">Browse by topic</div>
+      <div class="cat-index-grid reveal">
+
+        <!-- AI & Technology -->
+        <div class="cat-panel">
+          <div class="cat-panel-header">
+            <span class="cat-panel-name">AI &amp; Technology</span>
+            <span class="cat-panel-count">6 live · 1 soon</span>
+          </div>
+          <ul class="cat-panel-list">
+            <li><a href="article-ai-infrastructure.html">AI Infrastructure: The Full Stack Driving Markets</a></li>
+            <li><a href="article-three-layers-ai.html">The Three Layers of AI: Where Opportunity Lives</a></li>
+            <li><a href="article-tesla-optimus.html">Tesla Optimus Gen 3: The Humanoid Robot Case</a></li>
+            <li><a href="article-tesla-cybercab.html">Tesla Cybercab: Mass-Market Autonomous Mobility</a></li>
+            <li><a href="article-elon-infrastructure.html">Elon's Infrastructure: xAI, Tesla &amp; SpaceX</a></li>
+            <li><a href="article-texas-ai-capacity.html">Texas AI Capacity: The Power Grid Crisis</a></li>
+            <li><a href="article-tesla-av-2025.html">Tesla Update: Where the Stock Stands</a></li>
+            <li class="soon"><a href="#">Hot Tech List — April 2026</a><span class="soon-tag">soon</span></li>
+          </ul>
+          <span class="cat-filter-link" data-filter="ai">Show all AI articles →</span>
+        </div>
+
+        <!-- Macro & Geopolitics -->
+        <div class="cat-panel">
+          <div class="cat-panel-header">
+            <span class="cat-panel-name">Macro &amp; Geopolitics</span>
+            <span class="cat-panel-count">9 live</span>
+          </div>
+          <ul class="cat-panel-list">
+            <li><a href="article-moodys-downgrade.html">America Loses Its Last AAA Rating (Moody's)</a></li>
+            <li><a href="article-us-debt-default.html">US Sovereign Debt &amp; Default Risk</a></li>
+            <li><a href="article-oil-shock-1970s.html">The 1970s Oil Shock: Drivers &amp; Consequences</a></li>
+            <li><a href="article-australia-usa-tariffs.html">Australia–USA Tariffs: What Investors Need to Know</a></li>
+            <li><a href="article-defence-etfs.html">Defence Spending: The Geopolitical Theme</a></li>
+            <li><a href="article-30yr-bond.html">The 30-Year Bond: What Surging Long Yields Mean</a></li>
+            <li><a href="article-repo-market.html">The REPO Market: Global Finance Plumbing</a></li>
+            <li><a href="article-bear-steepener.html">The Bear Steepener: What the Yield Curve Says</a></li>
+            <li><a href="article-future-equity-drivers.html">Future Drivers of Equity Markets</a></li>
+          </ul>
+          <span class="cat-filter-link" data-filter="macro">Show all Macro articles →</span>
+        </div>
+
+        <!-- Commodities -->
+        <div class="cat-panel">
+          <div class="cat-panel-header">
+            <span class="cat-panel-name">Commodities</span>
+            <span class="cat-panel-count">5 live</span>
+          </div>
+          <ul class="cat-panel-list">
+            <li><a href="article-oil-shock-risk.html">Crude Oil — Market Analysis &amp; Opportunities</a></li>
+            <li><a href="article-gold-gld.html">SPDR Gold Shares (GLD) — The Case for Gold</a></li>
+            <li><a href="article-gold-rally-history.html">Gold Rally: Historical Analysis &amp; 2025 Move</a></li>
+            <li><a href="article-gold-silver-ratio.html">Understanding the Gold/Silver Ratio</a></li>
+            <li><a href="article-copper-demand.html">Global Demand for Copper</a></li>
+          </ul>
+          <span class="cat-filter-link" data-filter="commodities">Show all Commodities articles →</span>
+        </div>
+
+        <!-- Crypto & Bitcoin -->
+        <div class="cat-panel">
+          <div class="cat-panel-header">
+            <span class="cat-panel-name">Crypto &amp; Bitcoin</span>
+            <span class="cat-panel-count">3 live · 2 soon</span>
+          </div>
+          <ul class="cat-panel-list">
+            <li><a href="article-bitcoin-etfs-us.html">US Bitcoin ETFs: A Complete Guide</a></li>
+            <li><a href="article-mstr-trade-note.html">Strategy Inc. (MSTR): Bitcoin Treasury Company</a></li>
+            <li><a href="article-bitcoin-halving.html">Understanding Bitcoin Halving</a></li>
+            <li class="soon"><a href="#">EOS Fundamentals Snapshot</a><span class="soon-tag">soon</span></li>
+            <li class="soon"><a href="#">Marathon Digital (MARA) &amp; MicroStrategy: The Proxy Trade</a><span class="soon-tag">soon</span></li>
+          </ul>
+          <span class="cat-filter-link" data-filter="crypto">Show all Crypto articles →</span>
+        </div>
+
+        <!-- Equities & Markets -->
+        <div class="cat-panel">
+          <div class="cat-panel-header">
+            <span class="cat-panel-name">Equities &amp; Markets</span>
+            <span class="cat-panel-count">3 live · 4 soon</span>
+          </div>
+          <ul class="cat-panel-list">
+            <li><a href="article-stock-buybacks-2025.html">US Stock Buybacks in 2025</a></li>
+            <li><a href="article-sector-performance-jan26.html">US Sector Performance: Who's Leading, Who's Lagging</a></li>
+            <li><a href="article-buyback-trends-2024.html">Recent Stock Buyback Trends — Data-Driven View</a></li>
+            <li class="soon"><a href="#">GM, Palantir &amp; Moderna: Trade Notes</a><span class="soon-tag">soon</span></li>
+            <li class="soon"><a href="#">DroneShield: ASX Defence Tech Play</a><span class="soon-tag">soon</span></li>
+            <li class="soon"><a href="#">Elite Trader Status: Mindset, Process &amp; Edge</a><span class="soon-tag">soon</span></li>
+            <li class="soon"><a href="#">ETFs Like INDA: The India Thesis</a><span class="soon-tag">soon</span></li>
+          </ul>
+          <span class="cat-filter-link" data-filter="equities">Show all Equities articles →</span>
+        </div>
+
+        <!-- Energy & Nuclear -->
+        <div class="cat-panel">
+          <div class="cat-panel-header">
+            <span class="cat-panel-name">Energy &amp; Nuclear</span>
+            <span class="cat-panel-count">2 live</span>
+          </div>
+          <ul class="cat-panel-list">
+            <li><a href="article-uranium-demand.html">The Demand for Uranium: Why Nuclear Is Back</a></li>
+            <li><a href="article-nuscale-smr.html">NuScale Power: Small Modular Reactor Revolution</a></li>
+          </ul>
+          <span class="cat-filter-link" data-filter="energy">Show all Energy articles →</span>
+        </div>
+
       </div>
     </div>
   </section>
@@ -178,15 +315,15 @@
         <input type="text" id="search-input" placeholder="Search articles…" autocomplete="off" />
       </div>
       <div class="filters">
-        <button class="filter-btn active" data-cat="all">All</button>
-        <button class="filter-btn" data-cat="ai">AI &amp; Technology</button>
-        <button class="filter-btn" data-cat="macro">Macro &amp; Geopolitics</button>
-        <button class="filter-btn" data-cat="commodities">Commodities</button>
-        <button class="filter-btn" data-cat="crypto">Crypto &amp; Bitcoin</button>
-        <button class="filter-btn" data-cat="equities">Equities &amp; Markets</button>
-        <button class="filter-btn" data-cat="energy">Energy &amp; Nuclear</button>
+        <button class="filter-btn active" data-cat="all">All <span class="filter-count" id="fc-all"></span></button>
+        <button class="filter-btn" data-cat="ai">AI &amp; Technology <span class="filter-count" id="fc-ai"></span></button>
+        <button class="filter-btn" data-cat="macro">Macro &amp; Geopolitics <span class="filter-count" id="fc-macro"></span></button>
+        <button class="filter-btn" data-cat="commodities">Commodities <span class="filter-count" id="fc-commodities"></span></button>
+        <button class="filter-btn" data-cat="crypto">Crypto &amp; Bitcoin <span class="filter-count" id="fc-crypto"></span></button>
+        <button class="filter-btn" data-cat="equities">Equities &amp; Markets <span class="filter-count" id="fc-equities"></span></button>
+        <button class="filter-btn" data-cat="energy">Energy &amp; Nuclear <span class="filter-count" id="fc-energy"></span></button>
       </div>
-      <span class="result-count" id="result-count">35 articles</span>
+      <span class="result-count" id="result-count"></span>
     </div>
   </div>
 
@@ -251,7 +388,8 @@
         </a>
 
         <!-- 2 -->
-        <a href="#" class="art-card cat-ai reveal reveal-delay-2" data-cat="ai" data-title="Hot Tech List April 2026">
+        <a href="#" class="art-card cat-ai coming-soon reveal reveal-delay-2" data-cat="ai" data-title="Hot Tech List April 2026">
+          <div class="coming-soon-badge">Coming Soon</div>
           <div class="art-thumb">🔥</div>
           <div class="art-body">
             <span class="art-tag">AI &amp; Technology</span>
@@ -317,7 +455,8 @@
         </a>
 
         <!-- 8 -->
-        <a href="#" class="art-card cat-equities reveal reveal-delay-2" data-cat="equities" data-title="GM PLTR Palantir MRNA Moderna Retail Investors Trade Note">
+        <a href="#" class="art-card cat-equities coming-soon reveal reveal-delay-2" data-cat="equities" data-title="GM PLTR Palantir MRNA Moderna Retail Investors Trade Note">
+          <div class="coming-soon-badge">Coming Soon</div>
           <div class="art-thumb">📊</div>
           <div class="art-body">
             <span class="art-tag">Equities &amp; Markets</span>
@@ -449,7 +588,8 @@
         </a>
 
         <!-- 20 -->
-        <a href="#" class="art-card cat-crypto reveal reveal-delay-2" data-cat="crypto" data-title="EOS Fundamentals Snapshot Crypto">
+        <a href="#" class="art-card cat-crypto coming-soon reveal reveal-delay-2" data-cat="crypto" data-title="EOS Fundamentals Snapshot Crypto">
+          <div class="coming-soon-badge">Coming Soon</div>
           <div class="art-thumb">🔮</div>
           <div class="art-body">
             <span class="art-tag">Crypto &amp; Bitcoin</span>
@@ -460,7 +600,8 @@
         </a>
 
         <!-- 21 -->
-        <a href="#" class="art-card cat-crypto reveal reveal-delay-3" data-cat="crypto" data-title="Marathon Digital MARA MSTR MicroStrategy Bitcoin">
+        <a href="#" class="art-card cat-crypto coming-soon reveal reveal-delay-3" data-cat="crypto" data-title="Marathon Digital MARA MSTR MicroStrategy Bitcoin">
+          <div class="coming-soon-badge">Coming Soon</div>
           <div class="art-thumb">⛏️</div>
           <div class="art-body">
             <span class="art-tag">Crypto &amp; Bitcoin</span>
@@ -471,7 +612,8 @@
         </a>
 
         <!-- 22 -->
-        <a href="#" class="art-card cat-equities reveal reveal-delay-1" data-cat="equities" data-title="DroneShield Limited ASX Defence Technology">
+        <a href="#" class="art-card cat-equities coming-soon reveal reveal-delay-1" data-cat="equities" data-title="DroneShield Limited ASX Defence Technology">
+          <div class="coming-soon-badge">Coming Soon</div>
           <div class="art-thumb">🛡️</div>
           <div class="art-body">
             <span class="art-tag">Equities &amp; Markets</span>
@@ -515,7 +657,8 @@
         </a>
 
         <!-- 26 -->
-        <a href="#" class="art-card cat-equities reveal reveal-delay-2" data-cat="equities" data-title="How to Achieve God Like Trader Status">
+        <a href="#" class="art-card cat-equities coming-soon reveal reveal-delay-2" data-cat="equities" data-title="How to Achieve God Like Trader Status">
+          <div class="coming-soon-badge">Coming Soon</div>
           <div class="art-thumb">🎯</div>
           <div class="art-body">
             <span class="art-tag">Trader Education</span>
@@ -559,7 +702,8 @@
         </a>
 
         <!-- 30 -->
-        <a href="#" class="art-card cat-equities reveal reveal-delay-3" data-cat="equities" data-title="ETFs like INDA India Emerging Markets">
+        <a href="#" class="art-card cat-equities coming-soon reveal reveal-delay-3" data-cat="equities" data-title="ETFs like INDA India Emerging Markets">
+          <div class="coming-soon-badge">Coming Soon</div>
           <div class="art-thumb">🌏</div>
           <div class="art-body">
             <span class="art-tag">Equities &amp; Markets</span>
@@ -602,7 +746,7 @@
           </div>
         </a>
 
-        <!-- 33 -->
+        <!-- 34 -->
         <a href="article-bitcoin-etfs-us.html" class="art-card cat-crypto reveal reveal-delay-3" data-cat="crypto" data-title="US Bitcoin ETFs Complete Guide IBIT FBTC GBTC Spot ETF">
           <div class="art-thumb">📊</div>
           <div class="art-body">
@@ -646,19 +790,32 @@
 
   <script>
     // ── Filter + Search ─────────────────────────────────
-    const cards      = document.querySelectorAll('.art-card');
+    const cards       = document.querySelectorAll('.art-card');
     const searchInput = document.getElementById('search-input');
-    const countEl    = document.getElementById('result-count');
-    const noResults  = document.getElementById('no-results');
-    let activeCat    = 'all';
+    const countEl     = document.getElementById('result-count');
+    const noResults   = document.getElementById('no-results');
+    let activeCat     = 'all';
+
+    // Compute per-category counts (all cards, ignoring coming-soon status)
+    const catCounts = { all: 0 };
+    cards.forEach(c => {
+      const cat = c.dataset.cat || '';
+      if (cat) catCounts[cat] = (catCounts[cat] || 0) + 1;
+      catCounts.all++;
+    });
+    const fcIds = ['all','ai','macro','commodities','crypto','equities','energy'];
+    fcIds.forEach(id => {
+      const el = document.getElementById('fc-' + id);
+      if (el && catCounts[id]) el.textContent = '(' + catCounts[id] + ')';
+    });
 
     function updateGrid() {
       const q = searchInput.value.toLowerCase().trim();
       let visible = 0;
       cards.forEach(card => {
-        const cat     = card.dataset.cat || '';
-        const title   = (card.dataset.title || card.querySelector('.art-title')?.textContent || '').toLowerCase();
-        const excerpt = (card.querySelector('.art-excerpt')?.textContent || '').toLowerCase();
+        const cat       = card.dataset.cat || '';
+        const title     = (card.dataset.title || card.querySelector('.art-title')?.textContent || '').toLowerCase();
+        const excerpt   = (card.querySelector('.art-excerpt')?.textContent || '').toLowerCase();
         const catMatch  = activeCat === 'all' || cat === activeCat;
         const textMatch = !q || title.includes(q) || excerpt.includes(q);
         if (catMatch && textMatch) { card.classList.remove('hidden'); visible++; }
@@ -668,15 +825,27 @@
       noResults.style.display = visible === 0 ? 'block' : 'none';
     }
 
+    function activateFilter(cat) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      const btn = document.querySelector('.filter-btn[data-cat="' + cat + '"]');
+      if (btn) btn.classList.add('active');
+      activeCat = cat;
+      updateGrid();
+      document.querySelector('.articles-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
     document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeCat = btn.dataset.cat;
-        updateGrid();
-      });
+      btn.addEventListener('click', () => activateFilter(btn.dataset.cat));
     });
     searchInput.addEventListener('input', updateGrid);
+
+    // ── Category Index "Show all …" links ───────────────
+    document.querySelectorAll('.cat-filter-link').forEach(link => {
+      link.addEventListener('click', () => activateFilter(link.dataset.filter));
+    });
+
+    // ── Init count ──────────────────────────────────────
+    updateGrid();
 
     // ── Scroll Reveal ───────────────────────────────────
     const observer = new IntersectionObserver(
