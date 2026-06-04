@@ -195,6 +195,26 @@
     </div>
   </section>
 
+  <!-- SEARCH + FILTERS -->
+  <div class="controls">
+    <div class="controls-inner">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search articles…" autocomplete="off" />
+      </div>
+      <div class="filters">
+        <button class="filter-btn active" data-cat="all">All <span class="filter-count" id="fc-all"></span></button>
+        <button class="filter-btn" data-cat="ai">AI &amp; Technology <span class="filter-count" id="fc-ai"></span></button>
+        <button class="filter-btn" data-cat="macro">Macro &amp; Geopolitics <span class="filter-count" id="fc-macro"></span></button>
+        <button class="filter-btn" data-cat="commodities">Commodities <span class="filter-count" id="fc-commodities"></span></button>
+        <button class="filter-btn" data-cat="crypto">Crypto &amp; Bitcoin <span class="filter-count" id="fc-crypto"></span></button>
+        <button class="filter-btn" data-cat="equities">Equities &amp; Markets <span class="filter-count" id="fc-equities"></span></button>
+        <button class="filter-btn" data-cat="energy">Energy &amp; Nuclear <span class="filter-count" id="fc-energy"></span></button>
+      </div>
+      <span class="result-count" id="result-count"></span>
+    </div>
+  </div>
+
   <!-- CATEGORY INDEX -->
   <section class="cat-index">
     <div class="container">
@@ -301,26 +321,6 @@
       </div>
     </div>
   </section>
-
-  <!-- SEARCH + FILTERS -->
-  <div class="controls">
-    <div class="controls-inner">
-      <div class="search-wrap">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="search-input" placeholder="Search articles…" autocomplete="off" />
-      </div>
-      <div class="filters">
-        <button class="filter-btn active" data-cat="all">All <span class="filter-count" id="fc-all"></span></button>
-        <button class="filter-btn" data-cat="ai">AI &amp; Technology <span class="filter-count" id="fc-ai"></span></button>
-        <button class="filter-btn" data-cat="macro">Macro &amp; Geopolitics <span class="filter-count" id="fc-macro"></span></button>
-        <button class="filter-btn" data-cat="commodities">Commodities <span class="filter-count" id="fc-commodities"></span></button>
-        <button class="filter-btn" data-cat="crypto">Crypto &amp; Bitcoin <span class="filter-count" id="fc-crypto"></span></button>
-        <button class="filter-btn" data-cat="equities">Equities &amp; Markets <span class="filter-count" id="fc-equities"></span></button>
-        <button class="filter-btn" data-cat="energy">Energy &amp; Nuclear <span class="filter-count" id="fc-energy"></span></button>
-      </div>
-      <span class="result-count" id="result-count"></span>
-    </div>
-  </div>
 
   <!-- FEATURED (top 4 most recent) -->
   <section class="featured-section">
