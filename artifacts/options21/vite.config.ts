@@ -71,6 +71,8 @@ export default defineConfig({
         "article-moodys-downgrade": path.resolve(import.meta.dirname, "article-moodys-downgrade.html"),
         "article-mstr-trade-note": path.resolve(import.meta.dirname, "article-mstr-trade-note.html"),
         "article-bitcoin-etfs-us": path.resolve(import.meta.dirname, "article-bitcoin-etfs-us.html"),
+        "article-droneshield": path.resolve(import.meta.dirname, "article-droneshield.html"),
+        "article-gm-pltr-mrna": path.resolve(import.meta.dirname, "article-gm-pltr-mrna.html"),
       },
     },
   },
