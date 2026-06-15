@@ -73,6 +73,7 @@ export default defineConfig({
         "article-bitcoin-etfs-us": path.resolve(import.meta.dirname, "article-bitcoin-etfs-us.html"),
         "article-droneshield": path.resolve(import.meta.dirname, "article-droneshield.html"),
         "article-gm-pltr-mrna": path.resolve(import.meta.dirname, "article-gm-pltr-mrna.html"),
+        "article-bitcoin-price-drivers": path.resolve(import.meta.dirname, "article-bitcoin-price-drivers.html"),
       },
     },
   },
