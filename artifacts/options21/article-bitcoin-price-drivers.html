@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bitcoin: What Drives the Price — June 2026 | Options21</title>
+  <meta name="description" content="What actually drives the price of Bitcoin — fixed supply, institutional demand, macro liquidity, US regulation, and why it's falling in mid-2026. A first-principles trade note for retail investors."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0D0F14;--surface:#161B27;--surface2:#1C2235;--border:#2A3045;--gold:#F59E0B;--gold-dim:#B97D0A;--gold-glow:rgba(245,158,11,0.12);--white:#F0F2F8;--grey:#8892A4;--grey-light:#BCC5D6;--font-display:'Cormorant Garamond',serif;--font-body:'DM Sans',sans-serif;--font-mono:'JetBrains Mono',monospace;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden;}a{color:inherit;text-decoration:none;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.6;}
+    nav{position:sticky;top:0;z-index:200;background:rgba(13,15,20,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px;}
+    .nav-logo{font-family:var(--font-display);font-size:24px;font-weight:700;}.nav-logo span{color:var(--gold);}
+    .nav-links{display:flex;gap:18px;list-style:none;flex-wrap:nowrap;align-items:center;}.nav-links a{font-size:12px;font-weight:500;color:var(--grey);transition:color 0.2s;white-space:nowrap;}.nav-links a:hover{color:var(--white);}
+    .nav-cta{background:var(--gold);color:#000;font-size:13px;font-weight:600;padding:9px 22px;border-radius:4px;}.nav-mobile-toggle{display:none;cursor:pointer;font-size:24px;color:var(--white);}
+    .breadcrumb{padding:20px 40px;background:var(--surface);border-bottom:1px solid var(--border);position:relative;z-index:1;}
+    .breadcrumb-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--grey);}
+    .breadcrumb a{color:var(--grey);}.breadcrumb a:hover{color:var(--gold);}.breadcrumb-sep{color:var(--border);}
+    .article-hero{padding:64px 40px 48px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+    .article-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(245,158,11,0.04) 0%,transparent 70%);}
+    .article-hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:2;}
+    .article-cat{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px;}.article-cat::before{content:'';width:24px;height:1px;background:var(--gold);}
+    .article-title{font-family:var(--font-display);font-size:clamp(34px,4.5vw,58px);font-weight:300;line-height:1.1;letter-spacing:-0.5px;margin-bottom:20px;}.article-title em{font-style:italic;color:var(--gold);}
+    .article-deck{font-size:18px;color:var(--grey-light);line-height:1.7;font-weight:300;max-width:680px;margin-bottom:32px;}
+    .article-meta-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding-top:24px;border-top:1px solid var(--border);}
+    .meta-author{display:flex;align-items:center;gap:10px;}.meta-avatar{width:36px;height:36px;border-radius:50%;background:var(--gold-glow);border:1px solid rgba(245,158,11,0.2);display:flex;align-items:center;justify-content:center;font-size:16px;}
+    .meta-name{font-size:13px;font-weight:600;}.meta-title{font-size:11px;color:var(--grey);}
+    .meta-divider{width:1px;height:28px;background:var(--border);}
+    .meta-item{font-size:12px;color:var(--grey);font-family:var(--font-mono);}.meta-label{font-size:10px;color:var(--grey);text-transform:uppercase;letter-spacing:0.08em;display:block;}.meta-value{color:var(--grey-light);}
+    .key-figures{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:24px 28px;margin:0 40px 0;position:relative;z-index:1;}
+    .key-figures-inner{max-width:860px;margin:0 auto;}.key-figures-label{font-family:var(--font-mono);font-size:10px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;}.key-figures-text{font-size:14px;color:var(--grey-light);line-height:1.7;}
+    .article-layout{display:grid;grid-template-columns:860px;justify-content:center;padding:56px 40px 96px;gap:48px;}.article-body{min-width:0;}
+    .prose h2{font-family:var(--font-display);font-size:clamp(26px,3vw,38px);font-weight:300;line-height:1.15;letter-spacing:-0.3px;margin:56px 0 20px;}.prose h2 em{font-style:italic;color:var(--gold);}
+    .prose h3{font-family:var(--font-display);font-size:22px;font-weight:600;margin:32px 0 14px;color:var(--white);}
+    .prose p{font-size:16px;color:var(--grey-light);line-height:1.85;margin-bottom:20px;font-weight:300;}.prose strong{color:var(--white);font-weight:600;}
+    .prose ul{margin:0 0 20px 20px;}.prose li{font-size:15px;color:var(--grey-light);line-height:1.75;margin-bottom:8px;font-weight:300;}.prose li strong{color:var(--white);}
+    .analogy-box{background:rgba(245,158,11,0.04);border:1px solid rgba(245,158,11,0.2);border-radius:6px;padding:24px 28px;margin:28px 0;}
+    .analogy-box-label{font-family:var(--font-mono);font-size:9px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;opacity:0.9;}
+    .analogy-box p{font-size:15px;color:var(--grey-light);line-height:1.75;margin:0;font-style:italic;}
+    .impact-box{background:var(--surface2);border-left:3px solid #EF4444;border-radius:0 6px 6px 0;padding:20px 24px;margin:28px 0;}
+    .impact-box-label{font-family:var(--font-mono);font-size:9px;color:#EF4444;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;}
+    .impact-box p{font-size:14px;color:var(--grey-light);line-height:1.7;margin:0;}
+    .highlight-box{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:24px 28px;margin:32px 0;}
+    .highlight-box-label{font-family:var(--font-mono);font-size:10px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;}
+    .highlight-box p{font-size:14px;color:var(--grey-light);line-height:1.7;margin:0;}
+    .data-table-wrap{overflow-x:auto;margin:28px 0;}.data-table{width:100%;border-collapse:collapse;font-size:13px;}
+    .data-table th{background:var(--surface2);color:var(--grey);font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:1px solid var(--border);}
+    .data-table td{padding:12px 16px;border-bottom:1px solid var(--border);color:var(--grey-light);vertical-align:top;line-height:1.5;}
+    .data-table tr:nth-child(even) td{background:rgba(255,255,255,0.02);}.data-table td strong{color:var(--white);}
+    .data-table td.green{color:#22C55E;}.data-table td.red{color:#EF4444;}
+    .leg-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:32px 0;}
+    .leg-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:22px;}
+    .leg-card-title{font-family:var(--font-display);font-size:17px;font-weight:600;margin-bottom:6px;}
+    .leg-card-status{font-family:var(--font-mono);font-size:10px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;}
+    .leg-card p{font-size:13px;color:var(--grey-light);line-height:1.65;margin:0;}
+    .opp-risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:32px 0;}
+    .opp-col{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:24px;}
+    .opp-col-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:16px;}
+    .opp-col.green .opp-col-label{color:#22C55E;}.opp-col.red .opp-col-label{color:#EF4444;}
+    .opp-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .opp-col li{font-size:13px;color:var(--grey-light);padding-left:18px;position:relative;line-height:1.5;}
+    .opp-col.green li::before{content:'✓';position:absolute;left:0;color:#22C55E;font-weight:700;}
+    .opp-col.red li::before{content:'✗';position:absolute;left:0;color:#EF4444;font-weight:700;}
+    .takeaways{background:linear-gradient(135deg,#0D1520 0%,#0D0F14 100%);border:1px solid rgba(245,158,11,0.2);border-radius:8px;padding:36px;margin:48px 0 0;}
+    .takeaways-title{font-family:var(--font-display);font-size:24px;font-weight:600;margin-bottom:20px;}
+    .takeaways ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+    .takeaways li{display:flex;gap:12px;font-size:14px;color:var(--grey-light);line-height:1.6;}.takeaways li::before{content:'→';color:var(--gold);font-weight:600;flex-shrink:0;margin-top:1px;}
+    .disclaimer{margin-top:48px;padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:6px;font-size:12px;color:var(--grey);line-height:1.6;}
+    footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 40px 40px;}
+    .footer-inner{max-width:1200px;margin:0 auto;}
+    .footer-top{display:grid;grid-template-columns:280px repeat(3,1fr);gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border);}
+    .footer-logo{font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:14px;}.footer-logo span{color:var(--gold);}
+    .footer-tagline{font-size:13px;color:var(--grey);line-height:1.7;margin-bottom:20px;}.footer-afsl{font-family:var(--font-mono);font-size:10px;color:var(--grey);}
+    .footer-col h4{font-size:12px;font-weight:600;color:var(--white);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}.footer-col ul li a{font-size:13px;color:var(--grey);}.footer-col ul li a:hover{color:var(--gold);}
+    .footer-bottom{padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+    .footer-bottom p{font-size:12px;color:var(--grey);line-height:1.6;max-width:600px;}
+    .footer-links{display:flex;gap:24px;list-style:none;}.footer-links a{font-size:12px;color:var(--grey);}
+    @media(max-width:900px){.article-layout{padding:40px 20px 64px;grid-template-columns:1fr;}.breadcrumb,.article-hero,.key-figures{padding-left:20px;padding-right:20px;}.footer-top{grid-template-columns:1fr 1fr;}.leg-grid,.opp-risk-grid{grid-template-columns:1fr;}}
+    @media(max-width:768px){nav{padding:0 20px;}.nav-links,.nav-cta{display:none;}.nav-mobile-toggle{display:block;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Options<span>21</span></a>
+    <ul class="nav-links">
+      <li><a href="courses.html">Courses</a></li><li><a href="traders-group.html">Traders Group</a></li><li><a href="ai-trading.html">AI Trading</a></li><li><a href="crypto.html">Crypto</a></li><li><a href="crypto-tokenisation.html">Tokenisation</a></li><li><a href="compliance.html">Compliance</a></li><li><a href="articles.html">Articles</a></li><li><a href="about.html">About</a></li>
+    </ul>
+    <a href="traders-group.html" class="nav-cta">Join Traders Group →</a>
+    <button class="nav-mobile-toggle">☰</button>
+  </nav>
+  <div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><a href="articles.html">Research &amp; Analysis</a><span class="breadcrumb-sep">›</span><span>Crypto &amp; Bitcoin</span></div></div>
+
+  <section class="article-hero">
+    <div class="article-hero-bg"></div>
+    <div class="article-hero-inner">
+      <div class="article-cat">Crypto &amp; Bitcoin · Investor Education · June 2026</div>
+      <h1 class="article-title">Bitcoin: <em>What Drives the Price</em></h1>
+      <p class="article-deck">Fundamental drivers, US regulation in the pipeline, and why the price is falling in mid-2026. A first-principles guide — from what bitcoin actually is to the five forces that move its price — written for retail investors navigating a 50% drawdown from the October 2025 all-time high.</p>
+      <div class="article-meta-row">
+        <div class="meta-author"><div class="meta-avatar">₿</div><div><div class="meta-name">Paul Wise</div><div class="meta-title">AFSL 247412 · Options21</div></div></div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><span class="meta-label">Published</span><span class="meta-value">June 2026</span></div>
+        <div class="meta-item"><span class="meta-label">Read time</span><span class="meta-value">14 min</span></div>
+        <div class="meta-item"><span class="meta-label">Series</span><span class="meta-value">Investor Education</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="key-figures">
+    <div class="key-figures-inner">
+      <div class="key-figures-label">Snapshot — mid-2026</div>
+      <div class="key-figures-text">Bitcoin price: ~US$61,000–64,000 · All-time high (Oct 2025): ~US$126,000 · Current drawdown: ~50% · Total supply cap: 21 million BTC · Mined to date: ~19.9 million BTC · Last halving: April 2024 · Next halving: 2028 · US Strategic Bitcoin Reserve: ~328,000 BTC</div>
+    </div>
+  </div>
+
+  <div class="article-layout">
+    <div class="article-body prose">
+
+      <h2>Executive <em>Summary</em></h2>
+      <p>Bitcoin is the world's largest cryptocurrency, yet in mid-2026 it is trading around US$61,000–64,000 — down roughly 50% from its October 2025 all-time high of approximately US$126,000. For retail traders, two questions matter: what actually drives the price of bitcoin, and why is it falling now?</p>
+      <p>This note starts from first principles — what bitcoin is and how its derivative products work — then examines the fundamental forces that move the price: fixed supply, institutional demand, macro liquidity, regulation, and market structure. It pays particular attention to the United States, where landmark legislation passed in 2025 and several major bills are being written right now, each with the potential to move the price materially.</p>
+
+      <h2>1. What Is <em>Bitcoin?</em></h2>
+      <p>Bitcoin is a digital currency that exists only as entries on a shared electronic ledger called a blockchain. Unlike the Australian dollar or US dollar, no government, central bank, or company issues it or stands behind it. Instead, a global network of computers maintains the ledger, verifies every transaction, and enforces the rules — the most important of which is that <strong>only 21 million bitcoin will ever exist</strong>.</p>
+      <p>New bitcoin enters circulation through 'mining': computers compete to process transactions and are rewarded with newly created coins. Roughly every four years this reward is cut in half — an event known as the 'halving' — which steadily slows the supply of new coins. About 19.9 million bitcoin already exist, so the remaining supply growth is minimal. The last halving occurred in April 2024; the next is due in 2028.</p>
+
+      <div class="analogy-box">
+        <div class="analogy-box-label">Analogy</div>
+        <p>Think of bitcoin as digital gold. Gold is valuable partly because it is scarce, costly to extract, and no one can print more of it. Bitcoin is engineered scarcity in software form: a fixed 21-million-coin limit, a known issuance schedule, and a ledger anyone can audit. Like gold, it pays no income — its price rests entirely on what the next buyer is willing to pay.</p>
+      </div>
+
+      <p>Because bitcoin produces no earnings, dividends, or interest, it cannot be valued the way a share or bond can. Its price is set purely by supply and demand — which is why it is so volatile, and why understanding the demand drivers matters so much.</p>
+
+      <h3>How Do People Buy and Hold Bitcoin?</h3>
+      <ul>
+        <li><strong>Crypto exchanges</strong> — online platforms where you buy bitcoin directly with ordinary money and hold it in an account, or withdraw it to your own digital wallet.</li>
+        <li><strong>Self-custody wallets</strong> — software or hardware devices that hold the cryptographic 'private keys' controlling your coins. Lose the keys and the bitcoin is gone forever; there is no helpline or password reset.</li>
+        <li><strong>Exchange-traded funds (ETFs)</strong> — funds listed on traditional stock exchanges that hold bitcoin on investors' behalf, letting you gain exposure through an ordinary brokerage account without managing keys.</li>
+        <li><strong>Listed proxy shares</strong> — shares in companies that hold large amounts of bitcoin on their balance sheet (so-called 'treasury companies'), whose share prices move with, and often more violently than, bitcoin itself.</li>
+      </ul>
+
+      <h2>2. Bitcoin's <em>Derivative Products</em></h2>
+      <p>Most retail traders never touch 'raw' bitcoin. They trade products built on top of it — each with different mechanics, costs, and risks. Understanding the difference is essential, because several of these products embed leverage, and leverage is the single biggest destroyer of retail trading accounts in this market.</p>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Product</th><th>What It Is</th><th>Typical User</th><th>Key Risk</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Spot bitcoin</strong></td><td>Direct ownership of coins via an exchange or wallet</td><td>Long-term holders</td><td>Custody / key loss; exchange failure</td></tr>
+            <tr><td><strong>Spot ETFs</strong></td><td>Listed funds holding bitcoin 1:1; trade like shares</td><td>Mainstream investors, SMSFs</td><td>Fees; market hours only</td></tr>
+            <tr><td><strong>Futures</strong></td><td>Exchange-traded contracts on a future bitcoin price</td><td>Active traders, institutions</td><td>Leverage; margin calls</td></tr>
+            <tr><td><strong>Options</strong></td><td>The right (not obligation) to buy or sell at a set price</td><td>Hedgers, income traders</td><td>Complexity; time decay</td></tr>
+            <tr><td><strong>Perpetual swaps</strong></td><td>Offshore leveraged contracts with no expiry date</td><td>Speculators</td><td>Extreme leverage; liquidation</td></tr>
+            <tr><td><strong>Treasury co. shares</strong></td><td>Shares of companies holding bitcoin reserves</td><td>Equity investors</td><td>Trades at premium/discount; amplified moves</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="impact-box">
+        <div class="impact-box-label">⚠ Impact — Why Falls Are So Violent</div>
+        <p>Leverage is why bitcoin's falls are so violent. When the price drops, exchanges automatically close ('liquidate') leveraged positions, and that forced selling pushes the price down further, triggering more liquidations — a cascade. In early June 2026, a single break below US$64,000 wiped out more than <strong>US$1 billion of leveraged positions in 24 hours</strong>. A retail trader using 10× leverage can be completely wiped out by a routine 10% move.</p>
+      </div>
+
+      <h2>3. What Fundamentally <em>Drives Bitcoin's Price?</em></h2>
+      <p>Because bitcoin generates no cash flows, its price is driven by the interaction of a rigid, predictable supply with a highly variable demand. Five forces dominate.</p>
+
+      <h3>3a. Fixed Supply and the Halving Cycle</h3>
+      <p>The supply side is mechanical: 21 million coins, issuance halving every four years. Historically, the 12–18 months following each halving have coincided with major bull markets — as occurred after the April 2024 halving, with the price peaking in October 2025. Supply, however, only sets the stage. With nearly 95% of all bitcoin already mined, demand now does almost all the work.</p>
+
+      <h3>3b. Institutional Demand: ETFs, Treasuries and Sovereigns</h3>
+      <p>The launch of US spot bitcoin ETFs in January 2024 transformed the demand picture, channelling tens of billions of dollars from pension funds, advisers, and retail brokerage accounts into bitcoin. Corporate 'treasury companies' — led by Strategy (formerly MicroStrategy) — accumulated hundreds of thousands of coins. The US government itself holds roughly <strong>328,000 seized bitcoin</strong> under its Strategic Bitcoin Reserve policy. These flows are now the marginal price-setter: when ETF inflows turn to outflows, the price feels it immediately.</p>
+
+      <h3>3c. Macro Liquidity, Interest Rates and the US Dollar</h3>
+      <p>Bitcoin behaves like a high-beta risk asset. It thrives when money is cheap and plentiful — low interest rates, expanding central bank liquidity, a soft US dollar — and struggles when inflation is sticky and rate cuts are delayed. The asset marketed as an inflation hedge has, in practice, traded as a leveraged bet on global liquidity. The 2026 environment of <strong>stubborn US inflation and a cautious Federal Reserve</strong> has been a direct headwind.</p>
+
+      <h3>3d. Regulation and Government Policy</h3>
+      <p>Few assets are as sensitive to the regulatory news cycle as bitcoin. Clear, supportive rules unlock institutional capital that compliance departments would otherwise block; hostile rules, enforcement actions, or legislative stalling do the reverse. Section 4 covers the US legislative pipeline in detail, because Washington is currently the single most important regulatory jurisdiction for bitcoin's price.</p>
+
+      <h3>3e. Market Structure, Leverage and Sentiment</h3>
+      <p>Finally, bitcoin's price is shaped by its own internal plumbing: the level of leverage in the system, the behaviour of large holders ('whales'), miner selling pressure, and crowd psychology. Sentiment swings between euphoria and panic faster than in any traditional market, and because the market trades 24/7 with no circuit breakers, moves that would take weeks in equities can occur overnight.</p>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Driver</th><th>Supportive for Price</th><th>Adverse for Price</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Supply / halving</strong></td><td class="green">Post-halving scarcity effect</td><td class="red">Fades as cycle matures</td></tr>
+            <tr><td><strong>ETF &amp; institutional flows</strong></td><td class="green">Sustained inflows</td><td class="red">Persistent outflows (2026)</td></tr>
+            <tr><td><strong>Macro / Fed policy</strong></td><td class="green">Rate cuts, ample liquidity</td><td class="red">Sticky inflation, delayed cuts</td></tr>
+            <tr><td><strong>US dollar</strong></td><td class="green">Weak dollar</td><td class="red">Strong dollar</td></tr>
+            <tr><td><strong>Regulation</strong></td><td class="green">Clear, supportive laws</td><td class="red">Stalled bills, enforcement</td></tr>
+            <tr><td><strong>Leverage &amp; sentiment</strong></td><td class="green">Healthy spot-led buying</td><td class="red">Liquidation cascades, fear</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>4. US Legislation: <em>What Is in the Pipeline?</em></h2>
+      <p>The United States is in the middle of the most consequential rewrite of digital asset law in its history. One landmark act is already law and being implemented; two more measures are being written and negotiated right now. Each has genuine potential to move bitcoin's price — in either direction.</p>
+
+      <div class="leg-grid">
+        <div class="leg-card">
+          <div class="leg-card-title">The GENIUS Act</div>
+          <div class="leg-card-status">✓ Law — Implementation Underway</div>
+          <p>Signed into law on 18 July 2025, the GENIUS Act created the first federal framework for payment stablecoins — digital tokens pegged 1:1 to the US dollar and backed by cash and Treasury bills. Stablecoins are the cash leg of nearly every crypto trade, so regulating them legitimises the market's core plumbing. The US Treasury is writing the implementing rules now, with key guidelines due around July 2026. Smooth implementation deepens market liquidity and institutional confidence.</p>
+        </div>
+        <div class="leg-card">
+          <div class="leg-card-title">The CLARITY Act</div>
+          <div class="leg-card-status">⏳ Senate Committee Approved — Floor Vote Pending</div>
+          <p>The centrepiece: it would finally settle which agency regulates what, drawing the line between the SEC and CFTC, and creating a tailored regime for exchanges, brokers, custody, and decentralised finance. The House passed its version in July 2025. On 14 May 2026, the Senate Banking Committee advanced its version 15–9 in a bipartisan vote — a major step. But the full Senate floor vote is unscheduled. With roughly eight weeks of Senate floor time before midterm season consumes Washington, the window for 2026 passage is narrow. Every sign of progress sends bitcoin higher; stalling is a headwind.</p>
+        </div>
+        <div class="leg-card">
+          <div class="leg-card-title">Strategic Bitcoin Reserve / ARMA</div>
+          <div class="leg-card-status">⏳ Executive Order in Force — Bill Introduced 21 May 2026</div>
+          <p>A March 2025 executive order established a Strategic Bitcoin Reserve, directing the US government to retain rather than sell its ~328,000 seized bitcoin. Because an executive order can be reversed by a future president, Congress is moving to make it permanent: the American Reserve Modernization Act (H.R. 8957), introduced 21 May 2026 with bipartisan sponsorship, would codify the reserve in federal law and impose a 20-year minimum holding period. Codification would remove reversal risk and signal long-term sovereign demand.</p>
+        </div>
+        <div class="leg-card">
+          <div class="leg-card-title">The Regulators: A Friendlier SEC &amp; CFTC</div>
+          <div class="leg-card-status">✓ Ongoing — Supportive Posture</div>
+          <p>Beyond legislation, the regulators themselves have pivoted. The SEC under its current leadership has shifted from enforcement-led hostility to rulemaking — including a March 2026 interpretation treating bitcoin mining and staking as administrative activity, and an 'Innovation Exemption' pathway for new products. The CFTC has widened the institutional on-ramp for regulated stablecoin issuers. This quieter regulatory thaw removes legal risk that previously deterred institutional participation.</p>
+        </div>
+      </div>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Measure</th><th>Status (June 2026)</th><th>Potential Price Impact</th></tr></thead>
+          <tbody>
+            <tr><td><strong>GENIUS Act</strong> (stablecoins)</td><td>Law; Treasury rules due ~July 2026</td><td>Supportive if implementation smooth</td></tr>
+            <tr><td><strong>CLARITY Act</strong> (market structure)</td><td>Passed Senate committee 14 May; floor vote pending</td><td><strong>Major positive if passed; drag if it stalls</strong></td></tr>
+            <tr><td><strong>Strategic Reserve / ARMA</strong></td><td>EO in force; codifying bill introduced 21 May</td><td>Structurally bullish if codified</td></tr>
+            <tr><td><strong>SEC / CFTC rulemaking</strong></td><td>Ongoing; supportive posture</td><td>Gradual de-risking for institutions</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="impact-box">
+        <div class="impact-box-label">⚠ Impact — Legislation Cuts Both Ways</div>
+        <p>The market has already priced in considerable optimism about the CLARITY Act. If it passes the Senate before the midterms, expect a meaningful relief rally as institutional barriers fall. If it stalls into 2027 — the likelier scenario on current floor-time arithmetic — the disappointment itself becomes a headwind. Retail traders should treat <strong>headline risk around Senate scheduling as a genuine price driver</strong>, not background noise.</p>
+      </div>
+
+      <h2>5. Opportunities &amp; Risks <em>for Retail Traders</em></h2>
+
+      <div class="opp-risk-grid">
+        <div class="opp-col green">
+          <div class="opp-col-label">✓ Opportunities</div>
+          <ul>
+            <li>Scarce asset with a fixed, auditable supply — no one can print more</li>
+            <li>Regulated access via ETFs and listed products without custody risk</li>
+            <li>Improving US legal framework under way — GENIUS Act already law</li>
+            <li>Deep, liquid 24/7 global market with institutional adoption growing</li>
+            <li>Sovereign demand (US Strategic Bitcoin Reserve) structurally supportive</li>
+            <li>Diversification from traditional assets in some macro environments</li>
+          </ul>
+        </div>
+        <div class="opp-col red">
+          <div class="opp-col-label">✗ Risks to Understand</div>
+          <ul>
+            <li>Extreme volatility — 50%+ drawdowns are normal, not exceptional</li>
+            <li>No earnings or income stream — valuation is entirely sentiment-driven</li>
+            <li>Legislation can stall or turn restrictive — the CLARITY Act is not guaranteed</li>
+            <li>Leverage and liquidation cascades amplify falls rapidly</li>
+            <li>Custody risk — lost keys and platform failures have cost investors billions</li>
+            <li>Correlation to risk assets rises in a crisis, removing the diversification benefit when you need it most</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Why Is Bitcoin Falling in Mid-2026?</h3>
+      <p>The current drawdown reflects the convergence of several adverse forces acting simultaneously:</p>
+      <ul>
+        <li><strong>Post-halving cycle maturation</strong> — the supply shock from April 2024 has faded; the market already ran up and peaked in October 2025</li>
+        <li><strong>ETF outflows</strong> — institutional money that drove 2024–2025 inflows has partially reversed as risk appetite deteriorated</li>
+        <li><strong>Sticky US inflation and delayed Fed rate cuts</strong> — the macro environment that bitcoin hates most: high rates, cautious central banks, strong US dollar</li>
+        <li><strong>Legislative uncertainty</strong> — the CLARITY Act has stalled in the Senate; each week without a floor vote date disappoints the market</li>
+        <li><strong>Leveraged liquidation cascade</strong> — the break below US$64,000 in early June 2026 triggered over US$1 billion in forced liquidations, accelerating the decline</li>
+      </ul>
+
+      <div class="takeaways">
+        <div class="takeaways-title">Key Takeaways</div>
+        <ul>
+          <li>Bitcoin's price is driven by five forces: fixed supply/halving cycle, institutional flows (ETFs, treasuries, sovereigns), macro liquidity/Fed policy, US regulation, and market structure/leverage.</li>
+          <li>The mid-2026 decline reflects all five adverse simultaneously — post-halving cycle maturity, ETF outflows, sticky inflation, CLARITY Act stalling, and a leveraged cascade below US$64,000.</li>
+          <li>The US regulatory pipeline is the most important near-term price catalyst. The CLARITY Act passing the Senate would be a major positive; further stalling into 2027 is a headwind. The GENIUS Act implementation (~July 2026) matters too.</li>
+          <li>The Strategic Bitcoin Reserve executive order is real but reversible. The ARMA bill to codify it permanently in law (introduced 21 May 2026) — if passed — removes reversal risk and signals long-term sovereign demand.</li>
+          <li>Leverage is the retail trader's greatest enemy in this market. A 10× leveraged position can be wiped out by a 10% move — which bitcoin routinely delivers in a single session.</li>
+          <li>Access bitcoin through ETFs or listed equity products if you want exposure without custody risk. Keep position sizes small relative to your total portfolio — 50%+ drawdowns are a feature, not a bug.</li>
+        </ul>
+      </div>
+
+      <div class="disclaimer">
+        <strong>General Advice Disclaimer:</strong> This trade note is produced for educational and informational purposes only under the Investor Education Series. It does not constitute financial advice or a recommendation to buy, sell, or hold any security or digital asset. Cryptocurrency markets are highly volatile and speculative. All data is approximate, based on publicly available information as of June 2026, and subject to rapid change. Legislative timelines and outcomes are uncertain. Investors should conduct their own research and seek independent financial advice before making any investment decision. Ivanhoe International Pty Ltd (AFSL 247412) provides general advice only on Derivatives, Foreign Exchange Contracts and Securities.
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">Options<span>21</span></div>
+          <p class="footer-tagline">Trading intelligence for serious Australian options traders. Courses, tools, live broadcasts and market analysis.</p>
+          <div class="footer-afsl">AFSL 247412 · Ivanhoe International Pty Ltd<br/>PO Box 744 Hillarys WA 6923<br/>paul@options21.com.au</div>
+        </div>
+        <div class="footer-col"><h4>Courses</h4><ul><li><a href="traders-group.html">Traders Group</a></li><li><a href="ai-course.html">AI Trading Course</a></li><li><a href="mentoring.html">Options Mentoring</a></li></ul></div>
+        <div class="footer-col"><h4>Research</h4><ul><li><a href="articles.html">All Articles</a></li><li><a href="crypto.html">Crypto</a></li><li><a href="ai-trading.html">AI Trading</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Paul Wise</a></li><li><a href="compliance.html">Veriqua Compliance</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Ivanhoe International Pty Ltd. AFSL 247412. General financial product advice only. Past performance is not a reliable indicator of future results.</p>
+        <ul class="footer-links"><li><a href="privacy.html">Privacy</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="about.html#legal">FSG</a></li></ul>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.querySelector('.nav-mobile-toggle').addEventListener('click',()=>{const l=document.querySelector('.nav-links');l.style.display=l.style.display==='flex'?'none':'flex';if(l.style.display==='flex')Object.assign(l.style,{flexDirection:'column',position:'absolute',top:'68px',left:'0',right:'0',background:'#0D0F14',padding:'24px 20px',borderBottom:'1px solid #2A3045',gap:'20px',zIndex:'199'});});
+  </script>
+</body>
+</html>
