@@ -74,6 +74,7 @@ export default defineConfig({
         "article-droneshield": path.resolve(import.meta.dirname, "article-droneshield.html"),
         "article-gm-pltr-mrna": path.resolve(import.meta.dirname, "article-gm-pltr-mrna.html"),
         "article-bitcoin-price-drivers": path.resolve(import.meta.dirname, "article-bitcoin-price-drivers.html"),
+        "article-us-jobs-stagflation": path.resolve(import.meta.dirname, "article-us-jobs-stagflation.html"),
       },
     },
   },
