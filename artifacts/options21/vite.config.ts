@@ -75,6 +75,7 @@ export default defineConfig({
         "article-gm-pltr-mrna": path.resolve(import.meta.dirname, "article-gm-pltr-mrna.html"),
         "article-bitcoin-price-drivers": path.resolve(import.meta.dirname, "article-bitcoin-price-drivers.html"),
         "article-us-jobs-stagflation": path.resolve(import.meta.dirname, "article-us-jobs-stagflation.html"),
+        "article-iran-mou": path.resolve(import.meta.dirname, "article-iran-mou.html"),
       },
     },
   },
