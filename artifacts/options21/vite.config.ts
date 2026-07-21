@@ -77,6 +77,7 @@ export default defineConfig({
         "article-us-jobs-stagflation": path.resolve(import.meta.dirname, "article-us-jobs-stagflation.html"),
         "article-iran-mou": path.resolve(import.meta.dirname, "article-iran-mou.html"),
         "article-spacex-ipo": path.resolve(import.meta.dirname, "article-spacex-ipo.html"),
+        "article-us-iran-conflict": path.resolve(import.meta.dirname, "article-us-iran-conflict.html"),
       },
     },
   },
