@@ -80,6 +80,7 @@ export default defineConfig({
         "article-us-iran-conflict": path.resolve(import.meta.dirname, "article-us-iran-conflict.html"),
         "article-kimi-k3-ai-price-war": path.resolve(import.meta.dirname, "article-kimi-k3-ai-price-war.html"),
         "article-bitcoin-clarity-act": path.resolve(import.meta.dirname, "article-bitcoin-clarity-act.html"),
+        "ai-research": path.resolve(import.meta.dirname, "ai-research.html"),
       },
     },
   },
