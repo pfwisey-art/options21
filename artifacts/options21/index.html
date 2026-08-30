@@ -1,1684 +1,506 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Options21 — Trading Intelligence for Serious Investors</title>
-  <meta name="description" content="Options trading courses, AI-assisted trading tools, live Traders Group broadcasts and geopolitical market analysis. Led by Paul Wise, AFSL 247412." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Options Education and AI Research Workflows | Options21</title>
+  <meta name="description" content="Options mentoring, live weekly market analysis and one-on-one Claude workflow setups for technical and fundamental research, delivered by Paul Wise."/>
+  <meta property="og:title" content="Options21 | Market Education and AI Research Workflows"/>
+  <meta property="og:description" content="Explore options mentoring, live Traders Group sessions, Claude-assisted chart research and structured AI equity research."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://options21.com.au/"/>
+  <link rel="canonical" href="https://options21.com.au/"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
-    /* ── DESIGN TOKENS ─────────────────────────────────── */
-    :root {
-      --bg:          #0D0F14;
-      --surface:     #161B27;
-      --surface2:    #1C2235;
-      --border:      #2A3045;
-      --gold:        #F59E0B;
-      --gold-dim:    #B97D0A;
-      --gold-glow:   rgba(245,158,11,0.15);
-      --white:       #F0F2F8;
-      --grey:        #8892A4;
-      --grey-light:  #BCC5D6;
-      --green:       #22C55E;
-      --red:         #EF4444;
-      --font-display: 'Cormorant Garamond', serif;
-      --font-body:    'DM Sans', sans-serif;
-      --font-mono:    'JetBrains Mono', monospace;
+    :root{
+      --bg:#0D0F14;--surface:#161B27;--surface-2:#1C2235;--border:#2A3045;
+      --gold:#F59E0B;--gold-dim:#B97D0A;--gold-light:#FBBF24;--gold-glow:rgba(245,158,11,.12);
+      --teal:#22D3EE;--teal-dark:#0E7490;--teal-glow:rgba(34,211,238,.10);
+      --green:#22C55E;--white:#F0F2F8;--grey:#8892A4;--grey-light:#BCC5D6;
+      --display:'Cormorant Garamond',Georgia,serif;--body:'DM Sans',Arial,sans-serif;--mono:'JetBrains Mono',monospace;
     }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--white);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:10;opacity:.55;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.04'/%3E%3C/svg%3E")}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .container{width:min(1200px,100%);margin:0 auto;padding:0 40px}
+    .section{position:relative;z-index:1;padding:104px 0;border-bottom:1px solid var(--border)}
+    .section-label{display:flex;align-items:center;gap:12px;margin-bottom:16px;color:var(--gold);font:10px var(--mono);letter-spacing:.24em;text-transform:uppercase}
+    .section-label::after{content:"";width:72px;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+    .section-title{font:300 clamp(38px,4.4vw,58px)/1.08 var(--display);letter-spacing:-.5px}
+    .section-title em{color:var(--gold);font-style:italic}
+    .section-intro{max-width:650px;margin-top:18px;color:var(--grey-light);font-size:17px;font-weight:300;line-height:1.8}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:4px;padding:13px 24px;font-size:14px;font-weight:600;transition:background .2s,border-color .2s,color .2s,transform .15s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn:focus-visible,.nav-link:focus-visible,.nav-logo:focus-visible,.mobile-toggle:focus-visible{outline:3px solid var(--white);outline-offset:3px}
+    .btn-primary{background:var(--gold);color:#000}
+    .btn-primary:hover{background:var(--gold-light)}
+    .btn-ghost{border:1px solid var(--border);color:var(--grey-light)}
+    .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+    .teal-link{color:var(--teal);font-weight:600}
 
-    /* ── RESET & BASE ──────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    /* Header */
+    .site-header{position:sticky;top:0;z-index:20;background:rgba(13,15,20,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav{height:68px;display:flex;align-items:center;gap:20px}
+    .nav-logo{flex-shrink:0;font:700 25px var(--display)}
+    .nav-logo span{color:var(--gold)}
+    .nav-links{display:flex;align-items:center;justify-content:center;gap:22px;flex:1;list-style:none}
+    .nav-link{color:var(--grey);font-size:12px;font-weight:500;white-space:nowrap;transition:color .2s}
+    .nav-link:hover,.nav-link.active{color:var(--white)}
+    .nav-cta{flex-shrink:0}
+    .nav-cta.btn{padding:9px 17px;font-size:12px}
+    .mobile-toggle{display:none;background:transparent;border:0;color:var(--white);cursor:pointer;font-size:24px;line-height:1}
 
-    /* ── NOISE TEXTURE OVERLAY ─────────────────────────── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.6;
-    }
+    /* Hero */
+    .hero{position:relative;isolation:isolate;overflow:hidden;border-bottom:1px solid var(--border)}
+    .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 82% 38%,rgba(34,211,238,.06),transparent 68%),radial-gradient(ellipse 50% 80% at 12% 80%,rgba(245,158,11,.05),transparent 70%);z-index:-2}
+    .hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(42,48,69,.34) 1px,transparent 1px),linear-gradient(90deg,rgba(42,48,69,.34) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 85% 90% at 50% 40%,#000 28%,transparent 100%);z-index:-1}
+    .hero-inner{padding-top:110px;padding-bottom:92px}
+    .eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:24px;color:var(--gold);font:11px var(--mono);letter-spacing:.18em;text-transform:uppercase}
+    .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold)}
+    .hero h1{max-width:850px;font:300 clamp(52px,7.2vw,92px)/.98 var(--display);letter-spacing:-1.5px}
+    .hero h1 em{color:var(--gold);font-style:italic}
+    .hero-copy{max-width:670px;margin-top:28px;color:var(--grey-light);font-size:18px;font-weight:300;line-height:1.8}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+    .credibility{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:76px;border:1px solid var(--border);background:var(--border)}
+    .credibility-item{padding:22px 24px;background:rgba(13,15,20,.78)}
+    .credibility-value{color:var(--gold);font:600 27px/1 var(--display)}
+    .credibility-label{margin-top:7px;color:var(--grey);font-size:11px;letter-spacing:.05em;text-transform:uppercase}
 
-    /* ── TICKER BAR ────────────────────────────────────── */
-    .ticker-bar {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 8px 0;
-      overflow: hidden;
-      position: relative;
-      z-index: 100;
-    }
-    .ticker-track {
-      display: flex;
-      gap: 48px;
-      animation: ticker 35s linear infinite;
-      white-space: nowrap;
-      width: max-content;
-    }
-    .ticker-item {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-    .ticker-symbol { color: var(--grey); }
-    .ticker-price { color: var(--white); font-weight: 500; }
-    .ticker-up   { color: var(--green); }
-    .ticker-down { color: var(--red); }
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
+    /* Services */
+    .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:54px;background:var(--border);border:1px solid var(--border);border-radius:9px;overflow:hidden}
+    .service-card{display:flex;flex-direction:column;min-height:440px;padding:34px 36px;background:var(--surface);transition:background .25s}
+    .service-card:hover{background:var(--surface-2)}
+    .service-card:nth-child(2){border-top:2px solid var(--teal)}
+    .service-card:nth-child(3){border-top:2px solid var(--gold)}
+    .service-card:nth-child(4){border-top:2px solid var(--green)}
+    .service-label{margin-bottom:15px;font:10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+    .service-card:nth-child(2) .service-label{color:var(--teal)}
+    .service-card:nth-child(4) .service-label{color:var(--green)}
+    .service-card h3{font:600 30px/1.12 var(--display);letter-spacing:-.2px}
+    .service-description{margin-top:15px;color:var(--grey-light);font-size:14px;line-height:1.75}
+    .service-details{display:grid;grid-template-columns:1fr 1fr;gap:9px 18px;margin-top:22px;list-style:none}
+    .service-details li{display:flex;gap:8px;color:var(--grey);font-size:12px;line-height:1.5}
+    .service-details li::before{content:"→";color:var(--gold)}
+    .service-card:nth-child(2) .service-details li::before{color:var(--teal)}
+    .service-card:nth-child(4) .service-details li::before{color:var(--green)}
+    .service-bottom{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-top:auto;padding-top:30px}
+    .service-price{display:flex;flex-direction:column;gap:2px}
+    .service-price strong{font:600 25px/1.1 var(--display);color:var(--white)}
+    .service-price span{color:var(--grey);font-size:11px}
+    .service-card .btn{white-space:nowrap;padding:11px 16px;font-size:13px}
 
-    /* ── NAVIGATION ────────────────────────────────────── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      background: rgba(13,15,20,0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 68px;
-    }
-    .nav-logo {
-      font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      color: var(--white);
-    }
-    .nav-logo span { color: var(--gold); }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--grey);
-      letter-spacing: 0.02em;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--white); }
-    .nav-cta {
-      background: var(--gold);
-      color: #000;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 9px 22px;
-      border-radius: 4px;
-      letter-spacing: 0.02em;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .nav-cta:hover { background: #FBBF24; transform: translateY(-1px); }
-    .nav-mobile-toggle { display: none; cursor: pointer; }
+    /* AI distinction */
+    .ai-section{background:linear-gradient(180deg,var(--bg),#0D1520)}
+    .ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:54px}
+    .ai-column{padding:36px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+    .ai-column.technical{border-top:2px solid var(--teal)}
+    .ai-column.fundamental{border-top:2px solid var(--gold)}
+    .ai-column-label{font:10px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
+    .fundamental .ai-column-label{color:var(--gold)}
+    .ai-column h3{margin-top:14px;font:600 clamp(28px,3vw,38px)/1.1 var(--display)}
+    .ai-column p{margin-top:15px;color:var(--grey-light);font-size:15px;line-height:1.75}
+    .ai-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;margin:25px 0 30px;list-style:none}
+    .ai-list li{display:flex;gap:8px;color:var(--grey-light);font-size:13px}
+    .ai-list li::before{content:"✓";color:var(--teal);font-weight:700}
+    .fundamental .ai-list li::before{color:var(--gold)}
+    .ai-note{margin-top:28px;padding:20px 24px;border-left:2px solid var(--gold);background:rgba(245,158,11,.05);color:var(--grey-light);font-size:14px;line-height:1.7}
 
-    /* ── HERO ──────────────────────────────────────────── */
-    .hero {
-      position: relative;
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      padding: 80px 40px;
-    }
-    /* Animated gradient mesh */
-    .hero-mesh {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 70% 50%, rgba(245,158,11,0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 70% at 20% 80%, rgba(34,197,94,0.04) 0%, transparent 60%),
-        radial-gradient(ellipse 80% 50% at 50% 10%, rgba(99,102,241,0.04) 0%, transparent 60%);
-      animation: meshShift 12s ease-in-out infinite alternate;
-    }
-    @keyframes meshShift {
-      from { opacity: 0.8; transform: scale(1); }
-      to   { opacity: 1;   transform: scale(1.05); }
-    }
-    /* Grid lines */
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(42,48,69,0.4) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(42,48,69,0.4) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 10;
-      max-width: 780px;
-    }
-    .hero-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--gold);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 32px;
-      height: 1px;
-      background: var(--gold);
-    }
-    .hero-headline {
-      font-family: var(--font-display);
-      font-size: clamp(48px, 6vw, 86px);
-      font-weight: 300;
-      line-height: 1.05;
-      letter-spacing: -1px;
-      margin-bottom: 28px;
-      color: var(--white);
-    }
-    .hero-headline em {
-      font-style: italic;
-      color: var(--gold);
-    }
-    .hero-sub {
-      font-size: 17px;
-      color: var(--grey-light);
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 44px;
-      font-weight: 300;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: var(--gold);
-      color: #000;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 14px 32px;
-      border-radius: 4px;
-      letter-spacing: 0.02em;
-      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-primary:hover {
-      background: #FBBF24;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(245,158,11,0.3);
-    }
-    .btn-ghost {
-      border: 1px solid var(--border);
-      color: var(--grey-light);
-      font-size: 14px;
-      font-weight: 500;
-      padding: 14px 32px;
-      border-radius: 4px;
-      letter-spacing: 0.02em;
-      transition: border-color 0.2s, color 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    /* Traders Group */
+    .group-section{background:var(--surface)}
+    .group-panel{display:grid;grid-template-columns:1fr 360px;gap:72px;align-items:center;margin-top:50px}
+    .group-panel h3{font:300 clamp(34px,4vw,54px)/1.08 var(--display)}
+    .group-panel h3 em{color:var(--gold);font-style:italic}
+    .group-panel p{max-width:660px;margin-top:18px;color:var(--grey-light);font-size:16px;line-height:1.8}
+    .group-details{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 24px;margin-top:27px;list-style:none}
+    .group-details li{color:var(--grey-light);font-size:13px}
+    .group-details strong{display:block;color:var(--gold);font-size:15px}
+    .group-cta{padding:30px;background:var(--bg);border:1px solid var(--border);border-top:2px solid var(--green);border-radius:8px}
+    .group-cta-label{color:var(--green);font:10px var(--mono);letter-spacing:.18em;text-transform:uppercase}
+    .group-cta-price{margin:18px 0 5px;font:600 34px/1 var(--display)}
+    .group-cta-sub{color:var(--grey);font-size:12px}
+    .group-cta .btn{width:100%;margin-top:24px}
 
-    /* Stats strip */
-    .hero-stats {
-      position: absolute;
-      bottom: 48px;
-      left: 40px;
-      right: 40px;
-      z-index: 10;
-      display: flex;
-      gap: 48px;
-      flex-wrap: wrap;
-    }
-    .hero-stat-item {}
-    .hero-stat-num {
-      font-family: var(--font-display);
-      font-size: 36px;
-      font-weight: 600;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .hero-stat-label {
-      font-size: 12px;
-      color: var(--grey);
-      margin-top: 4px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
+    /* Articles */
+    .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+    .article-card{display:flex;flex-direction:column;min-height:350px;padding:25px;background:var(--surface);border:1px solid var(--border);border-radius:7px;transition:border-color .25s,transform .2s}
+    .article-card:hover{border-color:var(--gold-dim);transform:translateY(-3px)}
+    .article-category{color:var(--gold);font:10px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+    .article-card h3{margin-top:18px;font:600 25px/1.15 var(--display)}
+    .article-card p{margin-top:13px;color:var(--grey);font-size:13px;line-height:1.7}
+    .article-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:auto;padding-top:22px;color:var(--grey);font:10px var(--mono);letter-spacing:.03em}
+    .article-link{display:inline-flex;margin-top:17px;color:var(--gold);font-size:13px;font-weight:600}
+    .section-link{display:inline-flex;margin-top:28px;color:var(--gold);font-size:14px;font-weight:600}
 
-    /* ── SECTION WRAPPER ───────────────────────────────── */
-    section { position: relative; z-index: 1; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-    .section-pad { padding: 100px 0; }
+    /* About and secondary callout */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .about-copy p{max-width:620px;margin-top:20px;color:var(--grey-light);font-size:16px;line-height:1.85}
+    .credential-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px;list-style:none}
+    .credential-chips li{padding:8px 12px;border:1px solid var(--border);border-radius:3px;color:var(--grey-light);font:10px var(--mono);letter-spacing:.04em}
+    .about-card{padding:34px;background:var(--surface);border:1px solid var(--border);border-left:2px solid var(--gold);border-radius:7px}
+    .about-card-mark{color:var(--gold);font:700 22px var(--display)}
+    .about-card h3{margin-top:17px;font:600 30px/1.12 var(--display)}
+    .about-card p{margin-top:14px;color:var(--grey-light);font-size:14px;line-height:1.75}
+    .veriqua-section{padding:72px 0;background:#101A18;border-bottom:1px solid var(--border)}
+    .veriqua-panel{display:flex;align-items:center;justify-content:space-between;gap:36px;padding:32px 38px;border:1px solid rgba(34,197,94,.24);border-radius:8px;background:rgba(34,197,94,.04)}
+    .veriqua-label{color:var(--green);font:10px var(--mono);letter-spacing:.18em;text-transform:uppercase}
+    .veriqua-panel h2{margin-top:10px;font:600 clamp(26px,3vw,40px)/1.1 var(--display)}
+    .veriqua-panel p{max-width:690px;margin-top:12px;color:var(--grey-light);font-size:14px;line-height:1.7}
+    .veriqua-panel .btn{border-color:rgba(34,197,94,.35);color:var(--green);white-space:nowrap}
+    .veriqua-panel .btn:hover{border-color:var(--green);background:rgba(34,197,94,.08)}
 
-    /* ── SECTION LABEL ─────────────────────────────────── */
-    .section-label {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
-      max-width: 80px;
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(36px, 4vw, 56px);
-      font-weight: 300;
-      line-height: 1.1;
-      letter-spacing: -0.5px;
-    }
-    .section-title em { font-style: italic; color: var(--gold); }
+    /* Final CTA */
+    .final-cta{text-align:center;padding:104px 40px;background:radial-gradient(ellipse 55% 70% at 50% 50%,rgba(245,158,11,.06),transparent 70%)}
+    .final-cta h2{font:300 clamp(40px,5vw,66px)/1.05 var(--display)}
+    .final-cta h2 em{color:var(--gold);font-style:italic}
+    .final-cta p{max-width:590px;margin:20px auto 0;color:var(--grey-light);font-size:16px;line-height:1.75}
+    .final-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:32px}
 
-    /* ── SERVICES GRID ─────────────────────────────────── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      margin-top: 60px;
-    }
-    .service-card-wide {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 36px;
-    }
-    .service-card-wide .service-icon { margin-bottom: 0; }
-    .service-card-wide .service-desc { margin-bottom: 0; }
-    .service-card-wide-body {}
-    .service-card-wide-badge-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-    .token-stats {
-      display: flex;
-      gap: 32px;
-      flex-shrink: 0;
-    }
-    .token-stat {
-      text-align: center;
-    }
-    .token-stat-num {
-      font-family: var(--font-mono);
-      font-size: 22px;
-      color: var(--gold);
-      font-weight: 500;
-      display: block;
-    }
-    .token-stat-label {
-      font-size: 10px;
-      color: var(--grey);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      display: block;
-      margin-top: 3px;
-    }
-    .service-card {
-      background: var(--surface);
-      padding: 40px 36px;
-      transition: background 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
-    }
-    .service-card:hover { background: var(--surface2); }
-    .service-card:hover::before { transform: scaleX(1); }
-    .service-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 8px;
-      background: var(--gold-glow);
-      border: 1px solid rgba(245,158,11,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-      font-size: 20px;
-    }
-    .service-badge {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      background: var(--gold-glow);
-      border: 1px solid rgba(245,158,11,0.2);
-      padding: 3px 8px;
-      border-radius: 3px;
-      margin-bottom: 16px;
-    }
-    .service-name {
-      font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      line-height: 1.2;
-    }
-    .service-desc {
-      font-size: 14px;
-      color: var(--grey);
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-    .service-link {
-      font-size: 13px;
-      color: var(--gold);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap 0.2s;
-    }
-    .service-link:hover { gap: 10px; }
+    /* Footer */
+    footer{position:relative;z-index:1;padding:64px 0 35px;border-top:1px solid var(--border);background:var(--bg)}
+    .footer-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border)}
+    .footer-logo{font:700 23px var(--display)}
+    .footer-logo span{color:var(--gold)}
+    .footer-tagline{max-width:250px;margin-top:15px;color:var(--grey);font-size:13px;line-height:1.7}
+    .footer-contact{margin-top:18px;color:var(--grey);font:10px/1.8 var(--mono)}
+    .footer-heading{margin-bottom:16px;color:var(--white);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+    .footer-links{display:flex;flex-direction:column;gap:10px;list-style:none}
+    .footer-links a{color:var(--grey);font-size:13px;transition:color .2s}
+    .footer-links a:hover{color:var(--gold)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding-top:30px}
+    .footer-warning{max-width:760px;color:var(--grey);font-size:11px;line-height:1.7}
+    .footer-legal-links{display:flex;gap:18px;list-style:none;white-space:nowrap}
+    .footer-legal-links a{color:var(--grey);font-size:11px}
 
-    /* ── TRADERS GROUP ─────────────────────────────────── */
-    .traders-section {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .traders-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .traders-content {}
-    .traders-content p {
-      color: var(--grey-light);
-      font-size: 16px;
-      line-height: 1.8;
-      margin: 24px 0 36px;
-      font-weight: 300;
-    }
-    .countdown-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 36px;
-    }
-    .countdown-label {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--gold);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-    .countdown-timer {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-    .countdown-unit {
-      text-align: center;
-      flex: 1;
-    }
-    .countdown-num {
-      font-family: var(--font-mono);
-      font-size: 42px;
-      font-weight: 500;
-      color: var(--gold);
-      line-height: 1;
-      display: block;
-    }
-    .countdown-unit-label {
-      font-size: 10px;
-      color: var(--grey);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-top: 6px;
-      display: block;
-    }
-    .countdown-sep {
-      font-family: var(--font-mono);
-      font-size: 36px;
-      color: var(--border);
-      align-self: flex-start;
-      padding-top: 4px;
-    }
-    .session-info {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-    }
-    .session-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-    }
-    .session-row span:first-child { color: var(--grey); }
-    .session-row span:last-child  { color: var(--white); font-weight: 500; }
-    .live-dot {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .live-dot::before {
-      content: '';
-      width: 7px; height: 7px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: pulse 1.5s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.5; transform: scale(0.8); }
-    }
-
-    /* ── TRADINGVIEW SECTION ───────────────────────────── */
-    .tv-section { background: var(--bg); }
-    .tv-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 40px;
-    }
-    .tv-widget-wrap {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      height: 460px;
-    }
-    .tv-widget-wrap iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    .tv-features {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      margin-top: 32px;
-    }
-    .tv-feature {
-      padding: 20px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-    }
-    .tv-feature-icon { font-size: 20px; margin-bottom: 10px; }
-    .tv-feature-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
-    .tv-feature-desc  { font-size: 12px; color: var(--grey); line-height: 1.5; }
-
-    /* ── ARTICLES ──────────────────────────────────────── */
-    .articles-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 48px;
-    }
-    .article-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
-      cursor: pointer;
-    }
-    .article-card:hover { border-color: var(--gold-dim); transform: translateY(-4px); }
-    .article-thumb {
-      height: 160px;
-      background: linear-gradient(135deg, var(--surface2) 0%, var(--surface) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-    }
-    .article-body { padding: 24px; }
-    .article-tag {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 10px;
-      display: block;
-    }
-    .article-title {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 1.3;
-      margin-bottom: 10px;
-    }
-    .article-excerpt {
-      font-size: 13px;
-      color: var(--grey);
-      line-height: 1.6;
-    }
-    .article-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      font-size: 11px;
-      color: var(--grey);
-    }
-
-    /* ── PAUL WISE ─────────────────────────────────────── */
-    .paul-section {}
-    .paul-inner {
-      display: grid;
-      grid-template-columns: 380px 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .paul-image-wrap {
-      position: relative;
-    }
-    .paul-image-frame {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: linear-gradient(135deg, var(--surface2) 0%, var(--surface) 100%);
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 80px;
-      position: relative;
-      overflow: hidden;
-    }
-    .paul-image-frame::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 8px;
-      border: 1px solid rgba(245,158,11,0.15);
-    }
-    /* Gold corner accents */
-    .paul-image-wrap::before,
-    .paul-image-wrap::after {
-      content: '';
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      border-color: var(--gold);
-      border-style: solid;
-    }
-    .paul-image-wrap::before {
-      top: -12px; left: -12px;
-      border-width: 2px 0 0 2px;
-    }
-    .paul-image-wrap::after {
-      bottom: -12px; right: -12px;
-      border-width: 0 2px 2px 0;
-    }
-    .paul-content {}
-    .paul-content blockquote {
-      font-family: var(--font-display);
-      font-size: 26px;
-      font-style: italic;
-      font-weight: 300;
-      color: var(--grey-light);
-      line-height: 1.5;
-      margin: 24px 0;
-      padding-left: 24px;
-      border-left: 2px solid var(--gold);
-    }
-    .paul-content p {
-      font-size: 15px;
-      color: var(--grey);
-      line-height: 1.8;
-      margin-bottom: 16px;
-      font-weight: 300;
-    }
-    .paul-credentials {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 32px;
-    }
-    .cred-tag {
-      font-size: 12px;
-      padding: 6px 14px;
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      color: var(--grey-light);
-      font-family: var(--font-mono);
-      font-size: 11px;
-    }
-
-    /* ── VERIQUA COMPLIANCE BANNER ─────────────────────── */
-    .veriqua-banner {
-      background: linear-gradient(135deg, #0D1520 0%, #0D0F14 100%);
-      border: 1px solid rgba(34,197,94,0.2);
-      border-radius: 8px;
-      padding: 60px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 60px;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .veriqua-banner::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--green), transparent);
-    }
-    .veriqua-glow {
-      position: absolute;
-      right: -60px; top: -60px;
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(34,197,94,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .veriqua-label {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--green);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .veriqua-title {
-      font-family: var(--font-display);
-      font-size: 36px;
-      font-weight: 300;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .veriqua-title em { font-style: italic; color: var(--green); }
-    .veriqua-desc {
-      font-size: 15px;
-      color: var(--grey-light);
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 540px;
-    }
-    .veriqua-stats {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      min-width: 200px;
-    }
-    .veriqua-stat {
-      text-align: center;
-      padding: 20px;
-      background: rgba(34,197,94,0.05);
-      border: 1px solid rgba(34,197,94,0.12);
-      border-radius: 6px;
-    }
-    .veriqua-stat-num {
-      font-family: var(--font-mono);
-      font-size: 28px;
-      color: var(--green);
-      font-weight: 500;
-      display: block;
-    }
-    .veriqua-stat-label {
-      font-size: 11px;
-      color: var(--grey);
-      letter-spacing: 0.05em;
-      margin-top: 4px;
-      display: block;
-    }
-    .btn-green {
-      background: var(--green);
-      color: #000;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 13px 28px;
-      border-radius: 4px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 28px;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-green:hover { background: #4ADE80; transform: translateY(-2px); }
-
-    .art-filter {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--grey);
-      font-family: var(--font-body);
-      font-size: 12px;
-      font-weight: 500;
-      padding: 7px 18px;
-      border-radius: 3px;
-      cursor: pointer;
-      letter-spacing: 0.04em;
-      transition: all 0.2s;
-    }
-    .art-filter:hover  { border-color: var(--gold-dim); color: var(--white); }
-    .art-filter.active { background: var(--gold); border-color: var(--gold); color: #000; }
-    .article-card.hidden { display: none; }
-
-    /* ── FREE RESOURCES ────────────────────────────────── */
-    .resources-section { background: var(--surface); border-top: 1px solid var(--border); }
-    .resources-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-top: 48px;
-    }
-    .resource-card {
-      padding: 28px 24px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      transition: border-color 0.3s;
-    }
-    .resource-card:hover { border-color: var(--gold-dim); }
-    .resource-icon { font-size: 28px; margin-bottom: 14px; }
-    .resource-title { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
-    .resource-desc { font-size: 13px; color: var(--grey); line-height: 1.6; }
-    .resource-cta {
-      margin-top: 16px;
-      font-size: 13px;
-      color: var(--gold);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    /* ── FOOTER ────────────────────────────────────────── */
-    footer {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: 60px 40px 40px;
-    }
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 280px repeat(4, 1fr);
-      gap: 48px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid var(--border);
-    }
-    .footer-brand {}
-    .footer-logo {
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-    .footer-logo span { color: var(--gold); }
-    .footer-tagline {
-      font-size: 13px;
-      color: var(--grey);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .footer-afsl {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--grey);
-      letter-spacing: 0.05em;
-    }
-    .footer-col h4 {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .footer-col ul li a {
-      font-size: 13px;
-      color: var(--grey);
-      transition: color 0.2s;
-    }
-    .footer-col ul li a:hover { color: var(--gold); }
-    .footer-bottom {
-      padding-top: 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .footer-bottom p {
-      font-size: 12px;
-      color: var(--grey);
-      line-height: 1.6;
-      max-width: 600px;
-    }
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-    }
-    .footer-links a {
-      font-size: 12px;
-      color: var(--grey);
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--white); }
-
-    /* ── SCROLL REVEAL ─────────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-    .reveal-delay-5 { transition-delay: 0.5s; }
-
-    /* ── RESPONSIVE ────────────────────────────────────── */
-    @media (max-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .tv-features   { grid-template-columns: repeat(2, 1fr); }
-      .footer-top    { grid-template-columns: 1fr 1fr; }
-      .paul-inner    { grid-template-columns: 1fr; }
-      .paul-image-wrap { max-width: 320px; }
-    }
-    @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .nav-links, .nav-cta { display: none; }
-      .nav-mobile-toggle { display: block; color: var(--white); font-size: 24px; }
-      .hero { padding: 60px 20px; min-height: 80vh; }
-      .hero-stats { display: none; }
-      .container { padding: 0 20px; }
-      .section-pad { padding: 64px 0; }
-      .services-grid { grid-template-columns: 1fr; }
-      .traders-inner { grid-template-columns: 1fr; gap: 40px; }
-      .articles-grid { grid-template-columns: 1fr; }
-      .resources-grid { grid-template-columns: repeat(2, 1fr); }
-      .tv-features { grid-template-columns: 1fr 1fr; }
-      .veriqua-banner { grid-template-columns: 1fr; padding: 36px; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
+    @media(max-width:1080px){
+      .nav-links{gap:14px}
+      .nav-link{font-size:11px}
+      .group-panel{grid-template-columns:1fr 320px;gap:42px}
+    }
+    @media(max-width:900px){
+      .nav-links{display:none}
+      .mobile-toggle{display:block;margin-left:auto}
+      .nav-cta{display:none}
+      .nav.open .nav-links{position:absolute;top:68px;left:0;right:0;display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:10px 20px 18px;background:rgba(13,15,20,.98);border-bottom:1px solid var(--border)}
+      .nav.open .nav-link{display:block;width:100%;padding:11px 0}
+      .credibility{grid-template-columns:repeat(2,1fr)}
+      .group-panel,.about-grid{grid-template-columns:1fr}
+      .about-grid{gap:40px}
+      .group-cta{max-width:420px}
+      .articles-grid{grid-template-columns:1fr 1fr}
+      .footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:640px){
+      .container{padding:0 20px}
+      .section{padding:72px 0}
+      .hero-inner{padding-top:72px;padding-bottom:64px}
+      .hero h1{font-size:clamp(47px,14vw,70px)}
+      .hero-copy{font-size:16px}
+      .hero-actions{align-items:stretch;flex-direction:column}
+      .hero-actions .btn{width:100%}
+      .credibility{margin-top:52px}
+      .credibility-item{padding:17px 14px}
+      .credibility-value{font-size:24px}
+      .credibility-label{font-size:9px}
+      .services-grid,.ai-grid,.articles-grid{grid-template-columns:1fr}
+      .service-card{min-height:0;padding:28px 24px}
+      .service-details,.ai-list{grid-template-columns:1fr}
+      .service-bottom{align-items:stretch;flex-direction:column}
+      .service-card .btn{width:100%}
+      .ai-column{padding:27px 23px}
+      .group-panel{margin-top:36px}
+      .group-details{grid-template-columns:1fr 1fr}
+      .veriqua-panel{align-items:flex-start;flex-direction:column;padding:27px 23px}
+      .veriqua-panel .btn{width:100%}
+      .final-cta{padding:76px 20px}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:34px 24px}
+      .footer-grid>div:first-child{grid-column:1/-1}
+      .footer-bottom{flex-direction:column}
+      .footer-legal-links{white-space:normal}
     }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="nav-logo" href="index.html" aria-label="Options21 home">Options<span>21</span></a>
+      <ul class="nav-links">
+        <li><a class="nav-link active" href="index.html" aria-current="page">Home</a></li>
+        <li><a class="nav-link" href="courses.html">Education</a></li>
+        <li><a class="nav-link" href="traders-group.html">Traders Group</a></li>
+        <li><a class="nav-link" href="ai-trading.html">AI Chart Research</a></li>
+        <li><a class="nav-link" href="ai-research.html">AI Equity Research</a></li>
+        <li><a class="nav-link" href="articles.html">Articles</a></li>
+        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <a class="nav-cta btn btn-primary" href="contact.html">Ask Paul →</a>
+      <button class="mobile-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">☰</button>
+    </nav>
+  </header>
 
-  <!-- ── TICKER ──────────────────────────────────────── -->
-  <div class="ticker-bar" aria-hidden="true">
-    <div class="ticker-track">
-      <!-- Double for seamless loop -->
-      <div class="ticker-item"><span class="ticker-symbol">XJO</span><span class="ticker-price">8,312.40</span><span class="ticker-up">▲ 1.24%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">SPX</span><span class="ticker-price">5,603.30</span><span class="ticker-up">▲ 0.87%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">VIX</span><span class="ticker-price">14.82</span><span class="ticker-down">▼ 3.20%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">BHP.AX</span><span class="ticker-price">43.21</span><span class="ticker-up">▲ 0.56%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">CBA.AX</span><span class="ticker-price">118.40</span><span class="ticker-down">▼ 0.33%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">AUD/USD</span><span class="ticker-price">0.6482</span><span class="ticker-up">▲ 0.21%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">GOLD</span><span class="ticker-price">3,241.60</span><span class="ticker-up">▲ 0.44%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">WTI</span><span class="ticker-price">78.12</span><span class="ticker-down">▼ 0.91%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">QQQ</span><span class="ticker-price">462.88</span><span class="ticker-up">▲ 1.10%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">IV30</span><span class="ticker-price">16.44</span><span class="ticker-down">▼ 1.80%</span></div>
-      <!-- repeat -->
-      <div class="ticker-item"><span class="ticker-symbol">XJO</span><span class="ticker-price">8,312.40</span><span class="ticker-up">▲ 1.24%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">SPX</span><span class="ticker-price">5,603.30</span><span class="ticker-up">▲ 0.87%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">VIX</span><span class="ticker-price">14.82</span><span class="ticker-down">▼ 3.20%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">BHP.AX</span><span class="ticker-price">43.21</span><span class="ticker-up">▲ 0.56%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">CBA.AX</span><span class="ticker-price">118.40</span><span class="ticker-down">▼ 0.33%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">AUD/USD</span><span class="ticker-price">0.6482</span><span class="ticker-up">▲ 0.21%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">GOLD</span><span class="ticker-price">3,241.60</span><span class="ticker-up">▲ 0.44%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">WTI</span><span class="ticker-price">78.12</span><span class="ticker-down">▼ 0.91%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">QQQ</span><span class="ticker-price">462.88</span><span class="ticker-up">▲ 1.10%</span></div>
-      <div class="ticker-item"><span class="ticker-symbol">IV30</span><span class="ticker-price">16.44</span><span class="ticker-down">▼ 1.80%</span></div>
-    </div>
-  </div>
-
-  <!-- ── NAV ─────────────────────────────────────────── -->
-  <nav>
-    <div class="nav-logo">Options<span>21</span></div>
-    <ul class="nav-links">
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="traders-group.html">Traders Group</a></li>
-      <li><a href="ai-trading.html">AI Technical Analysis</a></li><li><a href="ai-research.html">AI Fundamental Analysis</a></li>
-      <li><a href="crypto.html">Crypto</a></li><li><a href="crypto-tokenisation.html">Tokenisation</a></li>
-      <li><a href="compliance.html">Compliance</a></li>
-      <li><a href="articles.html">Articles</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-    <a href="traders-group.html" class="nav-cta">Join Traders Group →</a>
-    <button class="nav-mobile-toggle" aria-label="Open menu">☰</button>
-  </nav>
-
-  <!-- ── HERO ────────────────────────────────────────── -->
-  <section class="hero">
-    <div class="hero-mesh"></div>
-    <div class="hero-grid"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">Options Intelligence Platform — Est. 2003</div>
-      <h1 class="hero-headline">
-        Trade with<br/><em>precision.</em><br/>Think with edge.
-      </h1>
-      <p class="hero-sub">
-        Options courses, live weekly broadcasts, AI-assisted trading tools and geopolitical market intelligence — built for Australian traders who demand more than the mainstream.
-      </p>
-      <div class="hero-actions">
-        <a href="traders-group.html" class="btn-primary">
-          Join Live Traders Group <span>→</span>
-        </a>
-        <a href="courses.html" class="btn-ghost">
-          Explore Courses
-        </a>
-      </div>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat-item">
-        <div class="hero-stat-num">20+</div>
-        <div class="hero-stat-label">Years in Options Markets</div>
-      </div>
-      <div class="hero-stat-item">
-        <div class="hero-stat-num">3</div>
-        <div class="hero-stat-label">Core Trading Strategies</div>
-      </div>
-      <div class="hero-stat-item">
-        <div class="hero-stat-num">AFSL</div>
-        <div class="hero-stat-label">Licensed — 247412</div>
-      </div>
-      <div class="hero-stat-item">
-        <div class="hero-stat-num">Live</div>
-        <div class="hero-stat-label">Weekly Broadcast — GoToMeeting</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── SERVICES ────────────────────────────────────── -->
-  <section class="section-pad">
-    <div class="container">
-      <div class="reveal">
-        <div class="section-label">What we offer</div>
-        <h2 class="section-title">Six pillars of<br/><em>trading intelligence</em></h2>
-      </div>
-      <div class="services-grid">
-
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-icon">📈</div>
-          <div class="service-badge">Flagship</div>
-          <div class="service-name">Options Mentoring</div>
-          <p class="service-desc">Structured mentoring program covering mean reversion, earnings season strategies and volatility trading. Tailored for serious ASX and US options traders.</p>
-          <a href="mentoring.html" class="service-link">Explore program →</a>
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="eyebrow">Options21 · Financial Markets Education · Est. 2003</div>
+        <h1>Practical market education.<br/><em>Better research workflows.</em></h1>
+        <p class="hero-copy">Options mentoring, live weekly market analysis and one-on-one AI workflow setups for technical and fundamental research—delivered personally by Paul Wise.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="courses.html">Explore programs →</a>
+          <a class="btn btn-ghost" href="traders-group.html">Join Traders Group →</a>
         </div>
-
-        <div class="service-card reveal reveal-delay-2">
-          <div class="service-icon">📡</div>
-          <div class="service-badge">Live Weekly</div>
-          <div class="service-name">Traders Group</div>
-          <p class="service-desc">Live weekly broadcast via GoToMeeting. Real trades, real analysis, real-time. Recordings available for members. Join a community of active options traders.</p>
-          <a href="traders-group.html" class="service-link">See next session →</a>
-        </div>
-
-        <div class="service-card reveal reveal-delay-3">
-          <div class="service-icon">🤖</div>
-          <div class="service-badge">New Course</div>
-          <div class="service-name">AI Concepts in Trading</div>
-          <p class="service-desc">Learn to apply AI tools to trading and investing. From ChatGPT-powered research to Pine Script strategy building and AI-assisted portfolio analysis.</p>
-          <a href="ai-course.html" class="service-link">Course overview →</a>
-        </div>
-
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-icon">⚡</div>
-          <div class="service-badge">New</div>
-          <div class="service-name">AI Trading Tools</div>
-          <p class="service-desc">TradingView-integrated signals, Pine Script strategies and AI-powered ASX screeners. Live charts embedded directly — no third-party subscriptions required.</p>
-          <a href="ai-trading.html" class="service-link">View tools →</a>
-        </div>
-
-        <div class="service-card reveal reveal-delay-2">
-          <div class="service-icon">🌏</div>
-          <div class="service-badge">New</div>
-          <div class="service-name">Geopolitical Analysis</div>
-          <p class="service-desc">How US-China tensions, Fed decisions and macro shifts move ASX options volatility. Fresh articles written for traders, not economists.</p>
-          <a href="articles.html" class="service-link">Read articles →</a>
-        </div>
-
-        <div class="service-card reveal reveal-delay-3">
-          <div class="service-icon">🏛️</div>
-          <div class="service-badge">AFSL · AUSTRAC</div>
-          <div class="service-name">Compliance</div>
-          <p class="service-desc">AFSL holders and AUSTRAC-regulated firms — Paul Wise has built Veriqua, Australia's only dual-regime compliance platform. Purpose-built for financial services firms.</p>
-          <a href="compliance.html" class="service-link">Visit Veriqua →</a>
-        </div>
-
-        <!-- Crypto & Tokenisation — full-width featured card -->
-        <div class="service-card service-card-wide reveal" style="background: linear-gradient(135deg, #0D1520 0%, #161B27 100%); border-top: 2px solid rgba(245,158,11,0.3);">
-          <div class="service-icon" style="flex-shrink:0; background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.25); width:52px; height:52px; font-size:24px; margin-bottom:0;">₿</div>
-          <div class="service-card-wide-body">
-            <div class="service-card-wide-badge-row">
-              <div class="service-badge">New Series</div>
-              <div class="service-badge" style="color:var(--green); background:rgba(34,197,94,0.08); border-color:rgba(34,197,94,0.2);">Investor Education</div>
-            </div>
-            <div class="service-name" style="margin-bottom:8px;">Crypto &amp; Tokenisation of Financial Assets</div>
-            <p class="service-desc" style="max-width:640px;">The financial world is undergoing its most significant structural shift in decades. Tokenisation is moving from experiment to reality — and retail investors who understand it early will be best placed to benefit. Explore our education series covering what tokenisation is, what it means for your portfolio, and how to participate wisely.</p>
-            <a href="crypto-tokenisation.html" class="service-link" style="margin-top:8px;">Explore education series →</a>
-          </div>
-          <div class="token-stats">
-            <div class="token-stat">
-              <span class="token-stat-num">$16T</span>
-              <span class="token-stat-label">Market by 2030</span>
-            </div>
-            <div class="token-stat">
-              <span class="token-stat-num">T+0</span>
-              <span class="token-stat-label">Settlement Speed</span>
-            </div>
-            <div class="token-stat">
-              <span class="token-stat-num">24/7</span>
-              <span class="token-stat-label">Global Markets</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── TOKENISATION SPOTLIGHT ────────────────────────── -->
-  <section class="section-pad" style="background: linear-gradient(180deg, #0D0F14 0%, #0D1520 50%, #0D0F14 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-    <div class="container">
-      <div class="reveal">
-        <div class="section-label">Trade note · May 2026</div>
-        <h2 class="section-title">The tokenisation<br/><em>revolution</em></h2>
-      </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 48px; align-items: start;">
-        <!-- Left: summary -->
-        <div class="reveal">
-          <p style="font-size:16px; color:var(--grey-light); line-height:1.8; font-weight:300; margin-bottom:24px;">
-            Tokenisation — representing real-world assets on a blockchain as digital tokens — is rapidly moving from experiment to reality. Major banks, asset managers and regulators are actively building the infrastructure for a tokenised financial market.
-          </p>
-          <p style="font-size:15px; color:var(--grey); line-height:1.8; font-weight:300; margin-bottom:32px;">
-            For retail investors, this represents a genuine broadening of opportunity: access to asset classes, diversification strategies and yield sources that were previously out of reach. But it also demands a higher level of due diligence and risk awareness than conventional investing.
-          </p>
-          <!-- Asset class table -->
-          <div style="border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 32px;">
-            <div style="background: var(--surface); padding: 14px 20px; border-bottom: 1px solid var(--border);">
-              <span style="font-family: var(--font-mono); font-size: 10px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase;">Tokenisable asset classes</span>
-            </div>
-            <table style="width:100%; border-collapse: collapse;">
-              <thead>
-                <tr style="background: var(--surface2);">
-                  <th style="padding: 10px 16px; text-align:left; font-size:11px; color:var(--grey); font-weight:500; font-family:var(--font-mono); letter-spacing:0.05em;">Asset Class</th>
-                  <th style="padding: 10px 16px; text-align:left; font-size:11px; color:var(--grey); font-weight:500; font-family:var(--font-mono); letter-spacing:0.05em;">Min. (Tokenised)</th>
-                  <th style="padding: 10px 16px; text-align:left; font-size:11px; color:var(--grey); font-weight:500; font-family:var(--font-mono); letter-spacing:0.05em;">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-top: 1px solid var(--border);">
-                  <td style="padding: 10px 16px; font-size:13px; color:var(--white);">Real Estate</td>
-                  <td style="padding: 10px 16px; font-family:var(--font-mono); font-size:12px; color:var(--gold);">~$50</td>
-                  <td style="padding: 10px 16px; font-size:12px; color:var(--green);">● Live</td>
-                </tr>
-                <tr style="border-top: 1px solid var(--border); background: rgba(255,255,255,0.015);">
-                  <td style="padding: 10px 16px; font-size:13px; color:var(--white);">Government Bonds</td>
-                  <td style="padding: 10px 16px; font-family:var(--font-mono); font-size:12px; color:var(--gold);">~$1,000</td>
-                  <td style="padding: 10px 16px; font-size:12px; color:var(--green);">● Live</td>
-                </tr>
-                <tr style="border-top: 1px solid var(--border);">
-                  <td style="padding: 10px 16px; font-size:13px; color:var(--white);">Private Equity</td>
-                  <td style="padding: 10px 16px; font-family:var(--font-mono); font-size:12px; color:var(--gold);">~$100</td>
-                  <td style="padding: 10px 16px; font-size:12px; color:var(--gold);">◑ Emerging</td>
-                </tr>
-                <tr style="border-top: 1px solid var(--border); background: rgba(255,255,255,0.015);">
-                  <td style="padding: 10px 16px; font-size:13px; color:var(--white);">Infrastructure</td>
-                  <td style="padding: 10px 16px; font-family:var(--font-mono); font-size:12px; color:var(--gold);">~$500</td>
-                  <td style="padding: 10px 16px; font-size:12px; color:var(--gold);">◑ Emerging</td>
-                </tr>
-                <tr style="border-top: 1px solid var(--border);">
-                  <td style="padding: 10px 16px; font-size:13px; color:var(--white);">Fine Art / Collectibles</td>
-                  <td style="padding: 10px 16px; font-family:var(--font-mono); font-size:12px; color:var(--gold);">~$10</td>
-                  <td style="padding: 10px 16px; font-size:12px; color:var(--grey);">○ Early Stage</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="crypto-tokenisation.html" class="btn-primary">Read the full trade note →</a>
-        </div>
-        <!-- Right: key points cards -->
-        <div style="display:flex; flex-direction:column; gap:16px;" class="reveal reveal-delay-2">
-          <div style="padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; border-left: 3px solid var(--gold);">
-            <div style="font-size:13px; font-weight:600; margin-bottom:8px; display:flex; align-items:center; gap:10px;"><span>🔗</span> Fractional Ownership</div>
-            <p style="font-size:13px; color:var(--grey); line-height:1.6;">A $10M office building divided into 10M tokens worth $1 each. Retail investors buy $100 worth — receiving proportional rental income and capital growth. Previously impossible without significant capital.</p>
-          </div>
-          <div style="padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; border-left: 3px solid var(--gold);">
-            <div style="font-size:13px; font-weight:600; margin-bottom:8px; display:flex; align-items:center; gap:10px;"><span>⚡</span> T+0 Settlement</div>
-            <p style="font-size:13px; color:var(--grey); line-height:1.6;">Blockchain-based settlement compresses the traditional two-day (T+2) clearing cycle to seconds — reducing capital tied up as collateral and systemic risk across markets.</p>
-          </div>
-          <div style="padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; border-left: 3px solid var(--gold);">
-            <div style="font-size:13px; font-weight:600; margin-bottom:8px; display:flex; align-items:center; gap:10px;"><span>🌐</span> 24/7 Global Markets</div>
-            <p style="font-size:13px; color:var(--grey); line-height:1.6;">A Sydney investor can buy a fraction of a London property at 2am Sunday and trade out within minutes. Tokenised markets operate continuously with no geographic restriction.</p>
-          </div>
-          <div style="padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; border-left: 3px solid rgba(239,68,68,0.6);">
-            <div style="font-size:13px; font-weight:600; margin-bottom:8px; display:flex; align-items:center; gap:10px; color: #FCA5A5;"><span>⚠️</span> Key Risks to Understand</div>
-            <div style="display:flex; flex-direction:column; gap:6px;">
-              <div style="font-size:12px; color:var(--grey); display:flex; gap:8px;"><span style="color:#EF4444; flex-shrink:0;">✗</span> Regulatory uncertainty across jurisdictions</div>
-              <div style="font-size:12px; color:var(--grey); display:flex; gap:8px;"><span style="color:#EF4444; flex-shrink:0;">✗</span> Smart contract bugs — errors may be irreversible</div>
-              <div style="font-size:12px; color:var(--grey); display:flex; gap:8px;"><span style="color:#EF4444; flex-shrink:0;">✗</span> Liquidity illusion — thin secondary markets</div>
-              <div style="font-size:12px; color:var(--grey); display:flex; gap:8px;"><span style="color:#EF4444; flex-shrink:0;">✗</span> Tax treatment remains evolving and complex</div>
-            </div>
-          </div>
-          <!-- Timeline pill -->
-          <div style="padding: 20px 24px; background: var(--gold-glow); border: 1px solid rgba(245,158,11,0.2); border-radius: 6px; display:flex; justify-content:space-between; align-items:center;">
-            <div>
-              <div style="font-family:var(--font-mono); font-size:10px; color:var(--gold); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:4px;">Market Projection</div>
-              <div style="font-size:13px; color:var(--grey-light);">Tokenised asset market estimated at</div>
-            </div>
-            <div style="text-align:right;">
-              <div style="font-family:var(--font-display); font-size:32px; color:var(--gold); font-weight:600; line-height:1;">$16T</div>
-              <div style="font-size:11px; color:var(--grey);">by 2030</div>
-            </div>
-          </div>
+        <div class="credibility" aria-label="Options21 credentials">
+          <div class="credibility-item"><div class="credibility-value">20+</div><div class="credibility-label">Years’ market experience</div></div>
+          <div class="credibility-item"><div class="credibility-value">CMT</div><div class="credibility-label">Professional designation</div></div>
+          <div class="credibility-item"><div class="credibility-value">AFSL</div><div class="credibility-label">247412 · Ivanhoe International Pty Ltd</div></div>
+          <div class="credibility-item"><div class="credibility-value">Perth</div><div class="credibility-label">Live online from Western Australia</div></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── TRADERS GROUP ────────────────────────────────── -->
-  <section class="traders-section section-pad">
-    <div class="container">
-      <div class="traders-inner">
-        <div class="traders-content reveal">
-          <div class="section-label">Live weekly</div>
-          <h2 class="section-title">Traders Group<br/><em>Broadcast</em></h2>
-          <p>Join Paul Wise and a community of active options traders every week via GoToMeeting. Live analysis, trade setups, volatility reads and Q&A. Every session recorded — members get full replay access.</p>
-          <p>Covering ASX options, US earnings plays, VIX strategies and real-time market commentary. No slides. No fluff. Just live trading intelligence.</p>
-          <a href="traders-group.html" class="btn-primary">Register for next session →</a>
-        </div>
-        <div class="countdown-card reveal reveal-delay-2">
-          <div class="countdown-label">⬤ Next live session</div>
-          <div class="countdown-timer" id="countdown">
-            <div class="countdown-unit">
-              <span class="countdown-num" id="cd-days">--</span>
-              <span class="countdown-unit-label">Days</span>
+    <section class="section" id="programs">
+      <div class="container">
+        <div class="section-label">Primary services</div>
+        <h2 class="section-title">Choose the support that fits <em>your objective</em></h2>
+        <p class="section-intro">Build your options knowledge, improve your research process or follow the markets live each week.</p>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-label">Flagship program</div>
+            <h3>Options Mentoring</h3>
+            <p class="service-description">A structured three-to-four-month program covering options foundations, volatility, earnings strategies, risk management and live-market analysis.</p>
+            <ul class="service-details">
+              <li>Three–four months</li><li>Delivered live online</li><li>All experience levels welcome</li><li>Long-term course access</li>
+            </ul>
+            <div class="service-bottom">
+              <div class="service-price"><strong>From A$2,995</strong><span>Structured one-time program</span></div>
+              <a class="btn btn-primary" href="mentoring.html">Explore Options Mentoring →</a>
             </div>
-            <span class="countdown-sep">:</span>
-            <div class="countdown-unit">
-              <span class="countdown-num" id="cd-hours">--</span>
-              <span class="countdown-unit-label">Hours</span>
+          </article>
+          <article class="service-card">
+            <div class="service-label">AI technical research</div>
+            <h3>Claude Chart-Research Setup</h3>
+            <p class="service-description">Configure Claude around your TradingView workspace to help navigate charts, compare timeframes, define trading conditions, develop Pine Script and document technical research.</p>
+            <ul class="service-details">
+              <li>One-on-one setup</li><li>Approximately 90 minutes</li><li>Seven days of email support</li><li>Your own Claude and TradingView accounts</li>
+            </ul>
+            <div class="service-bottom">
+              <div class="service-price"><strong>A$1,100</strong><span>Including GST</span></div>
+              <a class="btn btn-primary" href="ai-trading.html">Explore Chart Research →</a>
             </div>
-            <span class="countdown-sep">:</span>
-            <div class="countdown-unit">
-              <span class="countdown-num" id="cd-mins">--</span>
-              <span class="countdown-unit-label">Mins</span>
+          </article>
+          <article class="service-card">
+            <div class="service-label">AI fundamental research</div>
+            <h3>AI Equity-Research Workflow Setup</h3>
+            <p class="service-description">Configure structured Claude workflows for company analysis, financial statements, earnings, valuation and source-traceable equity-research drafts.</p>
+            <ul class="service-details">
+              <li>Fifteen equity-analysis workflows</li><li>Approximately two hours</li><li>Verification and valuation-reconciliation method</li><li>Fourteen days of email support</li>
+            </ul>
+            <div class="service-bottom">
+              <div class="service-price"><strong>A$2,200</strong><span>Including GST</span></div>
+              <a class="btn btn-primary" href="ai-research.html">Explore Equity Research →</a>
             </div>
-            <span class="countdown-sep">:</span>
-            <div class="countdown-unit">
-              <span class="countdown-num" id="cd-secs">--</span>
-              <span class="countdown-unit-label">Secs</span>
+          </article>
+          <article class="service-card">
+            <div class="service-label">Live every week</div>
+            <h3>Traders Group</h3>
+            <p class="service-description">Join Paul for a live weekly review of markets, technical conditions, sectors, commodities and developing setups, with questions and replay access.</p>
+            <ul class="service-details">
+              <li>Every Thursday</li><li>5:00 PM AWST</li><li>Approximately 45 minutes</li><li>Replay archive</li><li>Thirty-day free trial</li>
+            </ul>
+            <div class="service-bottom">
+              <div class="service-price"><strong>Free for 30 days</strong><span>Then A$100 per month</span></div>
+              <a class="btn btn-primary" href="traders-group.html">Join Traders Group →</a>
             </div>
-          </div>
-          <div class="session-info">
-            <div class="session-row">
-              <span>Platform</span>
-              <span class="live-dot">GoToMeeting</span>
-            </div>
-            <div class="session-row">
-              <span>Frequency</span>
-              <span>Weekly — Wednesdays</span>
-            </div>
-            <div class="session-row">
-              <span>Time</span>
-              <span>7:00 PM AWST / 9:00 PM AEST</span>
-            </div>
-            <div class="session-row">
-              <span>Replays</span>
-              <span>Members only — full archive</span>
-            </div>
-            <div class="session-row">
-              <span>Access</span>
-              <span>Subscription — cancel anytime</span>
-            </div>
-          </div>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── TRADINGVIEW ──────────────────────────────────── -->
-  <section class="tv-section section-pad">
-    <div class="container">
-      <div class="tv-header reveal">
-        <div>
-          <div class="section-label">Live markets</div>
-          <h2 class="section-title">AI-assisted<br/><em>trading tools</em></h2>
+    <section class="section ai-section">
+      <div class="container">
+        <div class="section-label">Research, kept distinct</div>
+        <h2 class="section-title">Two AI research setups.<br/><em>Two different questions.</em></h2>
+        <div class="ai-grid">
+          <article class="ai-column technical">
+            <div class="ai-column-label">Technical research</div>
+            <h3>What is the market doing?</h3>
+            <p>The Claude Chart-Research Setup is designed for investigating price behaviour, chart conditions, multiple timeframes, trading rules and Pine Script.</p>
+            <ul class="ai-list">
+              <li>Chart navigation</li><li>Multi-timeframe analysis</li><li>Trading-rule definition</li><li>Pine Script assistance</li><li>Historical chart research</li><li>Technical research records</li>
+            </ul>
+            <a class="teal-link" href="ai-trading.html">View technical setup →</a>
+          </article>
+          <article class="ai-column fundamental">
+            <div class="ai-column-label">Fundamental research</div>
+            <h3>What may the business be worth?</h3>
+            <p>The AI Equity-Research Workflow Setup is designed for investigating companies, financial statements, earnings, valuation and the sources supporting a research conclusion.</p>
+            <ul class="ai-list">
+              <li>Company and industry analysis</li><li>Financial statements</li><li>Earnings analysis</li><li>Valuation</li><li>Source verification</li><li>Structured research drafts</li>
+            </ul>
+            <a class="teal-link" href="ai-research.html">View fundamental setup →</a>
+          </article>
         </div>
-        <a href="ai-trading.html" class="btn-ghost">View all tools →</a>
+        <p class="ai-note">AI can accelerate research, but it can also produce incorrect or outdated output. All scripts, facts, calculations and conclusions require human verification.</p>
       </div>
-      <div class="tv-widget-wrap reveal">
-        <!-- TradingView Widget -->
-        <iframe
-          src="https://www.tradingview.com/widgetembed/?frameElementId=tradingview_chart&symbol=ASX%3AXJO&interval=D&hidesidetoolbar=0&hidetoptoolbar=0&symboledit=1&saveimage=1&toolbarbg=161B27&studies=[]&theme=dark&style=1&timezone=Australia%2FSydney&withdateranges=1&showpopupbutton=1&studies_overrides=%7B%7D&overrides=%7B%22mainSeriesProperties.candleStyle.upColor%22%3A%22%2322C55E%22%2C%22mainSeriesProperties.candleStyle.downColor%22%3A%22%23EF4444%22%2C%22paneProperties.background%22%3A%22%230D0F14%22%2C%22paneProperties.backgroundType%22%3A%22solid%22%7D&enabled_features=[]&disabled_features=[]&locale=en&utm_source=options21.com.au&utm_medium=widget"
-          title="Live ASX Market Chart"
-          loading="lazy"
-        ></iframe>
-      </div>
-      <div class="tv-features">
-        <div class="tv-feature reveal reveal-delay-1">
-          <div class="tv-feature-icon">📊</div>
-          <div class="tv-feature-title">Live ASX Charts</div>
-          <div class="tv-feature-desc">Real-time TradingView charts for ASX stocks and options. Fully interactive.</div>
-        </div>
-        <div class="tv-feature reveal reveal-delay-2">
-          <div class="tv-feature-icon">🧠</div>
-          <div class="tv-feature-title">AI Signal Alerts</div>
-          <div class="tv-feature-desc">AI-powered trade signals overlaid on live price action. Members only.</div>
-        </div>
-        <div class="tv-feature reveal reveal-delay-3">
-          <div class="tv-feature-icon">📜</div>
-          <div class="tv-feature-title">Pine Script Library</div>
-          <div class="tv-feature-desc">Curated library of Paul's battle-tested Pine Script strategies ready to import.</div>
-        </div>
-        <div class="tv-feature reveal reveal-delay-4">
-          <div class="tv-feature-icon">🔍</div>
-          <div class="tv-feature-title">ASX Options Screener</div>
-          <div class="tv-feature-desc">AI-powered screener filtering for high-probability options setups daily.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── ARTICLES ─────────────────────────────────────── -->
-  <section class="articles-section section-pad">
-    <div class="container">
-      <div class="reveal" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px;">
-        <div>
-          <div class="section-label">Research &amp; Intelligence</div>
-          <h2 class="section-title">Geopolitical &amp; market<br/><em>analysis</em></h2>
-        </div>
-        <a href="articles.html" class="btn-ghost" style="flex-shrink:0;">View all articles →</a>
-      </div>
-
-      <!-- Category filter -->
-      <div class="reveal" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:36px; margin-bottom:32px;">
-        <button class="art-filter active" data-filter="all">All</button>
-        <button class="art-filter" data-filter="geopolitical">Geopolitical</button>
-        <button class="art-filter" data-filter="macro">Macro</button>
-        <button class="art-filter" data-filter="ai-tech">AI &amp; Technology</button>
-      </div>
-
-      <div class="articles-grid" style="grid-template-columns: repeat(3, 1fr);">
-
-        <!-- 1. 1970s Oil Shock -->
-        <div class="article-card reveal reveal-delay-1" data-cat="geopolitical macro">
-          <div class="article-thumb" style="background: linear-gradient(135deg,#1a1000,#2a1800); font-size:42px;">🛢️</div>
-          <div class="article-body">
-            <span class="article-tag">Global Macro · History</span>
-            <div class="article-title">The 1970s Oil Shock: Drivers, Transmission &amp; Global Consequences</div>
-            <p class="article-excerpt">Two oil shocks that reordered the global economy — the 1973 Arab Embargo and the 1979 Iranian Revolution. The lessons that still drive policy today.</p>
-            <div class="article-meta">
-              <span>Paul Wise</span>
-              <span>Apr 2026 · 20 min</span>
-            </div>
+    <section class="section group-section">
+      <div class="container">
+        <div class="section-label">Traders Group</div>
+        <div class="group-panel">
+          <div>
+            <h3>Follow the markets <em>live each week</em></h3>
+            <p>Join Paul every Thursday for a practical review of current market conditions. Examine the technical landscape, important sectors, commodities and developing market themes, then ask questions during the live session.</p>
+            <ul class="group-details">
+              <li><strong>Thursday at 5:00 PM AWST</strong>Live online</li>
+              <li><strong>Approximately 45 minutes</strong>Focused weekly session</li>
+              <li><strong>Replay access</strong>Available for members</li>
+              <li><strong>Thirty-day free trial</strong>Then A$100 per month</li>
+            </ul>
           </div>
-        </div>
-
-        <!-- 2. AI Infrastructure -->
-        <div class="article-card reveal reveal-delay-2" data-cat="ai-tech">
-          <div class="article-thumb" style="background: linear-gradient(135deg,#0a1020,#0d1830); font-size:42px;">⚡</div>
-          <div class="article-body">
-            <span class="article-tag">AI &amp; Markets · Trade Note</span>
-            <div class="article-title">AI Infrastructure: Understanding the Full Stack Driving Markets</div>
-            <p class="article-excerpt">AI is an industrial-scale system — chips, data centres, cooling, power. Capital is rotating down the stack. Here's where it's heading next.</p>
-            <div class="article-meta">
-              <span>Paul Wise</span>
-              <span>Apr 2026 · 10 min</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. Tesla Cybercab -->
-        <div class="article-card reveal reveal-delay-3" data-cat="ai-tech">
-          <div class="article-thumb" style="background: linear-gradient(135deg,#0d0d0d,#1a1a2e); font-size:42px;">🚖</div>
-          <div class="article-body">
-            <span class="article-tag">AI &amp; Technology · Trade Note</span>
-            <div class="article-title">Tesla Cybercab: The Dawn of Mass-Market Autonomous Mobility</div>
-            <p class="article-excerpt">Production is live at Giga Texas. Unsupervised FSD rides are happening in Austin. Here's why this is the inflection point for Tesla's AI-mobility transition.</p>
-            <div class="article-meta">
-              <span>Paul Wise</span>
-              <span>Apr 2026 · 12 min</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. US–China Tariffs -->
-        <div class="article-card reveal reveal-delay-1" data-cat="geopolitical">
-          <div class="article-thumb" style="background: linear-gradient(135deg,#0d1020,#1a1030); font-size:42px;">🇺🇸🇨🇳</div>
-          <div class="article-body">
-            <span class="article-tag">Geopolitics · Trade</span>
-            <div class="article-title">US–China Tariff Escalation: What It Means for ASX Volatility</div>
-            <p class="article-excerpt">The new 145% tariff regime sends ripple effects through Australian resources and materials — and creates rare options opportunities for prepared traders.</p>
-            <div class="article-meta">
-              <span>Paul Wise</span>
-              <span>May 2026 · 8 min</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5. Fed Rate Pause -->
-        <div class="article-card reveal reveal-delay-2" data-cat="macro">
-          <div class="article-thumb" style="background: linear-gradient(135deg,#0d1020,#0f1520); font-size:42px;">🏦</div>
-          <div class="article-body">
-            <span class="article-tag">Macro · Federal Reserve</span>
-            <div class="article-title">Fed Rate Pause and the Volatility Window Traders Shouldn't Miss</div>
-            <p class="article-excerpt">When the Fed holds, implied volatility compresses — then spikes. How to position before the next FOMC decision using options strategies.</p>
-            <div class="article-meta">
-              <span>Paul Wise</span>
-              <span>Apr 2026 · 9 min</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6. Oil & Middle East -->
-        <div class="article-card reveal reveal-delay-3" data-cat="geopolitical macro">
-          <div class="article-thumb" style="background: linear-gradient(135deg,#1a0d00,#2a1500); font-size:42px;">🌏</div>
-          <div class="article-body">
-            <span class="article-tag">Commodities · Middle East</span>
-            <div class="article-title">Oil, the Middle East and ASX Energy Options: Reading the Setup</div>
-            <p class="article-excerpt">Geopolitical risk premiums in crude oil create asymmetric options opportunities in ASX energy stocks — if you know where to look and how to size them.</p>
-            <div class="article-meta">
-              <span>Paul Wise</span>
-              <span>Apr 2026 · 10 min</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── PAUL WISE ─────────────────────────────────────── -->
-  <section class="section-pad">
-    <div class="container">
-      <div class="paul-inner">
-        <div class="paul-image-wrap reveal">
-          <div class="paul-image-frame">👤</div>
-        </div>
-        <div class="paul-content reveal reveal-delay-2">
-          <div class="section-label">Your mentor</div>
-          <h2 class="section-title">Paul <em>Wise</em></h2>
-          <blockquote>"The edge is never in the tool. It's in understanding what drives volatility before the market prices it in."</blockquote>
-          <p>Paul Wise has traded options professionally for over two decades. His three primary strategies — mean reversion of volatility, US earnings season plays, and inverse volatility ETNs — have been refined through real capital, not theory.</p>
-          <p>Beyond trading, Paul is the sole developer of Veriqua, a production-grade SaaS compliance platform used by AFSL and AUSTRAC-regulated financial services firms across Australia. His unique combination of market depth and regulatory understanding sets Options21 apart.</p>
-          <div class="paul-credentials">
-            <span class="cred-tag">AFSL 247412</span>
-            <span class="cred-tag">20+ Years Options Trading</span>
-            <span class="cred-tag">Volatility Specialist</span>
-            <span class="cred-tag">ASX &amp; US Markets</span>
-            <span class="cred-tag">Veriqua Platform Owner</span>
-            <span class="cred-tag">Perth, Western Australia</span>
-          </div>
-          <div style="margin-top: 32px;">
-            <a href="about.html" class="btn-ghost">Full profile →</a>
-          </div>
+          <aside class="group-cta">
+            <div class="group-cta-label">Start with the free trial</div>
+            <div class="group-cta-price">Free for 30 days</div>
+            <div class="group-cta-sub">Then A$100 per month</div>
+            <a class="btn btn-primary" href="https://attendee.gotowebinar.com/register/9000282678730962518" target="_blank" rel="noopener">Start the free trial →</a>
+            <a class="btn btn-ghost" href="traders-group.html" style="width:100%;margin-top:10px">Learn more →</a>
+          </aside>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── VERIQUA COMPLIANCE BANNER ────────────────────── -->
-  <section class="section-pad" style="padding-top:0;">
-    <div class="container">
-      <div class="veriqua-banner reveal">
-        <div class="veriqua-glow"></div>
-        <div>
-          <div class="veriqua-label">For AFSL &amp; AUSTRAC-regulated firms</div>
-          <h2 class="veriqua-title">Meet <em>Veriqua</em> — the compliance<br/>operating system</h2>
-          <p class="veriqua-desc">Paul Wise has built Australia's only dual-regime compliance SaaS platform — covering both AFSL/ASIC and AUSTRAC/AML obligations in a single system. 64 live features, AI-embedded workflows, and a native due diligence data room.</p>
-          <a href="https://veriqua.com.au" class="btn-green" target="_blank">Visit Veriqua.com.au →</a>
+    <section class="section">
+      <div class="container">
+        <div class="section-label">Research desk</div>
+        <h2 class="section-title">Latest market research<br/><em>and commentary</em></h2>
+        <div class="articles-grid">
+          <article class="article-card">
+            <div class="article-category">AI &amp; Technology</div>
+            <h3>Kimi K3 and the AI Price War: What Token Deflation Means for Your Portfolio</h3>
+            <p>Why cheaper intelligence could reshape valuations across technology markets—and what token deflation means for model providers, chip stocks, cloud providers and investors.</p>
+            <div class="article-meta"><span>Paul Wise</span><span>23 July 2026</span><span>16 min</span></div>
+            <a class="article-link" href="article-kimi-k3-ai-price-war.html">Read article →</a>
+          </article>
+          <article class="article-card">
+            <div class="article-category">Macro &amp; Geopolitics</div>
+            <h3>The US–Iran Conflict and Your Money: Energy Prices, Inflation &amp; Your Portfolio</h3>
+            <p>Why a superpower’s struggle in the Gulf is reshaping energy prices, inflation and portfolios as Hormuz traffic collapses and the risk premium changes.</p>
+            <div class="article-meta"><span>Paul Wise</span><span>July 2026</span><span>20 min</span></div>
+            <a class="article-link" href="article-us-iran-conflict.html">Read article →</a>
+          </article>
+          <article class="article-card">
+            <div class="article-category">Equities &amp; Markets</div>
+            <h3>SpaceX as a Public Company: The Valuation Debate</h3>
+            <p>SPCX listed at US$1.77 trillion, spiked to US$225, then fell 31% in two weeks. The story survived contact with the market—the price is still on trial.</p>
+            <div class="article-meta"><span>Paul Wise</span><span>July 2026</span><span>19 min</span></div>
+            <a class="article-link" href="article-spacex-ipo.html">Read article →</a>
+          </article>
         </div>
-        <div class="veriqua-stats">
-          <div class="veriqua-stat">
-            <span class="veriqua-stat-num">64</span>
-            <span class="veriqua-stat-label">Live Features</span>
-          </div>
-          <div class="veriqua-stat">
-            <span class="veriqua-stat-num">9.6</span>
-            <span class="veriqua-stat-label">Product Rating / 10</span>
-          </div>
-          <div class="veriqua-stat">
-            <span class="veriqua-stat-num">Dual</span>
-            <span class="veriqua-stat-label">AFSL + AUSTRAC Regime</span>
-          </div>
+        <a class="section-link" href="articles.html">View all articles →</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <div class="section-label">About Paul</div>
+          <h2 class="section-title">Delivered personally<br/>by <em>Paul Wise</em></h2>
+          <p>Paul Wise holds the CMT designation and has more than 20 years’ experience in options markets and as an AFSL Responsible Manager. He delivers Options21 mentoring, AI workflow setup sessions and weekly market analysis personally.</p>
+          <ul class="credential-chips">
+            <li>CMT</li><li>AFSL Responsible Manager</li><li>20+ years’ experience</li><li>ASX and US markets</li><li>Perth, Western Australia</li>
+          </ul>
+          <a class="btn btn-ghost" href="about.html" style="margin-top:28px">About Paul →</a>
+        </div>
+        <div class="about-card">
+          <div class="about-card-mark">Options21</div>
+          <h3>Education grounded in research.</h3>
+          <p>Options21 provides general financial product advice and education under Ivanhoe International Pty Ltd’s Australian Financial Services Licence. The focus is practical understanding, documented research and informed decision-making—not promises about outcomes.</p>
+          <a class="teal-link" href="about.html#legal" style="display:inline-flex;margin-top:18px">Read the legal information →</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── FREE RESOURCES ───────────────────────────────── -->
-  <section class="resources-section section-pad">
-    <div class="container">
-      <div class="reveal">
-        <div class="section-label">Free resources</div>
-        <h2 class="section-title">Start here — <em>no cost</em></h2>
-      </div>
-      <div class="resources-grid">
-        <div class="resource-card reveal reveal-delay-1">
-          <div class="resource-icon">📘</div>
-          <div class="resource-title">Free Options Trading eBook</div>
-          <p class="resource-desc">The foundations of options trading explained simply. A must-read for anyone starting out.</p>
-          <div class="resource-cta">Download free →</div>
-        </div>
-        <div class="resource-card reveal reveal-delay-2">
-          <div class="resource-icon">📋</div>
-          <div class="resource-title">Simple Steps to Success</div>
-          <p class="resource-desc">Paul's step-by-step framework for building a consistent options trading approach.</p>
-          <div class="resource-cta">Download free →</div>
-        </div>
-        <div class="resource-card reveal reveal-delay-3">
-          <div class="resource-icon">📊</div>
-          <div class="resource-title">Trade Analysis Worksheets</div>
-          <p class="resource-desc">Excel-based worksheets for recording, analysing and improving every trade you make.</p>
-          <div class="resource-cta">Download free →</div>
-        </div>
-        <div class="resource-card reveal reveal-delay-4">
-          <div class="resource-icon">🎓</div>
-          <div class="resource-title">Options Education Pack</div>
-          <p class="resource-desc">The full beginner pack — glossary, FAQ, and introductory video lessons in one download.</p>
-          <div class="resource-cta">Download free →</div>
+    <section class="veriqua-section">
+      <div class="container">
+        <div class="veriqua-panel">
+          <div>
+            <div class="veriqua-label">For financial-services firms</div>
+            <h2>Looking for AFSL and AML/CTF compliance software?</h2>
+            <p>Paul is also the founder of Veriqua, a compliance platform being developed for Australian financial-services and AUSTRAC-regulated businesses.</p>
+          </div>
+          <a class="btn btn-ghost" href="compliance.html">Explore Veriqua →</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── FOOTER ────────────────────────────────────────── -->
+    <section class="final-cta">
+      <div class="container">
+        <h2>Choose your <em>next step</em></h2>
+        <p>Learn options through structured mentoring, build an AI-assisted research workflow or join the weekly market discussion.</p>
+        <div class="final-actions">
+          <a class="btn btn-primary" href="courses.html">Explore all programs →</a>
+          <a class="btn btn-ghost" href="contact.html">Ask Paul a question →</a>
+          <a class="btn btn-ghost" href="traders-group.html">Join Traders Group →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-brand">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
           <div class="footer-logo">Options<span>21</span></div>
-          <p class="footer-tagline">Trading intelligence for serious Australian options traders. Courses, tools, live broadcasts and market analysis since 2003.</p>
-          <div class="footer-afsl">AFSL 247412 · Options21 Pty Ltd<br/>PO Box 744 Hillarys WA 6923<br/>paul@options21.com.au · 0425 076 750</div>
+          <p class="footer-tagline">Financial markets education, research workflows and live market discussion for serious Australian investors.</p>
+          <div class="footer-contact">Ivanhoe International Pty Ltd<br/>AFSL 247412 · ABN 69 076 144 557<br/>PO Box 744, Hillarys WA 6923<br/><a href="mailto:paul@options21.com.au">paul@options21.com.au</a><br/><a href="tel:0425076750">0425 076 750</a></div>
         </div>
-        <div class="footer-col">
-          <h4>Courses</h4>
-          <ul>
+        <div>
+          <div class="footer-heading">Education</div>
+          <ul class="footer-links">
             <li><a href="mentoring.html">Options Mentoring</a></li>
-            <li><a href="ai-course.html">AI Trading Course</a></li>
+            <li><a href="ai-trading.html">Claude Chart-Research Setup</a></li>
+            <li><a href="ai-research.html">AI Equity-Research Workflow Setup</a></li>
             <li><a href="traders-group.html">Traders Group</a></li>
-            <li><a href="courses.html">All Courses</a></li>
+            <li><a href="courses.html">All Programs</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Tools</h4>
-          <ul>
-            <li><a href="ai-trading.html">AI Trading Tools</a></li>
-            <li><a href="ai-trading.html">TradingView Signals</a></li>
-            <li><a href="ai-trading.html">Pine Script Library</a></li>
-            <li><a href="ai-trading.html">ASX Screener</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Learn</h4>
-          <ul>
-            <li><a href="learn.html">What Are Options?</a></li>
-            <li><a href="learn.html">Options Strategies</a></li>
-            <li><a href="learn.html">ASX Options</a></li>
+        <div>
+          <div class="footer-heading">Research</div>
+          <ul class="footer-links">
             <li><a href="articles.html">Market Articles</a></li>
+            <li><a href="ai-trading.html">AI Technical Research</a></li>
+            <li><a href="ai-research.html">AI Fundamental Research</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="about.html">About Paul Wise</a></li>
+        <div>
+          <div class="footer-heading">Company</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About Paul</a></li>
             <li><a href="compliance.html">Veriqua Compliance</a></li>
-            <li><a href="about.html#fsg">Financial Services Guide</a></li>
-            <li><a href="about.html#contact">Contact Us</a></li>
+            <li><a href="about.html#legal">Financial Services Guide</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html#legal">Disclaimer</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Options21 Pty Ltd. AFSL 247412. General financial product advice only. This information does not take into account your personal objectives, financial situation or needs. Past performance is not a reliable indicator of future results. Please read our <a href="about.html#fsg" style="color:var(--gold)">Financial Services Guide</a> and <a href="about.html#disclaimer" style="color:var(--gold)">Disclaimer</a> before making any investment decisions.</p>
-        <ul class="footer-links">
-          <li><a href="about.html#privacy">Privacy</a></li>
-          <li><a href="about.html#disclaimer">Disclaimer</a></li>
-          <li><a href="about.html#fsg">FSG</a></li>
-          <li><a href="client-access.html">Client Login</a></li>
-        </ul>
+        <p class="footer-warning">© 2026 Ivanhoe International Pty Ltd trading as Options21. AFSL 247412. General financial product advice does not take into account your particular objectives, financial situation or needs. Before acting on any advice, you should consider whether it is appropriate for your circumstances and seek independent professional advice if necessary. Trading and investing involve risk, including the potential loss of all your capital.</p>
+        <ul class="footer-legal-links"><li><a href="about.html#legal">Privacy</a></li><li><a href="about.html#legal">Disclaimer</a></li><li><a href="about.html#legal">FSG</a></li></ul>
       </div>
     </div>
   </footer>
 
-  <!-- ── SCRIPTS ───────────────────────────────────────── -->
   <script>
-    // ── Article Filter ─────────────────────────────────
-    document.querySelectorAll('.art-filter').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.art-filter').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('.article-card').forEach(card => {
-          const cats = card.dataset.cat || '';
-          card.classList.toggle('hidden', filter !== 'all' && !cats.includes(filter));
-        });
-      });
-    });
-
-    // ── Countdown Timer ────────────────────────────────
-    function getNextWednesday() {
-      const now = new Date();
-      const awst = new Date(now.toLocaleString('en-US', { timeZone: 'Australia/Perth' }));
-      const day = awst.getDay(); // 0=Sun ... 3=Wed
-      let daysUntil = (3 - day + 7) % 7;
-      if (daysUntil === 0) {
-        const h = awst.getHours();
-        const m = awst.getMinutes();
-        if (h > 19 || (h === 19 && m >= 0)) daysUntil = 7;
-      }
-      const next = new Date(awst);
-      next.setDate(awst.getDate() + daysUntil);
-      next.setHours(19, 0, 0, 0);
-      return next;
-    }
-
-    function updateCountdown() {
-      const target = getNextWednesday();
-      const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Australia/Perth' }));
-      const diff = target - now;
-      if (diff <= 0) { updateCountdown(); return; }
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor((diff % 86400000) / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      const s = Math.floor((diff % 60000) / 1000);
-      document.getElementById('cd-days').textContent  = String(d).padStart(2, '0');
-      document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
-      document.getElementById('cd-mins').textContent  = String(m).padStart(2, '0');
-      document.getElementById('cd-secs').textContent  = String(s).padStart(2, '0');
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    // ── Scroll Reveal ──────────────────────────────────
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // ── Mobile Menu ────────────────────────────────────
-    document.querySelector('.nav-mobile-toggle').addEventListener('click', () => {
-      const links = document.querySelector('.nav-links');
-      const cta   = document.querySelector('.nav-cta');
-      if (links.style.display === 'flex') {
-        links.style.display = 'none';
-        if (cta) cta.style.display = 'none';
-      } else {
-        links.style.display = 'flex';
-        links.style.flexDirection = 'column';
-        links.style.position = 'absolute';
-        links.style.top = '68px';
-        links.style.left = '0';
-        links.style.right = '0';
-        links.style.background = '#0D0F14';
-        links.style.padding = '24px 20px';
-        links.style.borderBottom = '1px solid #2A3045';
-        links.style.gap = '20px';
-      }
+    const nav = document.querySelector('.nav');
+    const menuButton = document.querySelector('.mobile-toggle');
+    menuButton.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
     });
   </script>
 </body>

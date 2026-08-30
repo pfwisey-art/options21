@@ -28,7 +28,7 @@
     .btn-primary{background:var(--gold);color:#000;font-weight:600;font-size:14px;padding:14px 30px;border-radius:4px;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s,transform 0.15s;cursor:pointer;}
     .btn-primary:hover{background:#FBBF24;transform:translateY(-2px);}
     .btn-ghost{border:1px solid var(--border);color:var(--grey-light);font-size:14px;font-weight:500;padding:14px 30px;border-radius:4px;display:inline-flex;align-items:center;gap:8px;transition:border-color 0.2s,color 0.2s;}
-    .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+    .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}.btn-primary:focus-visible,.btn-ghost:focus-visible{outline:3px solid var(--white);outline-offset:3px;}
 
     /* ── HERO ── */
     .hero{padding:96px 40px 80px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
@@ -55,6 +55,44 @@
     .proof-bar-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;}
     .proof-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--grey);}
     .proof-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;}
+
+    /* ── RESEARCH EXAMPLES ───────────────────────────────────── */
+    .examples-section{padding:96px 0;border-bottom:1px solid var(--border);background:linear-gradient(180deg,var(--bg),#111622);}
+    .examples-intro{max-width:720px;margin-top:18px;font-size:16px;color:var(--grey-light);line-height:1.8;font-weight:300;}
+    .examples-disclaimer{margin-top:24px;padding:16px 20px;border-left:2px solid var(--amber);background:rgba(217,119,6,.07);color:var(--grey-light);font-size:12px;line-height:1.7;}
+    .examples-disclaimer strong{color:var(--white);}
+    .examples-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;}
+    .example-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color .25s,transform .25s;}
+    .example-card:hover{border-color:var(--gold-dim);transform:translateY(-4px);}
+    .example-card-top{height:4px;background:var(--gold);}
+    .example-card.riot .example-card-top{background:#22D3EE;}
+    .example-card.nst .example-card-top{background:var(--gold);}
+    .example-card.sector .example-card-top{background:#22C55E;}
+    .example-card-body{display:flex;flex-direction:column;flex:1;padding:28px 26px 24px;}
+    .example-eyebrow{font-family:var(--font-mono);font-size:10px;color:var(--grey);letter-spacing:.15em;text-transform:uppercase;}
+    .example-card h3{font-family:var(--font-display);font-size:29px;font-weight:600;line-height:1.12;margin-top:13px;color:var(--white);}
+    .example-subtitle{font-family:var(--font-display);font-size:18px;font-style:italic;color:var(--gold);line-height:1.25;margin-top:11px;}
+    .example-card.riot .example-subtitle{color:#22D3EE;}
+    .example-card.sector .example-subtitle{color:#22C55E;}
+    .example-card-description{font-size:13px;color:var(--grey-light);line-height:1.75;margin-top:16px;}
+    .example-conclusion{margin-top:21px;padding:13px 15px;background:var(--bg);border:1px solid var(--border);border-radius:4px;}
+    .example-conclusion-label{font-family:var(--font-mono);font-size:9px;color:var(--grey);letter-spacing:.14em;text-transform:uppercase;}
+    .example-conclusion strong{display:block;margin-top:5px;font-size:14px;color:var(--white);}
+    .example-metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border);}
+    .example-metric span{display:block;font-family:var(--font-mono);font-size:9px;color:var(--grey);letter-spacing:.08em;text-transform:uppercase;line-height:1.35;}
+    .example-metric strong{display:block;margin-top:5px;font-family:var(--font-display);font-size:21px;font-weight:600;color:var(--white);line-height:1.1;}
+    .example-focus{margin-top:20px;list-style:none;}
+    .example-focus li{display:flex;gap:8px;margin-bottom:8px;color:var(--grey-light);font-size:12px;line-height:1.5;}
+    .example-focus li::before{content:'→';color:var(--gold);font-weight:700;flex-shrink:0;}
+    .example-card.riot .example-focus li::before{color:#22D3EE;}
+    .example-card.sector .example-focus li::before{color:#22C55E;}
+    .example-footer{margin-top:auto;padding-top:20px;color:var(--grey);font-family:var(--font-mono);font-size:9px;line-height:1.6;letter-spacing:.03em;}
+    .example-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+    .example-report-link{display:inline-flex;align-items:center;gap:7px;padding:9px 11px;border:1px solid var(--gold-dim);border-radius:3px;color:var(--gold);font-family:var(--font-mono);font-size:9px;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s,border-color .2s;}
+    .example-report-link:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+    .example-report-link.secondary{border-color:var(--border);color:var(--grey-light);}
+    .example-report-link.secondary:hover{background:var(--white);border-color:var(--white);color:var(--ink);}
+    .examples-note{margin-top:28px;text-align:center;color:var(--grey);font-size:12px;line-height:1.7;}
 
     /* ── OPPORTUNITY ── */
     .opportunity-section{padding:96px 0;border-bottom:1px solid var(--border);}
@@ -141,7 +179,7 @@
     .pricing-costs-note{margin-top:20px;padding:14px 18px;background:var(--surface2);border-radius:4px;font-size:12px;color:var(--grey);line-height:1.6;border-left:2px solid var(--border);}
     .pricing-cta{margin-top:32px;}
     .pricing-note{text-align:center;margin-top:16px;font-size:12px;color:var(--grey);font-family:var(--font-mono);}
-    .pricing-scope{margin-top:0;}
+    .pricing-scope{margin-top:0;}.test-checkout-notice{margin-top:14px;text-align:center;font-size:12px;color:var(--grey);line-height:1.5;}.test-checkout-notice::before{content:'Preview only · ';color:var(--gold);font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;}
 
     /* ── FAQ ── */
     .faq-section{padding:96px 0;border-bottom:1px solid var(--border);}
@@ -185,6 +223,7 @@
     @media(max-width:1024px){
       .opportunity-grid,.system-grid,.why-grid{grid-template-columns:1fr;gap:48px;}
       .whats-layout,.pricing-layout{grid-template-columns:1fr;}
+      .examples-grid{grid-template-columns:1fr;}
       .steps-row::before{display:none;}
       .footer-top{grid-template-columns:1fr 1fr;}
     }
@@ -194,6 +233,7 @@
       .ai-limits-inner{padding:20px;grid-template-columns:1fr;}
       .ai-limits-icon{display:none;}
       .proof-bar{padding:16px 20px;}.proof-bar-inner{gap:20px;}
+      .examples-section{padding:72px 0;}
       .steps-row{grid-template-columns:1fr;}
       .footer-top{grid-template-columns:1fr 1fr;}
       .cta-section{padding:72px 24px;}
@@ -229,7 +269,7 @@
       <p class="hero-sub">In one done-with-you session I configure fifteen equity-analysis workflows and teach a documented source-verification and valuation-reconciliation process. The system is designed to help you prepare structured research drafts faster, show the working behind material figures, and flag inconsistencies for human review.</p>
       <div class="hero-actions">
         <a href="contact.html" class="btn-primary">Book your setup session →</a>
-        <a href="#whats-included" class="btn-ghost">See what's included</a>
+        <a href="#research-examples" class="btn-ghost">See research examples</a>
       </div>
     </div>
   </section>
@@ -255,6 +295,116 @@
       <div class="proof-item"><div class="proof-dot"></div>Subject to reliable source coverage</div>
     </div>
   </div>
+
+  <!-- ── RESEARCH EXAMPLES ─────────────────────────────────── -->
+  <section class="examples-section" id="research-examples">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Example research outputs</div>
+        <h2 class="section-title">Three research questions.<br/><em>One documented workflow.</em></h2>
+        <p class="examples-intro">These examples show how the configured workflow can be applied to a US-listed company, an ASX-listed company and an industry group. Each report moves from source collection through financial analysis, valuation, risk assessment and a clearly documented conclusion.</p>
+        <div class="examples-disclaimer"><strong>Illustrative research examples only.</strong> The ratings, prices and financial figures below are point-in-time outputs from the supplied reports—not personal advice, current recommendations or guarantees of accuracy. Verify all material information against dated primary sources before relying on it.</div>
+      </div>
+
+      <div class="examples-grid">
+        <article class="example-card riot">
+          <div class="example-card-top"></div>
+          <div class="example-card-body">
+            <div class="example-eyebrow">01 · US equity · Initiation report</div>
+            <h3>Riot Platforms</h3>
+            <div class="example-subtitle">Contracted AI landlord in the making</div>
+            <p class="example-card-description">A full initiation analysis of Nasdaq-listed RIOT, examining its transition from Bitcoin mining toward long-duration AI and high-performance-computing data-centre leases.</p>
+            <div class="example-conclusion">
+              <div class="example-conclusion-label">Report conclusion · 19 Aug 2026</div>
+              <strong>Neutral / Market Perform</strong>
+            </div>
+            <div class="example-metrics">
+              <div class="example-metric"><span>Base price target</span><strong>US$22</strong></div>
+              <div class="example-metric"><span>Contracted capacity</span><strong>241 MW</strong></div>
+              <div class="example-metric"><span>Contracted revenue</span><strong>~US$9.8bn</strong></div>
+              <div class="example-metric"><span>Forecast build-out</span><strong>~US$4.5bn</strong></div>
+            </div>
+            <ul class="example-focus">
+              <li>Sum-of-the-parts valuation with DCF and trading-comps cross-checks</li>
+              <li>Data-centre lease ramp and Bitcoin-mining economics</li>
+              <li>Construction, tenant concentration, funding and dilution risks</li>
+            </ul>
+            <div class="example-footer">
+              <div>Source example: Riot Platforms Initiation Report · Data cut-off 19 August 2026</div>
+              <div class="example-links">
+                <a class="example-report-link" href="research/riot-platforms-initiation-report-2026-08-19.docx" download>Download completed report ↓</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="example-card nst">
+          <div class="example-card-top"></div>
+          <div class="example-card-body">
+            <div class="example-eyebrow">02 · Australian equity · Initiation report</div>
+            <h3>Northern Star Resources</h3>
+            <div class="example-subtitle">A genuine gold major facing a transition year</div>
+            <p class="example-card-description">A full initiation analysis of ASX-listed NST, testing its valuation against gold-sector peers while assessing the KCGM expansion, costs, capital intensity and governance change.</p>
+            <div class="example-conclusion">
+              <div class="example-conclusion-label">Report conclusion · 22 Aug 2026</div>
+              <strong>Hold / Neutral</strong>
+            </div>
+            <div class="example-metrics">
+              <div class="example-metric"><span>12-month target</span><strong>A$23.00</strong></div>
+              <div class="example-metric"><span>Reference price</span><strong>A$23.94</strong></div>
+              <div class="example-metric"><span>FY26 revenue</span><strong>A$7.62bn</strong></div>
+              <div class="example-metric"><span>Underlying EBITDA</span><strong>A$4.3bn</strong></div>
+            </div>
+            <ul class="example-focus">
+              <li>DCF, peer trading-comps and precedent-transaction valuation</li>
+              <li>Gold price, production costs and FY27 transition-year sensitivity</li>
+              <li>Leadership change, activist involvement and project execution risk</li>
+            </ul>
+            <div class="example-footer">
+              <div>Source example: Northern Star Resources Initiation Report · 22 August 2026</div>
+              <div class="example-links">
+                <a class="example-report-link" href="research/northern-star-resources-initiation-report-2026-08-22.docx" download>Download completed report ↓</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="example-card sector">
+          <div class="example-card-top"></div>
+          <div class="example-card-body">
+            <div class="example-eyebrow">03 · Industry group · Sector overview</div>
+            <h3>AI Infrastructure &amp; Semiconductors</h3>
+            <div class="example-subtitle">Compute, memory, networking and power</div>
+            <p class="example-card-description">A neutral sector landscape covering the AI infrastructure value chain, competitive positioning, capital expenditure, valuation context and the key debates shaping late 2026 and 2027.</p>
+            <div class="example-conclusion">
+              <div class="example-conclusion-label">Research format · 25 Aug 2026</div>
+              <strong>Neutral landscape review</strong>
+            </div>
+            <div class="example-metrics">
+              <div class="example-metric"><span>Big Four 2026 capex</span><strong>US$710–725bn</strong></div>
+              <div class="example-metric"><span>Value-chain layers</span><strong>6</strong></div>
+              <div class="example-metric"><span>Company profiles</span><strong>10</strong></div>
+              <div class="example-metric"><span>Workbook tabs</span><strong>5</strong></div>
+            </div>
+            <ul class="example-focus">
+              <li>NVIDIA, AMD, Broadcom, Marvell, TSMC, memory and infrastructure suppliers</li>
+              <li>Hyperscaler capex, market-size estimates and valuation comparables</li>
+              <li>Capacity constraints, circular financing, export controls and power risks</li>
+            </ul>
+            <div class="example-footer">
+              <div>Source examples: Sector Overview + Excel appendix · Data cut-off 25 August 2026</div>
+              <div class="example-links">
+                <a class="example-report-link" href="research/ai-infrastructure-semiconductors-sector-overview-2026-08-25.docx" download>Download report ↓</a>
+                <a class="example-report-link secondary" href="research/ai-infrastructure-semiconductors-appendix.xlsx" download>Download workbook ↓</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="examples-note">The sector example’s companion workbook documents company financials, hyperscaler capex, valuation comparables, market-size estimates and source citations.</p>
+    </div>
+  </section>
 
   <!-- ── THE OPPORTUNITY ───────────────────────────────────── -->
   <section class="opportunity-section">
@@ -462,7 +612,10 @@
           </div>
           <div class="pricing-costs-note"><strong>Costs not included:</strong> Your Claude subscription, the plugin, and any market-data sources are paid by you directly and are additional to this fee.</div>
           <div class="pricing-cta">
-            <a href="contact.html" class="btn-primary" style="width:100%;justify-content:center;">Book your session →</a>
+            <!-- TODO: Replace with the live A$2,200 AI Equity-Research Workflow Setup Stripe Payment Link before production launch. -->
+            <a href="contact.html" data-checkout="ai-fundamental" target="_blank" rel="noopener" class="btn-primary" aria-label="Book the AI Equity-Research Workflow Setup for A$2,200" style="width:100%;justify-content:center;">Book setup — A$2,200 →</a>
+            <a href="contact.html" class="btn-ghost" style="width:100%;justify-content:center;margin-top:12px;">Ask a question first</a>
+            <p class="test-checkout-notice">Test checkout link — no real payment will be processed.</p>
           </div>
           <div class="pricing-note">Sessions run one-on-one · Availability is limited</div>
         </div>
@@ -532,8 +685,11 @@
       <h2 class="cta-headline">The tools are powerful. <em>The discipline makes them dependable.</em></h2>
       <p class="cta-sub">The value is the documented discipline around them — a method that produces structured, source-traceable drafts and shows you what still needs review before you act. One session, configured through your own Claude account.</p>
       <div class="cta-actions">
-        <a href="contact.html" class="btn-primary">Book your setup session →</a>
+        <!-- TODO: Replace with the live A$2,200 AI Equity-Research Workflow Setup Stripe Payment Link before production launch. -->
+        <a href="contact.html" data-checkout="ai-fundamental" target="_blank" rel="noopener" class="btn-primary" aria-label="Book the AI Equity-Research Workflow Setup for A$2,200">Book setup — A$2,200 →</a>
+        <a href="contact.html" class="btn-ghost">Ask a question first</a>
       </div>
+      <p class="test-checkout-notice">Test checkout link — no real payment will be processed.</p>
       <div class="scope-panel" style="text-align:left;">
         <div class="scope-panel-label">Scope of this service</div>
         <p>This service provides software configuration, research-methodology education and technical quality-control training. The first-report review covers source selection, calculations, reconciliation and workflow use; it is <strong>NOT an endorsement of a security, investment thesis, valuation or price target.</strong> No personal financial advice is provided. This setup does not authorise you to provide financial product advice; if you publish or distribute AI-generated research you must determine your own licensing, disclosure and compliance obligations.</p>
@@ -562,6 +718,10 @@
   </footer>
 
   <script>
+    // TODO: Replace with the live A$2,200 AI Equity-Research Workflow Setup Stripe Payment Link before production launch.
+    const aiFundamentalCheckoutUrl = 'https://buy.stripe.com/test_28EbJ1bHI2cm6TZbEPdnW01';
+    document.querySelectorAll('[data-checkout="ai-fundamental"]').forEach(button => button.href = aiFundamentalCheckoutUrl);
+
     // Reveal on scroll
     const revealEls = document.querySelectorAll('.reveal');
     const revealObs = new IntersectionObserver(entries => {
