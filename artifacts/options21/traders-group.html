@@ -314,7 +314,69 @@
       border-radius: 3px; color: var(--gold);
       font-family: var(--font-mono); letter-spacing: 0.08em;
     }
-    .replay-list { display: flex; flex-direction: column; }
+    .replay-list { display: none; flex-direction: column; }
+    .replay-card.is-unlocked .replay-list { display: flex; }
+    .replay-gate {
+      padding: 32px 24px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .replay-gate-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .replay-gate-copy {
+      max-width: 440px;
+      margin: 0 auto 20px;
+      color: var(--grey);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .replay-gate-form {
+      display: flex;
+      max-width: 420px;
+      margin: 0 auto;
+      gap: 8px;
+    }
+    .replay-gate-input {
+      flex: 1;
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      background: var(--surface2);
+      color: var(--white);
+      padding: 11px 12px;
+      font: inherit;
+      font-size: 13px;
+    }
+    .replay-gate-input:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .replay-gate-button {
+      border: 1px solid var(--gold);
+      border-radius: 3px;
+      background: var(--gold);
+      color: #000;
+      cursor: pointer;
+      padding: 11px 16px;
+      font: 600 12px var(--font-mono);
+      white-space: nowrap;
+    }
+    .replay-gate-button:hover { background: #fbbf24; }
+    .replay-gate-error {
+      min-height: 18px;
+      margin-top: 12px;
+      color: #f87171;
+      font-size: 12px;
+    }
+    @media (max-width: 520px) {
+      .replay-gate-form { flex-direction: column; }
+      .replay-gate-button { width: 100%; }
+    }
     .replay-item {
       display: flex; justify-content: space-between; align-items: center;
       padding: 16px 24px;
@@ -719,7 +781,23 @@
               <span class="replay-header-label">Recent Sessions</span>
               <span class="member-badge">Members Only</span>
             </div>
+            <div class="replay-gate" id="replay-gate">
+              <div class="replay-gate-title">Member access</div>
+              <p class="replay-gate-copy">Enter the shared Traders Group member password to view the complete replay archive.</p>
+              <form class="replay-gate-form" id="replay-gate-form">
+                <input class="replay-gate-input" id="replay-gate-password" type="password" autocomplete="current-password" placeholder="Member password" aria-label="Member password" required />
+                <button class="replay-gate-button" type="submit">Unlock archive</button>
+              </form>
+              <div class="replay-gate-error" id="replay-gate-error" role="alert" aria-live="polite"></div>
+            </div>
             <div class="replay-list">
+              <a class="replay-item" href="https://attendee.gotowebinar.com/recording/1237817454557452378" target="_blank" rel="noopener">
+                <div class="replay-item-left">
+                  <div class="replay-item-title">Options21 Traders Group</div>
+                  <div class="replay-item-date">Thu, Sep 17, 2026</div>
+                </div>
+                <span class="replay-play">▶ Watch</span>
+              </a>
               <a class="replay-item" href="https://attendee.gotowebinar.com/recording/6407599082414679044" target="_blank" rel="noopener">
                 <div class="replay-item-left">
                   <div class="replay-item-title">Options21 Traders Group</div>
@@ -1124,6 +1202,44 @@
     }
     updateCountdown();
     setInterval(updateCountdown, 1000);
+
+    // ── Replay archive member gate ────────────────────
+    const replayGateHash = '77aa312a9a1ce03a763318144b81a2e277586a3c6d58cbe1c7b5e377906cf9d7';
+    const replayGateCard = document.querySelector('.replay-card');
+    const replayGate = document.getElementById('replay-gate');
+    const replayGateForm = document.getElementById('replay-gate-form');
+    const replayGatePassword = document.getElementById('replay-gate-password');
+    const replayGateError = document.getElementById('replay-gate-error');
+    const replayGateSessionKey = 'options21-traders-group-replay-unlocked';
+
+    async function hashReplayGatePassword(value) {
+      const bytes = new TextEncoder().encode(value);
+      const digest = await crypto.subtle.digest('SHA-256', bytes);
+      return Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('');
+    }
+
+    function unlockReplayArchive() {
+      replayGateCard.classList.add('is-unlocked');
+      replayGate.hidden = true;
+      try { sessionStorage.setItem(replayGateSessionKey, 'true'); } catch (_) {}
+    }
+
+    try {
+      if (sessionStorage.getItem(replayGateSessionKey) === 'true') unlockReplayArchive();
+    } catch (_) {}
+
+    replayGateForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      replayGateError.textContent = '';
+      const password = replayGatePassword.value;
+      const passwordHash = await hashReplayGatePassword(password);
+      if (passwordHash === replayGateHash) {
+        unlockReplayArchive();
+      } else {
+        replayGateError.textContent = 'That password did not match. Please try again.';
+        replayGatePassword.select();
+      }
+    });
 
     // ── FAQ Accordion ───────────────────────────────────
     document.querySelectorAll('.faq-q').forEach(q => {
