@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gold &amp; Bitcoin: Rates, Risk and Liquidity | Options21</title>
+  <meta name="description" content="A retail-investor guide to the near-term macro forces driving gold and Bitcoin, including Treasury yields, the US dollar, liquidity, risk appetite and yen carry-trade risk."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0D0F14;--surface:#161B27;--surface2:#1C2235;--border:#2A3045;--gold:#F59E0B;--gold-dim:#B97D0A;--gold-glow:rgba(245,158,11,.12);--white:#F0F2F8;--grey:#8892A4;--grey-light:#BCC5D6;--green:#22C55E;--red:#EF4444;--font-display:'Cormorant Garamond',serif;--font-body:'DM Sans',sans-serif;--font-mono:'JetBrains Mono',monospace}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--white);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden}a{color:inherit;text-decoration:none}body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.6}
+    nav{position:sticky;top:0;z-index:200;background:rgba(13,15,20,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}.nav-logo{font-family:var(--font-display);font-size:24px;font-weight:700}.nav-logo span{color:var(--gold)}.nav-links{display:flex;gap:18px;list-style:none;flex-wrap:nowrap;align-items:center}.nav-links a{font-size:12px;font-weight:500;color:var(--grey);transition:color .2s;white-space:nowrap}.nav-links a:hover,.nav-links a.active{color:var(--white)}.nav-cta{background:var(--gold);color:#000;font-size:13px;font-weight:600;padding:9px 22px;border-radius:4px}.nav-mobile-toggle{display:none;cursor:pointer;font-size:24px;color:var(--white);background:none;border:0}
+    .breadcrumb{padding:20px 40px;background:var(--surface);border-bottom:1px solid var(--border);position:relative;z-index:1}.breadcrumb-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--grey)}.breadcrumb a:hover{color:var(--gold)}.breadcrumb-sep{color:var(--border)}
+    .article-hero{padding:64px 40px 48px;border-bottom:1px solid var(--border);position:relative;overflow:hidden}.article-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(245,158,11,.05) 0%,transparent 70%)}.article-hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:2}.article-cat{font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}.article-cat::before{content:'';width:24px;height:1px;background:var(--gold)}.article-title{font-family:var(--font-display);font-size:clamp(36px,4.5vw,60px);font-weight:300;line-height:1.1;letter-spacing:-.5px;margin-bottom:20px}.article-title em{font-style:italic;color:var(--gold)}.article-deck{font-size:18px;color:var(--grey-light);line-height:1.7;font-weight:300;max-width:700px;margin-bottom:32px}.article-meta-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding-top:24px;border-top:1px solid var(--border)}.meta-author{display:flex;align-items:center;gap:10px}.meta-avatar{width:36px;height:36px;border-radius:50%;background:var(--gold-glow);border:1px solid rgba(245,158,11,.2);display:flex;align-items:center;justify-content:center;font-size:16px}.meta-name{font-size:13px;font-weight:600}.meta-title{font-size:11px;color:var(--grey)}.meta-divider{width:1px;height:28px;background:var(--border)}.meta-item{font-size:12px;color:var(--grey);font-family:var(--font-mono)}.meta-label{font-size:10px;color:var(--grey);text-transform:uppercase;letter-spacing:.08em;display:block}.meta-value{color:var(--grey-light)}
+    .key-figures{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:24px 28px;margin:0 40px;position:relative;z-index:1}.key-figures-inner{max-width:860px;margin:0 auto}.key-figures-label,.related-label{font-family:var(--font-mono);font-size:10px;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px}.key-figures-text{font-size:14px;color:var(--grey-light);line-height:1.7}
+    .article-layout{display:grid;grid-template-columns:860px;justify-content:center;padding:56px 40px 96px;gap:48px}.article-body{min-width:0}.prose h2{font-family:var(--font-display);font-size:clamp(26px,3vw,38px);font-weight:300;line-height:1.15;letter-spacing:-.3px;margin:48px 0 20px}.prose h2 em{font-style:italic;color:var(--gold)}.prose h3{font-family:var(--font-display);font-size:22px;font-weight:600;margin:32px 0 14px}.prose p{font-size:16px;color:var(--grey-light);line-height:1.85;margin-bottom:20px;font-weight:300}.prose strong{color:var(--white);font-weight:600}.prose ul{margin:0 0 20px 20px}.prose li{font-size:15px;color:var(--grey-light);line-height:1.75;margin-bottom:8px;font-weight:300}.prose li strong{color:var(--white)}
+    .data-table-wrap{overflow-x:auto;margin:32px 0}.data-table{width:100%;border-collapse:collapse;font-size:13px}.data-table th{background:var(--surface2);color:var(--grey);font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:1px solid var(--border)}.data-table td{padding:12px 16px;border-bottom:1px solid var(--border);color:var(--grey-light);vertical-align:top}.data-table tr:nth-child(even) td{background:rgba(255,255,255,.02)}.data-table td strong{color:var(--white)}
+    .pull-quote{border-left:3px solid var(--gold);padding:20px 28px;margin:36px 0;background:var(--surface);border-radius:0 6px 6px 0}.pull-quote p{font-family:var(--font-display);font-size:22px;font-style:italic;font-weight:300;color:var(--grey-light);line-height:1.5;margin:0}
+    .highlight-box{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:24px 28px;margin:32px 0}.highlight-box-label{font-family:var(--font-mono);font-size:10px;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px}.highlight-box p{font-size:14px;color:var(--grey-light);line-height:1.7;margin:0}
+    .takeaways{background:linear-gradient(135deg,#0D1520 0%,#0D0F14 100%);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:36px;margin:48px 0 0}.takeaways-title{font-family:var(--font-display);font-size:24px;font-weight:600;margin-bottom:20px}.takeaways ul{list-style:none;display:flex;flex-direction:column;gap:12px}.takeaways li{display:flex;gap:12px;font-size:14px;color:var(--grey-light);line-height:1.6}.takeaways li::before{content:'→';color:var(--gold);font-weight:600;flex-shrink:0}.disclaimer{margin-top:48px;padding:20px 24px;background:var(--surface);border:1px solid var(--border);border-radius:6px;font-size:12px;color:var(--grey);line-height:1.6}.disclaimer a{color:var(--gold)}
+    .related{padding:64px 40px;background:var(--surface);border-top:1px solid var(--border)}.related-inner{max-width:1200px;margin:0 auto}.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.related-card{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:24px;transition:border-color .3s,transform .3s}.related-card:hover{border-color:var(--gold-dim);transform:translateY(-3px)}.related-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}.related-title{font-family:var(--font-display);font-size:18px;font-weight:600;line-height:1.3;margin-bottom:8px}.related-date{font-size:11px;color:var(--grey);font-family:var(--font-mono)}
+    footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 40px 40px}.footer-inner{max-width:1200px;margin:0 auto}.footer-top{display:grid;grid-template-columns:280px repeat(3,1fr);gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border)}.footer-logo{font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:14px}.footer-logo span{color:var(--gold)}.footer-tagline{font-size:13px;color:var(--grey);line-height:1.7;margin-bottom:20px}.footer-afsl{font-family:var(--font-mono);font-size:10px;color:var(--grey)}.footer-col h4{font-size:12px;font-weight:600;color:var(--white);letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}.footer-col ul li a{font-size:13px;color:var(--grey)}.footer-col ul li a:hover{color:var(--gold)}.footer-bottom{padding-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}.footer-bottom p{font-size:12px;color:var(--grey);line-height:1.6;max-width:600px}.footer-links{display:flex;gap:24px;list-style:none}.footer-links a{font-size:12px;color:var(--grey)}
+    @media(max-width:900px){.article-layout{padding:40px 20px 64px;grid-template-columns:1fr}.breadcrumb,.article-hero,.key-figures{padding-left:20px;padding-right:20px}.related-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr 1fr}}@media(max-width:768px){nav{padding:0 20px}.nav-links,.nav-cta{display:none}.nav-mobile-toggle{display:block}.article-title{font-size:42px}.article-hero{padding-top:48px}.data-table{min-width:640px}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Options<span>21</span></a>
+    <ul class="nav-links">
+      <li><a href="courses.html">Courses</a></li><li><a href="traders-group.html">Traders Group</a></li>
+      <li><a href="ai-trading.html">AI Technical Analysis</a></li><li><a href="ai-research.html">AI Fundamental Analysis</a></li>
+      <li><a href="crypto.html">Crypto</a></li><li><a href="crypto-tokenisation.html">Tokenisation</a></li>
+      <li><a href="compliance.html">Compliance</a></li><li><a href="articles.html" class="active">Articles</a></li><li><a href="about.html">About</a></li>
+    </ul>
+    <a href="traders-group.html" class="nav-cta">Join Traders Group →</a>
+    <button class="nav-mobile-toggle" aria-label="Menu">☰</button>
+  </nav>
+
+  <div class="breadcrumb"><div class="breadcrumb-inner"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><a href="articles.html">Research &amp; Analysis</a><span class="breadcrumb-sep">›</span><span>Macro &amp; Geopolitics</span></div></div>
+
+  <section class="article-hero">
+    <div class="article-hero-bg"></div>
+    <div class="article-hero-inner">
+      <div class="article-cat">Macro &amp; Geopolitics · Trade Note · 17 September 2026</div>
+      <h1 class="article-title">Gold &amp; Bitcoin: <em>Rates, Risk and Liquidity</em></h1>
+      <p class="article-deck">A retail-investor guide to the near-term macro forces driving both assets — and why gold and Bitcoin can respond very differently to the same market shock.</p>
+      <div class="article-meta-row">
+        <div class="meta-author"><div class="meta-avatar">👤</div><div><div class="meta-name">Paul Wise</div><div class="meta-title">Options21 · AFSL 247412</div></div></div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><span class="meta-label">Published</span><span class="meta-value">17 Sep 2026</span></div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><span class="meta-label">Read time</span><span class="meta-value">14 min</span></div>
+        <div class="meta-divider"></div>
+        <div class="meta-item"><span class="meta-label">Category</span><span class="meta-value">Macro &amp; Geopolitics</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="key-figures"><div class="key-figures-inner"><div class="key-figures-label">The key macro signal</div><div class="key-figures-text">Watch the US 10-year Treasury yield. Elevated or rising yields can pressure both assets, particularly Bitcoin. A clear reversal lower in yields would improve the backdrop for gold and Bitcoin, especially if the US dollar also softens.</div></div></div>
+
+  <main class="article-layout">
+    <article class="article-body prose">
+      <div class="highlight-box"><div class="highlight-box-label">Key message</div><p>Gold and Bitcoin are both sensitive to interest rates, but they are not the same trade. Gold is caught between high bond yields and a stronger US dollar on one side, and geopolitical risk and falling yields on the other. Bitcoin is currently more exposed to global liquidity, risk appetite and leverage, so it can be more vulnerable when rates and bond yields rise.</p></div>
+
+      <h2>Executive summary</h2>
+      <p><strong>Gold:</strong> Near term, gold faces pressure if US bond yields and the US dollar continue rising. However, geopolitical uncertainty can create safe-haven demand. Gold’s strongest setup would be falling yields and a softer dollar while geopolitical risk remains elevated.</p>
+      <p><strong>Bitcoin:</strong> Near term, Bitcoin is more vulnerable to tighter monetary policy, high bond yields and any forced reduction in leveraged risk positions. It would benefit most from falling yields, a weaker dollar and improving global risk appetite.</p>
+      <p><strong>The key macro signal:</strong> Watch the US 10-year Treasury yield. If it remains around elevated levels or pushes higher, both assets can struggle, particularly Bitcoin. A clear reversal lower in yields would improve the backdrop for both.</p>
+
+      <h2>1. Why interest rates matter</h2>
+      <p>The simplest way to think about the current environment is: when investors can earn a higher return from cash and government bonds, assets that do not pay interest must compete harder for capital.</p>
+      <div class="pull-quote"><p>Rates ↑ → Bond yields ↑ → US dollar can strengthen → Liquidity tightens → Pressure on gold and Bitcoin</p></div>
+      <p><strong>Current backdrop.</strong> On 16 September, the US Federal Reserve raised its target range by 25 basis points to 3.75%–4.00%. Reuters reported that most policymakers projected at least one further increase during 2026. Around the same period, the US 10-year Treasury yield moved through the 5% area, reinforcing pressure on rate-sensitive assets.</p>
+
+      <h2>2. Gold: two forces pulling in opposite directions</h2>
+      <p>Gold is unusual because the same geopolitical shock can create both a bullish and a bearish effect.</p>
+      <div class="data-table-wrap"><table class="data-table">
+        <thead><tr><th>Driver</th><th>Likely effect on gold</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Higher Treasury yields</strong></td><td>Negative</td><td>Gold pays no interest. Higher bond yields increase the opportunity cost of holding it.</td></tr>
+          <tr><td><strong>Stronger US dollar</strong></td><td>Negative</td><td>Gold is priced globally in US dollars. A stronger dollar can make gold more expensive for non-US buyers.</td></tr>
+          <tr><td><strong>Geopolitical tension</strong></td><td>Positive</td><td>Investors may seek gold as a traditional safe-haven asset during periods of uncertainty.</td></tr>
+          <tr><td><strong>Higher oil / inflation fears</strong></td><td>Mixed</td><td>Inflation concerns can support gold, but if they force central banks to keep raising rates, higher yields can overwhelm that support.</td></tr>
+          <tr><td><strong>Falling yields</strong></td><td>Positive</td><td>Lower bond yields reduce gold’s opportunity cost and can improve demand.</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Near-term interpretation for gold</h3>
+      <p><strong>Base case: a volatile, two-way market.</strong> If yields and the US dollar remain high, gold may struggle to make sustained progress even while geopolitical risk remains elevated. If yields turn lower, the same geopolitical backdrop can become much more supportive for gold.</p>
+      <p>A favourable gold combination: <strong>US 10-year yield ↓ + US dollar ↓ + geopolitical uncertainty remains elevated.</strong></p>
+
+      <h2>3. Bitcoin: more sensitive to liquidity and risk appetite</h2>
+      <p>Bitcoin is often described as “digital gold”, but in shorter market cycles it has frequently behaved more like a high-beta risk asset. When liquidity tightens and investors reduce leverage, Bitcoin can fall quickly. When liquidity improves and risk appetite returns, it can also rebound quickly.</p>
+      <div class="data-table-wrap"><table class="data-table">
+        <thead><tr><th>Driver</th><th>Likely effect on Bitcoin</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Fed tightening</strong></td><td>Negative</td><td>Higher policy rates reduce liquidity and raise the return available on lower-risk assets.</td></tr>
+          <tr><td><strong>High Treasury yields</strong></td><td>Negative</td><td>Higher yields increase the required return from risky assets and can reduce speculative demand.</td></tr>
+          <tr><td><strong>Stronger US dollar</strong></td><td>Usually negative</td><td>A stronger dollar often coincides with tighter global financial conditions.</td></tr>
+          <tr><td><strong>Risk-off equity markets</strong></td><td>Negative</td><td>Bitcoin can trade with technology and other high-beta assets when investors are cutting risk.</td></tr>
+          <tr><td><strong>Falling yields / easier liquidity</strong></td><td>Positive</td><td>Lower yields and improving liquidity can support renewed demand for high-beta assets.</td></tr>
+          <tr><td><strong>Yen carry-trade unwind</strong></td><td>Potentially negative</td><td>A stronger yen and higher Japanese rates can force leveraged investors to reduce positions across global risk assets.</td></tr>
+        </tbody>
+      </table></div>
+      <h3>Near-term interpretation for Bitcoin</h3>
+      <p><strong>Base case: Bitcoin has a more difficult macro setup while US yields remain elevated and central banks are leaning toward tighter policy.</strong> The risk is amplified if Japan raises rates and a stronger yen causes leveraged carry trades to be unwound. Bitcoin’s backdrop would improve materially if global bond yields reverse lower and the US dollar softens.</p>
+      <p>A favourable Bitcoin combination: <strong>US 10-year yield ↓ + US dollar ↓ + equity risk appetite ↑ + no major deleveraging shock.</strong></p>
+
+      <h2>4. Practical scenario matrix</h2>
+      <p>This is a framework for interpreting the market, not a forecast or trading instruction.</p>
+      <div class="data-table-wrap"><table class="data-table">
+        <thead><tr><th>Macro scenario</th><th>Gold</th><th>Bitcoin</th><th>What it means</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Yields rise, dollar rises</strong></td><td>Pressure / consolidation</td><td>Higher downside risk</td><td>Tight financial conditions. Bitcoin generally has the greater sensitivity.</td></tr>
+          <tr><td><strong>Yields fall, dollar falls</strong></td><td>Supportive</td><td>Supportive</td><td>Easier financial conditions improve the backdrop for both assets.</td></tr>
+          <tr><td><strong>Geopolitical risk rises, yields stable/fall</strong></td><td>Strongly supportive setup</td><td>Mixed to supportive</td><td>Gold receives a clearer safe-haven benefit. Bitcoin depends on overall risk appetite.</td></tr>
+          <tr><td><strong>Geopolitical risk rises, oil and yields surge</strong></td><td>Mixed / volatile</td><td>Negative bias</td><td>The inflation-and-rates effect can offset gold’s safe-haven bid and pressure Bitcoin.</td></tr>
+          <tr><td><strong>BOJ tightening triggers deleveraging</strong></td><td>Potential safe-haven support</td><td>Higher downside risk</td><td>Carry-trade unwinds can hit leveraged risk assets more directly than gold.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h2>5. The five-market dashboard to watch</h2>
+      <ul>
+        <li><strong>US 10-year Treasury yield:</strong> The most important macro gauge. Rising yields generally tighten conditions; falling yields improve the backdrop.</li>
+        <li><strong>US Dollar Index (DXY):</strong> A rising dollar is usually a headwind for both gold and Bitcoin; a falling dollar can be supportive.</li>
+        <li><strong>USD/JPY:</strong> A sharp fall can signal yen strength and potential carry-trade deleveraging.</li>
+        <li><strong>Gold:</strong> Watch whether gold can rise even when yields are firm. That can indicate strong safe-haven demand.</li>
+        <li><strong>Bitcoin:</strong> Watch whether Bitcoin confirms or diverges from QQQ and other risk assets. Persistent weakness can indicate tighter liquidity or deleveraging.</li>
+      </ul>
+
+      <h2>6. A simple retail-investor decision framework</h2>
+      <p>Before reacting to a move in gold or Bitcoin, ask these three questions:</p>
+      <ol>
+        <li>Are US bond yields rising or falling?</li>
+        <li>Is the US dollar strengthening or weakening?</li>
+        <li>Is the market in risk-on mode or risk-off mode?</li>
+      </ol>
+      <p>Then apply the distinction: gold can benefit from fear itself; Bitcoin generally needs the financial conditions around that fear to remain supportive. If fear causes yields to surge and investors to cut leverage, gold may hold up better while Bitcoin may come under greater pressure.</p>
+
+      <h2>7. Key risks to this view</h2>
+      <ul>
+        <li>Gold and Bitcoin can move sharply for asset-specific reasons even when the macro backdrop is unchanged.</li>
+        <li>Central-bank guidance can change quickly as inflation, employment and energy prices change.</li>
+        <li>Geopolitical events can create overnight gaps and rapid reversals.</li>
+        <li>Bitcoin trades 24/7 and can experience much larger percentage moves than gold or broad equity indices.</li>
+        <li>A macro framework is useful for context, but it does not identify precise entry, exit or position-sizing levels.</li>
+      </ul>
+
+      <div class="takeaways">
+        <div class="takeaways-title">Bottom line</div>
+        <ul>
+          <li><strong>Gold:</strong> Better protected if geopolitical stress remains high, but still vulnerable to high yields and a strong dollar. A fall in Treasury yields would materially improve the setup.</li>
+          <li><strong>Bitcoin:</strong> More vulnerable while rates, yields and the dollar remain elevated. The clearest improvement would be a reversal lower in yields, a softer dollar and a return of risk appetite.</li>
+          <li>Gold and Bitcoin should not be treated as interchangeable expressions of the same macro view. Gold can benefit from fear; Bitcoin generally needs supportive liquidity around that fear.</li>
+        </ul>
+      </div>
+
+      <h2>Sources and market context</h2>
+      <ul>
+        <li>Reuters, 16 Sep 2026 — Fed policymakers forecast one more rate hike this year.</li>
+        <li>Reuters, 16 Sep 2026 — Stocks fall as Fed delivers hawkish rate hike.</li>
+        <li>Reuters, 15 Sep 2026 — Gold pressured by stronger dollar and elevated Treasury yields.</li>
+        <li>Reuters, 16 Sep 2026 — BOJ set to raise interest rates to a 31-year high.</li>
+        <li>Reuters, 8 Sep 2026 — Yen surge upsets carry-trade positioning.</li>
+      </ul>
+
+      <div class="disclaimer"><strong>Important information:</strong> This article is general educational information only. It does not constitute personal financial advice, a recommendation to buy or sell gold, Bitcoin, securities or any other financial product, or a prediction of future performance. It does not take into account any investor’s objectives, financial situation or needs. Markets can move rapidly and the relationships described above can break down or reverse. Investors should consider their own circumstances and, where appropriate, obtain professional advice before making investment decisions. Options21 operates under AFSL 247412 (Ivanhoe International Pty Ltd).</div>
+    </article>
+  </main>
+
+  <section class="related"><div class="related-inner"><div class="related-label">Continue reading</div><div class="related-grid">
+    <a href="article-gold-gld.html" class="related-card"><span class="related-tag">Commodities</span><div class="related-title">SPDR Gold Shares (GLD): The Case for Gold</div><div class="related-date">6 Mar 2026</div></a>
+    <a href="article-bitcoin-price-drivers.html" class="related-card"><span class="related-tag">Crypto &amp; Bitcoin</span><div class="related-title">Bitcoin: What Drives the Price?</div><div class="related-date">Jun 2026</div></a>
+    <a href="article-mstr-trade-note.html" class="related-card"><span class="related-tag">Equities &amp; Crypto</span><div class="related-title">Strategy Inc. (MSTR): The World’s Bitcoin Treasury Company</div><div class="related-date">May 2026</div></a>
+  </div></div></section>
+
+  <footer><div class="footer-inner"><div class="footer-top">
+    <div><div class="footer-logo">Options<span>21</span></div><p class="footer-tagline">Trading intelligence for serious Australian options traders.</p><div class="footer-afsl">AFSL 247412 · Ivanhoe International Pty Ltd<br/>PO Box 744 Hillarys WA 6923</div></div>
+    <div class="footer-col"><h4>Research</h4><ul><li><a href="articles.html">All Articles</a></li></ul></div>
+    <div class="footer-col"><h4>Courses</h4><ul><li><a href="courses.html">All Courses</a></li><li><a href="traders-group.html">Traders Group</a></li></ul></div>
+    <div class="footer-col"><h4>Legal</h4><ul><li><a href="about.html#legal">FSG</a></li><li><a href="disclaimer.html">Disclaimer</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+  </div><div class="footer-bottom"><p>© 2026 Ivanhoe International Pty Ltd. AFSL 247412. General financial product advice only.</p><ul class="footer-links"><li><a href="privacy.html">Privacy</a></li><li><a href="disclaimer.html">Disclaimer</a></li></ul></div></div></footer>
+  <script>
+    document.querySelector('.nav-mobile-toggle').addEventListener('click',()=>{const l=document.querySelector('.nav-links');l.style.display=l.style.display==='flex'?'none':'flex';if(l.style.display==='flex')Object.assign(l.style,{flexDirection:'column',position:'absolute',top:'68px',left:'0',right:'0',background:'#0D0F14',padding:'24px 20px',borderBottom:'1px solid #2A3045',gap:'20px',zIndex:'199'});});
+  </script>
+</body>
+</html>
