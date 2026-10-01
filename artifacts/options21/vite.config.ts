@@ -82,6 +82,7 @@ export default defineConfig({
         "article-bitcoin-clarity-act": path.resolve(import.meta.dirname, "article-bitcoin-clarity-act.html"),
         "article-gold-bitcoin-macro-trade-note": path.resolve(import.meta.dirname, "article-gold-bitcoin-macro-trade-note.html"),
         "article-rising-10-year-treasury-yield": path.resolve(import.meta.dirname, "article-rising-10-year-treasury-yield.html"),
+        "article-when-bond-yields-climb-tech-stocks": path.resolve(import.meta.dirname, "article-when-bond-yields-climb-tech-stocks.html"),
         "ai-research": path.resolve(import.meta.dirname, "ai-research.html"),
       },
     },
